@@ -1,0 +1,62 @@
+=================================================================
+DOMENESHOP DNS SETTINGS FOR MANUFORTI.NO
+=================================================================
+
+Add these DNS records in your Domeneshop control panel:
+
+-----------------------------------------------------------------
+A RECORDS (4 records)
+-----------------------------------------------------------------
+Type: A
+Name: @ (or leave blank for root domain)
+Value: 185.199.108.153
+TTL: 3600 (or default)
+
+Type: A
+Name: @
+Value: 185.199.109.153
+TTL: 3600
+
+Type: A
+Name: @
+Value: 185.199.110.153
+TTL: 3600
+
+Type: A
+Name: @
+Value: 185.199.111.153
+TTL: 3600
+
+-----------------------------------------------------------------
+CNAME RECORD (1 record)
+-----------------------------------------------------------------
+Type: CNAME
+Name: www
+Value: [YOUR-GITHUB-USERNAME].github.io
+TTL: 3600
+
+Replace [YOUR-GITHUB-USERNAME] with your actual GitHub username.
+Example: if your username is "jonathonmilne", use:
+Value: jonathonmilne.github.io
+
+-----------------------------------------------------------------
+IMPORTANT NOTES
+-----------------------------------------------------------------
+1. These settings only work AFTER you enable GitHub Pages (Step 4)
+2. DNS changes take 15-60 minutes to propagate
+3. You can check if it's working at: https://manuforti.no
+4. If you see a GitHub 404 page, wait longer for DNS
+
+-----------------------------------------------------------------
+TROUBLESHOOTING
+-----------------------------------------------------------------
+Problem: Site not loading
+Solution: Wait 60 minutes, clear browser cache, try again
+
+Problem: GitHub 404 error
+Solution: Check that GitHub Pages is enabled in repository settings
+
+Problem: DNS not working
+Solution: Verify all 4 A records are added correctly
+
+=================================================================

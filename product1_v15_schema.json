@@ -1,0 +1,373 @@
+{
+  "schema_version": "1.0.0",
+  "product": "Product 1 - Supplier Intelligence Report",
+  "template_version": "v15",
+  "template_status": "CANONICAL - LOCKED",
+  "last_updated": "2025-02-23",
+  "locked_by": "Jonathon Milne",
+  "approval_required_for_changes": true,
+  
+  "slides": {
+    "count": 9,
+    "locked": true,
+    "items": [
+      {
+        "slide_number": 1,
+        "type": "title",
+        "name": "Title Slide",
+        "required_elements": [
+          "supplier_name",
+          "report_title",
+          "report_date",
+          "confidentiality_notice"
+        ]
+      },
+      {
+        "slide_number": 2,
+        "type": "executive_summary",
+        "name": "Executive Summary",
+        "required_elements": [
+          "risk_gauge_infographic",
+          "overall_risk_rating",
+          "risk_score_out_of_100",
+          "supplier_snapshot_panel",
+          "recommendation_preview"
+        ],
+        "risk_rating_logic": {
+          "description": "Composite of Financial + Operational + Geopolitical + ESG",
+          "rule": "ESG MEDIUM elevates overall from LOW to MEDIUM even if other pillars are LOW"
+        }
+      },
+      {
+        "slide_number": 3,
+        "type": "recommendation",
+        "name": "Recommendation",
+        "required_elements": [
+          "status_banner",
+          "approval_conditions",
+          "risk_summary_strip",
+          "next_steps"
+        ],
+        "status_banner": {
+          "colors": {
+            "approved": "#2B6CB0",
+            "approved_with_conditions": "#D69E2E",
+            "rejected": "#C53030"
+          },
+          "note": "NEVER use green on this slide. LOW items → NAVY; MEDIUM → AMBER."
+        }
+      },
+      {
+        "slide_number": 4,
+        "type": "supplier_profile",
+        "name": "Supplier Profile",
+        "required_elements": [
+          "org_structure_diagram",
+          "company_overview",
+          "leadership_team",
+          "company_logo_top_right"
+        ],
+        "org_structure_format": "parent → subsidiary → global footprint"
+      },
+      {
+        "slide_number": 5,
+        "type": "financial_health",
+        "name": "Financial Health",
+        "required_elements": [
+          "dual_axis_chart_revenue_ebitda",
+          "metrics_panel",
+          "company_logo_top_right"
+        ],
+        "chart_specifications": {
+          "width_inches": 7.5,
+          "ratio": 1.648,
+          "height_inches": 4.55,
+          "revenue_bar_color": "#002147",
+          "ebitda_line_color": "#2B6CB0",
+          "gridlines": "very_light_grey",
+          "top_right_spines": false,
+          "direct_data_labels": true
+        },
+        "required_metrics": [
+          {
+            "metric": "revenue",
+            "format": "latest_year_plus_yoy_percent",
+            "required": true
+          },
+          {
+            "metric": "ebitda",
+            "format": "amount_plus_margin_percent",
+            "required": true
+          },
+          {
+            "metric": "net_profit",
+            "format": "amount",
+            "required": true
+          },
+          {
+            "metric": "revenue_cagr_3yr",
+            "format": "percent",
+            "required": true
+          },
+          {
+            "metric": "order_book",
+            "format": "amount",
+            "required": true
+          },
+          {
+            "metric": "gross_debt",
+            "format": "amount",
+            "note": "Required by Jonathon",
+            "required": true
+          },
+          {
+            "metric": "net_cash_or_net_debt",
+            "format": "amount_with_indicator",
+            "note": "Required by Jonathon - highlight in GREEN if positive",
+            "required": true
+          },
+          {
+            "metric": "debt_to_ebitda_ratio",
+            "format": "ratio",
+            "note": "Required by Jonathon - preferred over D/E when equity not published",
+            "required": true
+          }
+        ]
+      },
+      {
+        "slide_number": 6,
+        "type": "market_position",
+        "name": "Market Position",
+        "required_elements": [
+          "horizontal_bar_chart_vs_peers",
+          "market_share_callout",
+          "competitive_context",
+          "company_logo_top_right"
+        ],
+        "chart_specifications": {
+          "chart_type": "horizontal_bar",
+          "comparison": "subject_supplier_vs_named_peers",
+          "data": "estimated_revenue",
+          "bar_color": "#002147"
+        }
+      },
+      {
+        "slide_number": 7,
+        "type": "operational_risk",
+        "name": "Operational Capability + Risk Assessment",
+        "required_elements": [
+          "investment_timeline",
+          "risk_table",
+          "risk_matrix_2x2",
+          "capabilities_panel",
+          "company_logo_top_right"
+        ],
+        "layout": {
+          "timeline_width_inches": 7.0,
+          "risk_matrix_width_inches": 5.5,
+          "bottom_panels_aligned": true
+        },
+        "risk_matrix": {
+          "axes": {
+            "x": "probability",
+            "y": "impact"
+          },
+          "format": "individual_risk_bubbles_plotted"
+        }
+      },
+      {
+        "slide_number": 8,
+        "type": "commercial_intelligence",
+        "name": "Commercial Intelligence + Peer Risk",
+        "required_elements": [
+          "radar_benchmarking_chart",
+          "peer_risk_lollipop_chart",
+          "negotiation_notes",
+          "company_logo_top_right"
+        ],
+        "radar_chart": {
+          "dimensions": [
+            "price",
+            "lead_time",
+            "quality",
+            "technical_capability",
+            "supply_chain",
+            "service"
+          ],
+          "comparison": "subject_supplier_vs_typical_competitor"
+        },
+        "peer_risk_chart": {
+          "chart_type": "lollipop",
+          "peers_count": 4,
+          "risk_zones": [
+            {"name": "green", "color": "#38A169"},
+            {"name": "yellow", "color": "#D69E2E"},
+            {"name": "red", "color": "#C53030"}
+          ]
+        }
+      },
+      {
+        "slide_number": 9,
+        "type": "esg_assessment",
+        "name": "ESG Assessment",
+        "required_elements": [
+          "environmental_column",
+          "social_column",
+          "governance_column",
+          "controversy_screening_panel",
+          "overall_esg_rating",
+          "esg_conditions_for_approval",
+          "company_logo_top_right"
+        ],
+        "columns": {
+          "environmental": {
+            "items": [
+              "iso_14001",
+              "scope_1_and_2",
+              "ecovadis_rating",
+              "no_violations"
+            ]
+          },
+          "social": {
+            "items": [
+              "code_of_conduct",
+              "labour_rights",
+              "health_and_safety",
+              "grievance_mechanisms"
+            ]
+          },
+          "governance": {
+            "items": [
+              "anti_corruption_policy",
+              "beneficial_ownership",
+              "no_sanctions"
+            ]
+          }
+        },
+        "conditions_count": 6
+      }
+    ]
+  },
+  
+  "design_system": {
+    "color_palette": {
+      "primary": "#002147",
+      "name_primary": "Navy",
+      "secondary": "#2B6CB0",
+      "name_secondary": "Steel Blue",
+      "tertiary": "#718096",
+      "name_tertiary": "Mid Grey",
+      "accent_background": "#EBF4FF",
+      "name_accent": "Pale Blue",
+      "rag": {
+        "green": "#38A169",
+        "amber": "#D69E2E",
+        "red": "#C53030"
+      },
+      "note": "RAG colours ONLY for status indicators. No colour noise."
+    },
+    "typography": {
+      "minimum_body_size": "14pt",
+      "section_titles": "16pt",
+      "footnotes": "11pt",
+      "action_titles": {
+        "enabled": true,
+        "format": "Key insight as sentence, not topic label"
+      }
+    },
+    "chart_style": {
+      "bars": "#002147",
+      "lines": "#2B6CB0",
+      "gridlines": "very_light_grey",
+      "top_right_spines": false,
+      "data_labels": "direct_on_points"
+    },
+    "insight_callouts": {
+      "style": "bloomberg",
+      "left_accent_border": "#2B6CB0",
+      "background": "#EBF4FF",
+      "rule": "Never coloured boxes"
+    }
+  },
+  
+  "branding": {
+    "source_line": {
+      "format": "Source: Manu Forti Intelligence  |  Confidential  |  [Month Year]",
+      "position_y": 7.15,
+      "font_size": "8pt"
+    },
+    "footer": "Powered by Manu Forti Intelligence",
+    "prohibited_phrases": [
+      "AI-Powered Procurement Intelligence"
+    ]
+  },
+  
+  "logo_placement": {
+    "position": "top_right_header",
+    "backing": {
+      "color": "white",
+      "rounded": true,
+      "x": 10.92,
+      "y": 0.06,
+      "width": 2.26,
+      "height": 0.87
+    },
+    "logo": {
+      "x": 11.0,
+      "y": 0.10,
+      "width": 2.1,
+      "required": true,
+      "note": "Every slide must have company logo"
+    }
+  },
+  
+  "generator_scripts": {
+    "charts": "generate_supplier_visuals.py",
+    "deck": "generate_supplier_report.py",
+    "reference_deck": "Boskalis_Product1_v15_Final.pptx"
+  },
+  
+  "logo_workflow": {
+    "steps": [
+      {
+        "step": 1,
+        "action": "download_svg",
+        "source": "supplier_website_assets",
+        "pattern": "/assets/images/logo.svg"
+      },
+      {
+        "step": 2,
+        "action": "render_png",
+        "command": "qlmanage -t -s 800 -o /tmp/ logo.svg"
+      },
+      {
+        "step": 3,
+        "action": "crop_whitespace",
+        "tool": "PIL",
+        "method": "find_non_white_bbox_pad_12px"
+      },
+      {
+        "step": 4,
+        "action": "make_transparent",
+        "method": "replace_near_white_to_alpha",
+        "threshold": "r>240,g>240,b>240"
+      },
+      {
+        "step": 5,
+        "action": "save",
+        "filename_pattern": "[supplier]_logo_transparent.png",
+        "update_in": "LOGO path in generator script"
+      }
+    ]
+  },
+  
+  "business_model": {
+    "type": "pay_per_report",
+    "price_range_eur": {
+      "min": 99,
+      "max": 149
+    },
+    "not_saas": true,
+    "target_audience": "buyers_evaluating_suppliers_b2b_procurement"
+  }
+}

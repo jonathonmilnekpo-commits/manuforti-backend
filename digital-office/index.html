@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="30">
+<title>Manu Forti Intelligence — Digital Office (LIVE)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0f1923; color: #e0e6ed; min-height: 100vh; overflow-x: hidden; }
+
+  .live-indicator {
+    position: fixed; top: 10px; right: 10px; z-index: 1000;
+    background: #48BB78; color: white; padding: 4px 12px;
+    border-radius: 12px; font-size: 11px; font-weight: 600;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .live-indicator::before {
+    content: ''; width: 8px; height: 8px; background: white;
+    border-radius: 50%; animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .header {
+    background: linear-gradient(135deg, #002147 0%, #1a3a5c 100%);
+    padding: 16px 40px; display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 2px solid #2B6CB0; position: sticky; top: 0; z-index: 100;
+  }
+  .header h1 { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+  .header h1 span { color: #2B6CB0; }
+  .clock { font-size: 16px; font-weight: 600; color: #2B6CB0; font-variant-numeric: tabular-nums; }
+  .last-update { font-size: 10px; color: #718096; margin-top: 4px; }
+
+  .office-container { max-width: 1500px; margin: 0 auto; padding: 30px 20px; }
+
+  .org-level { display: flex; justify-content: center; gap: 30px; margin-bottom: 10px; position: relative; }
+  .connectors { display: flex; justify-content: center; margin-bottom: 10px; position: relative; height: 40px; }
+  .connector-line { position: absolute; border-left: 2px dashed #2B6CB0; height: 40px; }
+  .connector-h { position: absolute; border-top: 2px dashed #2B6CB0; top: 0; }
+
+  .desk-unit { display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: transform 0.2s; }
+  .desk-unit:hover { transform: scale(1.03); }
+
+  .person { width: 80px; height: 100px; position: relative; margin-bottom: -15px; z-index: 2; }
+  .person .head {
+    width: 44px; height: 44px; border-radius: 50%; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; position: relative; border: 3px solid;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .person .head .status-ring { position: absolute; inset: -5px; border-radius: 50%; border: 2px solid transparent; }
+  .person.working .head .status-ring { border-color: #48BB78; animation: ring-pulse 2s infinite; }
+  .person.idle .head .status-ring { border-color: #4a5568; }
+  @keyframes ring-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(72,187,120,0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(72,187,120,0); }
+  }
+  .person .body { width: 50px; height: 30px; margin: 2px auto 0; border-radius: 20px 20px 8px 8px; position: relative; }
+  .person .arms { display: flex; justify-content: space-between; width: 62px; margin: -8px auto 0; position: relative; }
+  .person .arm { width: 10px; height: 18px; border-radius: 5px; }
+
+  .desk-card {
+    background: linear-gradient(145deg, #1a2332 0%, #141d26 100%);
+    border: 1px solid #2B6CB0; border-radius: 12px; width: 260px;
+    padding: 20px 15px 15px; position: relative; margin-top: 10px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .desk-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #2B6CB0, #48BB78, #2B6CB0);
+    border-radius: 12px 12px 0 0;
+  }
+
+  .agent-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .agent-emoji { font-size: 24px; }
+  .agent-name { font-size: 14px; font-weight: 700; color: #fff; }
+  .agent-role { font-size: 10px; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .status-badge.working { background: rgba(72,187,120,0.15); color: #48BB78; }
+  .status-badge.standby { background: rgba(113,128,150,0.15); color: #718096; }
+  .status-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; }
+  .status-badge.working::before { background: #48BB78; animation: blink 2s infinite; }
+  .status-badge.standby::before { background: #718096; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .insights { background: rgba(0,0,0,0.2); border-radius: 8px; padding: 10px; margin-bottom: 12px; font-size: 11px; font-family: 'Courier New', monospace; }
+  .insights div { color: #48BB78; margin-bottom: 4px; }
+  .insights div:last-child { margin-bottom: 0; }
+
+  .tasks-title { font-size: 10px; font-weight: 600; color: #2B6CB0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .task-list { list-style: none; }
+  .task-item { display: flex; align-items: center; gap: 8px; font-size: 11px; margin-bottom: 6px; }
+  .task-item::before { content: ''; width: 12px; height: 12px; border-radius: 3px; font-size: 8px; display: flex; align-items: center; justify-content: center; }
+  .task-item.complete::before { content: '✓'; background: #48BB78; color: white; }
+  .task-item.in_progress::before { content: '◉'; background: #ED8936; color: white; }
+  .task-item.pending::before { content: '○'; background: #4a5568; color: #718096; }
+
+  .user-profile { display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #1a3a5c 0%, #0f1923 100%); padding: 12px 24px; border-radius: 8px; border: 1px solid #2B6CB0; }
+  .user-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #2B6CB0, #1a3a5c); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .user-info { display: flex; flex-direction: column; }
+  .user-name { font-size: 14px; font-weight: 600; color: #fff; }
+  .user-title { font-size: 11px; color: #718096; }
+
+  .support-section { margin-top: 40px; text-align: center; }
+  .support-title { font-size: 12px; font-weight: 600; color: #2B6CB0; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+  .support-grid { display: flex; justify-content: center; gap: 30px; }
+
+  /* Colors per agent */
+  .aiden .head { background: linear-gradient(135deg, #2B6CB0, #1a3a5c); border-color: #2B6CB0; }
+  .aiden .body { background: linear-gradient(135deg, #1a3a5c, #0f1923); }
+  .aiden .arm { background: #2B6CB0; }
+
+  .venture .head { background: linear-gradient(135deg, #38A169, #276749); border-color: #38A169; }
+  .venture .body { background: linear-gradient(135deg, #276749, #1a3a5c); }
+  .venture .arm { background: #38A169; }
+
+  .career .head { background: linear-gradient(135deg, #DD6B20, #C05621); border-color: #DD6B20; }
+  .career .body { background: linear-gradient(135deg, #C05621, #9C4221); }
+  .career .arm { background: #DD6B20; }
+
+  .family .head { background: linear-gradient(135deg, #805AD5, #6B46C1); border-color: #805AD5; }
+  .family .body { background: linear-gradient(135deg, #6B46C1, #553C9A); }
+  .family .arm { background: #805AD5; }
+
+  .validator .head { background: linear-gradient(135deg, #D69E2E, #B7791F); border-color: #D69E2E; }
+  .validator .body { background: linear-gradient(135deg, #B7791F, #975A16); }
+  .validator .arm { background: #D69E2E; }
+
+  .researcher .head { background: linear-gradient(135deg, #9F7AEA, #805AD5); border-color: #9F7AEA; }
+  .researcher .body { background: linear-gradient(135deg, #805AD5, #6B46C1); }
+  .researcher .arm { background: #9F7AEA; }
+
+  .vetter .head { background: linear-gradient(135deg, #718096, #4A5568); border-color: #718096; }
+  .vetter .body { background: linear-gradient(135deg, #4A5568, #2D3748); }
+  .vetter .arm { background: #718096; }
+</style>
+</head>
+<body>
+  <div class="live-indicator">LIVE UPDATES</div>
+
+  <div class="header">
+    <div>
+      <h1>MANU FORTI INTELLIGENCE <span>— Digital Office</span></h1>
+      <div class="last-update" id="lastUpdate">Loading...</div>
+    </div>
+    <div class="clock" id="clock">--:--:-- CET</div>
+  </div>
+
+  <div class="office-container">
+    <!-- User Profile -->
+    <div class="org-level" style="margin-bottom: 30px;">
+      <div class="user-profile">
+        <div class="user-avatar">👤</div>
+        <div class="user-info">
+          <span class="user-name">Jonathon Milne</span>
+          <span class="user-title">VP Procurement International, Statkraft</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aiden (Lead) -->
+    <div class="org-level">
+      <div class="desk-unit" id="aiden-desk">
+        <div class="person aiden working">
+          <div class="head">
+            <span id="aiden-emoji">🤝</span>
+            <div class="status-ring"></div>
+          </div>
+          <div class="body"></div>
+          <div class="arms">
+            <div class="arm arm-left"></div>
+            <div class="arm arm-right"></div>
+          </div>
+        </div>
+        <div class="desk-card">
+          <div class="agent-header">
+            <span class="agent-emoji" id="aiden-emoji-card">🤝</span>
+            <div>
+              <div class="agent-name" id="aiden-name">Aiden</div>
+              <div class="agent-role" id="aiden-role">Lead Agent — Co-founder</div>
+            </div>
+          </div>
+          <div class="status-badge working" id="aiden-status">● Working</div>
+          <div class="insights" id="aiden-insights">
+            <div>> orchestrating 4 core agents</div>
+            <div>> memory updated ✓</div>
+            <div>> skills: 9 active</div>
+            <div>> digital office live</div>
+          </div>
+          <div class="tasks-title">Tasks</div>
+          <ul class="task-list" id="aiden-tasks">
+            <li class="task-item complete">Pipeline fully hands-off</li>
+            <li class="task-item complete">Agent team structure locked</li>
+            <li class="task-item complete">Product 1 template locked</li>
+            <li class="task-item complete">Digital office built</li>
+            <li class="task-item in_progress">OX2 Product 1 in progress</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="connectors">
+      <div class="connector-line" style="left: 50%; transform: translateX(-50%);"></div>
+    </div>
+
+    <!-- Core Agents -->
+    <div class="org-level">
+      <div class="desk-unit" id="venture-desk">
+        <div class="person venture working">
+          <div class="head">
+            <span id="venture-emoji">📊</span>
+            <div class="status-ring"></div>
+          </div>
+          <div class="body"></div>
+          <div class="arms">
+            <div class="arm arm-left"></div>
+            <div class="arm arm-right"></div>
+          </div>
+        </div>
+        <div class="desk-card">
+          <div class="agent-header">
+            <span class="agent-emoji" id="venture-emoji-card">📊</span>
+            <div>
+              <div class="agent-name" id="venture-name">Venture</div>
+              <div class="agent-role" id="venture-role">Product 1 / AI Business</div>
+            </div>
+          </div>
+          <div class="status-badge working" id="venture-status">● Working</div>
+          <div class="insights" id="venture-insights">
+            <div>> Product 1 pipeline active</div>
+            <div>> 3 reports delivered ✓</div>
+            <div>> template: LOCKED</div>
+            <div>> next: go-to-market</div>
+          </div>
+          <div class="tasks-title">Tasks</div>
+          <ul class="task-list" id="venture-tasks">
+            <li class="task-item complete">Shell Product 1 delivered</li>
+            <li class="task-item complete">Envision Product 1 delivered</li>
+            <li class="task-item complete">Product 1 standards locked</li>
+            <li class="task-item in_progress">OX2 Product 1 generation</li>
+            <li class="task-item pending">Financial data web scraping</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="desk-unit" id="career-desk">
+        <div class="person career idle">
+          <div class="head">
+            <span id="career-emoji">🎯</span>
+            <div class="status-ring"></div>
+          </div>
+          <div class="body"></div>
+          <div class="arms">
+            <div class="arm arm-left"></div>
+            <div class="arm arm-right"></div>
+          </div>
+        </div>
+        <div class="desk-card">
+          <div class="agent-header">
+            <span class="agent-emoji" id="career-emoji-card">🎯</span>
+            <div>
+              <div class="agent-name" id="career-name">Career</div>
+              <div class="agent-role" id="career-role">Career & Personal Dev</div>
+            </div>
+          </div>
+          <div class="status-badge standby" id="career-status">○ Standby</div>
+          <div class="insights" id="career-insights">
+            <div>> SVP interview: TBD</div>
+            <div>> weight: 76.18 → 73kg</div>
+            <div>> Statkraft strategy</div>
+            <div>> awaiting task...</div>
+          </div>
+          <div class="tasks-title">Tasks</div>
+          <ul class="task-list" id="career-tasks">
+            <li class="task-item complete">SVP interview presentation</li>
+            <li class="task-item in_progress">SVP interview prep ongoing</li>
+            <li class="task-item in_progress">Weight tracking (76→73kg)</li>
+            <li class="task-item pending">Leadership development plan</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="desk-unit" id="family-desk">
+        <div class="person family idle">
+          <div class="head">
+            <span id="family-emoji">👨‍👩‍👧</span>
+            <div class="status-ring"></div>
+          </div>
+          <div class="body"></div>
+          <div class="arms">
+            <div class="arm arm-left"></div>
+            <div class="arm arm-right"></div>
+          </div>
+        </div>
+        <div class="desk-card">
+          <div class="agent-header">
+            <span class="agent-emoji" id="family-emoji-card">👨‍👩‍👧</span>
+            <div>
+              <div class="agent-name" id="family-name">Family</div>
+              <div class="agent-role" id="family-role">Family & Relationships</div>
+            </div>
+          </div>
+          <div class="status-badge standby" id="family-status">○ Standby</div>
+          <div class="insights" id="family-insights">
+            <div>> Ragnhild: gesture due</div>
+            <div>> Ingrid: 16mo, 30+ words</div>
+            <div>> Gordon: 91 days to go</div>
+            <div>> ready to help...</div>
+          </div>
+          <div class="tasks-title">Tasks</div>
+          <ul class="task-list" id="family-tasks">
+            <li class="task-item in_progress">Weekly gesture for Ragnhild</li>
+            <li class="task-item in_progress">Ingrid activities (16mo)</li>
+            <li class="task-item pending">Gordon arrival prep</li>
+            <li class="task-item pending">Sibling adjustment plan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="connectors">
+      <div class="connector-line" style="left: 50%; transform: translateX(-50%); height: 30px;"></div>
+    </div>
+
+    <!-- Validator -->
+    <div class="org-level" style="margin-bottom: 40px;">
+      <div class="desk-unit" id="validator-desk">
+        <div class="person validator idle">
+          <div class="head">
+            <span id="validator-emoji">✅</span>
+            <div class="status-ring"></div>
+          </div>
+          <div class="body"></div>
+          <div class="arms">
+            <div class="arm arm-left"></div>
+            <div class="arm arm-right"></div>
+          </div>
+        </div>
+        <div class="desk-card">
+          <div class="agent-header">
+            <span class="agent-emoji" id="validator-emoji-card">✅</span>
+            <div>
+              <div class="agent-name" id="validator-name">Validator</div>
+              <div class="agent-role" id="validator-role">Quality Assurance</div>
+            </div>
+          </div>
+          <div class="status-badge standby" id="validator-status">○ Standby</div>
+          <div class="insights" id="validator-insights">
+            <div>> validator standing by</div>
+            <div>> last score: 100/100</div>
+            <div>> 3 reports checked ✓</div>
+            <div>> awaiting next PPTX...</div>
+          </div>
+          <div class="tasks-title">Tasks</div>
+          <ul class="task-list" id="validator-tasks">
+            <li class="task-item complete">Boskalis baseline 100/100</li>
+            <li class="task-item complete">Shell validated 100/100</li>
+            <li class="task-item complete">Envision validated 100/100</li>
+            <li class="task-item pending">Visual quality checks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support Agents -->
+    <div class="support-section">
+      <div class="support-title">Support Agents — Serve All Teams</div>
+      <div class="support-grid">
+        <div class="desk-unit" id="researcher-desk">
+          <div class="person researcher idle">
+            <div class="head">
+              <span id="researcher-emoji">🔍</span>
+              <div class="status-ring"></div>
+            </div>
+            <div class="body"></div>
+            <div class="arms">
+              <div class="arm arm-left"></div>
+              <div class="arm arm-right"></div>
+            </div>
+          </div>
+          <div class="desk-card" style="width: 220px;">
+            <div class="agent-header">
+              <span class="agent-emoji" id="researcher-emoji-card">🔍</span>
+              <div>
+                <div class="agent-name" id="researcher-name">Researcher</div>
+                <div class="agent-role" id="researcher-role">Data & Analysis</div>
+              </div>
+            </div>
+            <div class="status-badge standby" id="researcher-status">○ Standby</div>
+            <div class="insights" id="researcher-insights">
+              <div>> qwen3:8b ready</div>
+              <div>> extractor loaded</div>
+              <div>> web_fetch ready</div>
+              <div>> awaiting task...</div>
+            </div>
+            <div class="tasks-title">Tasks</div>
+            <ul class="task-list" id="researcher-tasks">
+              <li class="task-item complete">Qwen3 8B connected</li>
+              <li class="task-item complete">Shell data compiled</li>
+              <li class="task-item complete">Envision data compiled</li>
+              <li class="task-item pending">PDF/URL extraction</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="desk-unit" id="vetter-desk">
+          <div class="person vetter working">
+            <div class="head">
+              <span id="vetter-emoji">🔒</span>
+              <div class="status-ring"></div>
+            </div>
+            <div class="body"></div>
+            <div class="arms">
+              <div class="arm arm-left"></div>
+              <div class="arm arm-right"></div>
+            </div>
+          </div>
+          <div class="desk-card" style="width: 220px;">
+            <div class="agent-header">
+              <span class="agent-emoji" id="vetter-emoji-card">🔒</span>
+              <div>
+                <div class="agent-name" id="vetter-name">Vetter</div>
+                <div class="agent-role" id="vetter-role">Security</div>
+              </div>
+            </div>
+            <div class="status-badge working" id="vetter-status">● Working</div>
+            <div class="insights" id="vetter-insights">
+              <div>> scanning skills...</div>
+              <div>> gsd: ✓ clean</div>
+              <div>> superpowers: ✓ clean</div>
+              <div>> gsd-claw: ⚠ blocked</div>
+            </div>
+            <div class="tasks-title">Tasks</div>
+            <ul class="task-list" id="vetter-tasks">
+              <li class="task-item complete">GSD vetted & approved</li>
+              <li class="task-item complete">Superpowers vetted</li>
+              <li class="task-item complete">gsd-claw blocked</li>
+              <li class="task-item in_progress">Ongoing monitoring</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Clock
+    function updateClock() {
+      const now = new Date();
+      const cet = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Paris' }));
+      const time = cet.toTimeString().slice(0, 8);
+      document.getElementById('clock').textContent = time + ' CET';
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Load data from JSON
+    async function loadData() {
+      try {
+        const response = await fetch('data.json?t=' + Date.now());
+        const data = await response.json();
+        
+        document.getElementById('lastUpdate').textContent = 'Last updated: ' + new Date(data.lastUpdated).toLocaleString();
+        
+        // Update each agent
+        Object.keys(data.agents).forEach(agentId => {
+          const agent = data.agents[agentId];
+          const desk = document.getElementById(agentId + '-desk');
+          if (!desk) return;
+          
+          // Update status
+          const statusEl = document.getElementById(agentId + '-status');
+          if (statusEl) {
+            statusEl.textContent = (agent.status === 'working' ? '● ' : '○ ') + agent.statusText;
+            statusEl.className = 'status-badge ' + agent.status;
+          }
+          
+          // Update person animation
+          const person = desk.querySelector('.person');
+          if (person) {
+            person.className = 'person ' + agentId + ' ' + (agent.status === 'working' ? 'working' : 'idle');
+          }
+          
+          // Update insights
+          const insightsEl = document.getElementById(agentId + '-insights');
+          if (insightsEl && agent.insights) {
+            insightsEl.innerHTML = agent.insights.map(i => '<div>> ' + i + '</div>').join('');
+          }
+          
+          // Update tasks
+          const tasksEl = document.getElementById(agentId + '-tasks');
+          if (tasksEl && agent.tasks) {
+            tasksEl.innerHTML = agent.tasks.map(t => 
+              '<li class="task-item ' + t.status + '">' + t.text + '</li>'
+            ).join('');
+          }
+        });
+      } catch (e) {
+        console.error('Failed to load data:', e);
+      }
+    }
+    
+    // Load initially and every 10 seconds
+    loadData();
+    setInterval(loadData, 10000);
+  </script>
+</body>
+</html>

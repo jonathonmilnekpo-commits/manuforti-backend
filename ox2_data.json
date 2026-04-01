@@ -1,0 +1,73 @@
+{
+  "supplier_name": "OX2",
+  "supplier_ticker": "Private (EQT owned)",
+  "report_date": "March 2026",
+  "overall_risk_rating": "LOW",
+  "overall_risk_score": 35,
+  "financial_health": {
+    "rating": "LOW",
+    "score": 30,
+    "revenue_2023": "SEK 6.8B ($650M)",
+    "revenue_2024": "SEK 5.4B ($520M) - estimated",
+    "revenue_growth": "-20% YoY (project timing)",
+    "operating_profit_2023": "SEK 1,000M+ ($96M)",
+    "operating_margin": "15-18%",
+    "net_income_2023": "SEK 800M+ ($77M)",
+    "ownership": "EQT Private Equity",
+    "delisted": "October 2024",
+    "liquidity": "Strong (PE backed)",
+    "debt": "Moderate"
+  },
+  "operational_capability": {
+    "rating": "LOW",
+    "score": 25,
+    "founded": "2004",
+    "headquarters": "Stockholm, Sweden",
+    "employees": "~612",
+    "geographic_presence": "10+ European markets + Australia",
+    "key_segments": "Onshore wind, Offshore wind, Solar PV, Energy storage",
+    "project_pipeline": "Multi-GW development portfolio",
+    "track_record": "19+ years renewable development experience",
+    "recent_sales": "Major portfolio sales to Finland, energy storage in Sweden"
+  },
+  "geopolitical_risk": {
+    "rating": "LOW",
+    "score": 28,
+    "headquarters_risk": "Sweden (EU/NATO aligned, low risk)",
+    "market_diversification": "Strong - 10+ markets reduces single-country risk",
+    "regulatory_environment": "Supportive EU renewable energy policy",
+    "trade_exposure": "Limited - primarily EU operations",
+    "brexit_impact": "Minimal - Nordic/EU focused"
+  },
+  "esg_rating": {
+    "rating": "LOW",
+    "score": 22,
+    "environmental": "Excellent - pure-play renewable energy developer",
+    "social": "Strong - sustainability reports published annually",
+    "governance": "Good - PE ownership with professional management",
+    "sustainability_report": "2024 ESG report published",
+    "controversies": "None identified"
+  },
+  "competitors": [
+    {"name": "Ørsted", "market_position": "Global offshore wind leader", "revenue": "$9.6B"},
+    {"name": "RWE", "market_position": "Major German utility/renewables", "revenue": "$20B+"},
+    {"name": "Vattenfall", "market_position": "Swedish state-owned energy", "revenue": "$15B+"},
+    {"name": "Iberdrola", "market_position": "Spanish renewable giant", "revenue": "$25B+"},
+    {"name": "Enel Green Power", "market_position": "Italian global renewables", "revenue": "$20B+"}
+  ],
+  "key_risks": [
+    "Project development timing volatility affects revenue recognition",
+    "Private ownership limits financial transparency",
+    "Dependent on continued renewable energy policy support",
+    "Competition from larger utilities with deeper pockets",
+    "Grid connection delays in key markets"
+  ],
+  "recommendation": "APPROVE",
+  "conditions": [
+    "Secure parent company guarantee from EQT for large contracts",
+    "Milestone-based payments tied to project approvals",
+    "Regular financial health updates (quarterly)",
+    "Escrow arrangements for upfront development costs",
+    "Contingency planning for project delays"
+  ]
+}

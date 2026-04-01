@@ -1,0 +1,155 @@
+{
+  "report_type": "category",
+  "subject_name": "Fish Production Plant — Supply Market",
+  "category": "Land-Based RAS Facility Construction & Operation",
+  "client_name": "Cermaq AS",
+  "date": "19 February 2026",
+  "executive_summary": {
+    "market_size": "EUR 2.1bn",
+    "growth_rate": "14% CAGR",
+    "viable_suppliers": "40+",
+    "maturity": "Growing",
+    "buyer_power": "Medium",
+    "key_findings": [
+      "RAS systems integration is highly consolidated — AKVA Group dominant, Billund Aquaculture bankruptcy reduces competition further. Cermaq already contracted with AKVA (€60M, Hasvik).",
+      "SCADA & automation carries the highest lock-in risk in the category — proprietary systems from AKVA/ScaleAQ create long-term switching costs. Negotiate open architecture from day one.",
+      "HVAC & ventilation for RAS is a specialist niche — fewer than 5 credible vendors in Norway. Munters leads globally; early engagement critical due to 6–9 month lead times.",
+      "Oxygen supply is a recurring cost category often underweighted at build stage — sole-source contracts with AGA or Air Liquide are common but carry volume risk.",
+      "Civil construction capacity in Northern Norway (Finnmark/Nordland) is constrained — major contractors (AF Gruppen, NCC) are in high demand for energy projects."
+    ],
+    "recommendation": "Dual-source critical categories. Negotiate open-architecture SCADA. Lock in HVAC and oxygen early."
+  },
+  "categories": [
+    {
+      "name": "RAS Systems Integration",
+      "description": "Turnkey recirculating aquaculture system design, supply, install and commission",
+      "spend_estimate": "35-45% of total capex",
+      "risk": "HIGH",
+      "concentration": "HIGH",
+      "tier1": [
+        {"name": "AKVA Group", "hq": "Norway (Klepp)", "strength": "World's largest aquaculture tech supplier. Full turnkey RAS. Already contracted with Cermaq (Hasvik €60M).", "risk": "Concentration — now dominant partner"},
+        {"name": "Pure Salmon Technology", "hq": "Norway", "strength": "15+ years, 20+ facilities including world's largest (Helgeland Smolt, Lerøy Sjøtroll). Strong Norwegian track record.", "risk": "Smaller than AKVA, limited bandwidth"},
+        {"name": "ScaleAQ", "hq": "Norway", "strength": "Full-range RAS + digital/software. Strong closed aquaculture systems (CAS) portfolio.", "risk": "SCADA lock-in risk — proprietary software"}
+      ],
+      "tier2": [
+        {"name": "MAT-KULING", "hq": "Norway", "note": "Norwegian manufacturer, 'world's only one-stop shop' for water treatment equipment. Strong component supplier."},
+        {"name": "North AquaCulture", "hq": "Denmark/Norway (Oslo office)", "note": "Founded 2021 by RAS experts. Newer player, growing. Good for component/subsystem work."},
+        {"name": "Nofitech", "hq": "Norway", "note": "RAS systems with strong academic/research links. Smaller scale."}
+      ],
+      "excluded": [
+        {"name": "Billund Aquaculture", "reason": "BANKRUPT 2024 — AKVA Group has taken over some of their projects. Critical risk flag for any existing Billund installations."},
+        {"name": "Clewer Aquaculture", "reason": "Finnish, limited Norwegian presence"}
+      ],
+      "lock_in_flag": "AKVA's RAS software and control systems are proprietary. Switching post-installation is costly (est. 6–18 months, EUR 2–5M). Negotiate open-architecture and data portability at contract stage."
+    },
+    {
+      "name": "Civil & Building Construction",
+      "description": "Facility construction — structural, civil engineering, concrete works, building envelope for 15,000–25,000 m² facility",
+      "spend_estimate": "20-30% of total capex",
+      "risk": "MEDIUM",
+      "concentration": "LOW",
+      "tier1": [
+        {"name": "AF Gruppen", "hq": "Norway (Oslo)", "strength": "Major Norwegian contractor with industrial/aquaculture experience. Strong in Northern Norway.", "risk": "High demand — capacity constrained for 2025–26"},
+        {"name": "NCC Norway", "hq": "Norway (Oslo)", "strength": "Large-scale industrial construction, proven aquaculture facility experience.", "risk": "Long lead times; prioritises large contracts (>NOK 100M)"},
+        {"name": "Hæhre Entreprenør", "hq": "Norway", "strength": "Strong Northern Norway presence, civil and industrial works.", "risk": "Bandwidth limited; energy sector competition"}
+      ],
+      "tier2": [
+        {"name": "Peab Bygg", "hq": "Sweden/Norway", "note": "Scandinavian contractor, strong concrete and industrial works capability."},
+        {"name": "Consto", "hq": "Norway", "note": "Mid-size Norwegian contractor, growing aquaculture portfolio."}
+      ],
+      "excluded": [],
+      "lock_in_flag": "None. Civil construction is commoditised — competitive tendering recommended."
+    },
+    {
+      "name": "HVAC & Ventilation",
+      "description": "Specialised aquaculture HVAC — humidity control, CO2/H2S ventilation, temperature management, energy recovery for RAS buildings",
+      "spend_estimate": "5-8% of total capex",
+      "risk": "HIGH",
+      "concentration": "HIGH",
+      "tier1": [
+        {"name": "Munters", "hq": "Sweden (global)", "strength": "Global leader in aquaculture HVAC. Dedicated aquaculture division. Trusted by MOWI, Cermaq, SalMar.", "risk": "Lead times 6–9 months. Premium pricing."},
+        {"name": "Swegon", "hq": "Sweden", "strength": "Industrial HVAC with aquaculture adaptations. More cost-competitive than Munters.", "risk": "Less aquaculture-specific than Munters"}
+      ],
+      "tier2": [
+        {"name": "Systemair", "hq": "Sweden", "note": "General industrial HVAC — can serve aquaculture but lacks specialist expertise."},
+        {"name": "Local Norwegian HVAC contractors", "hq": "Norway", "note": "For installation and maintenance — not design/supply of specialist equipment."}
+      ],
+      "excluded": [],
+      "lock_in_flag": "Munters systems are highly proprietary — service and spare parts locked to their ecosystem. Negotiate long-term service agreements at point of sale, not after installation."
+    },
+    {
+      "name": "Electrical, SCADA & Automation",
+      "description": "Plant-wide electrical infrastructure, process control (SCADA), sensors, monitoring, MCC panels",
+      "spend_estimate": "8-12% of total capex",
+      "risk": "HIGH",
+      "concentration": "MEDIUM",
+      "tier1": [
+        {"name": "ABB Norway", "hq": "Norway (Oslo)", "strength": "Dedicated aquaculture automation division in Norway. Full SCADA capability. Strong local service.", "risk": "Proprietary DCS — lock-in risk if integrated with all systems"},
+        {"name": "Siemens Norway", "hq": "Norway", "strength": "Industrial SCADA, PLC and MCC expertise. Very strong in Norwegian industry.", "risk": "High lock-in — Siemens TIA Portal ecosystem is sticky"},
+        {"name": "Schneider Electric", "hq": "France/Norway", "strength": "EcoStruxure platform — more open architecture than competitors. Growing aquaculture footprint.", "risk": "Less aquaculture-specific than ABB"}
+      ],
+      "tier2": [
+        {"name": "ScaleAQ (digital/software)", "hq": "Norway", "note": "Aquaculture-native SCADA and production management software. Best-of-breed for fish production data — but lock-in risk is VERY high."},
+        {"name": "AquaCloud", "hq": "Norway", "note": "Cloud-based aquaculture data platform. Open architecture — a way to reduce SCADA lock-in."}
+      ],
+      "excluded": [],
+      "lock_in_flag": "⚠️ HIGHEST LOCK-IN RISK IN CATEGORY. SCADA systems from any of these vendors become deeply embedded. Key ask: insist on open data protocols (OPC-UA), data portability guarantees, and avoid sole-source integration at contract stage."
+    },
+    {
+      "name": "Oxygen & Gas Supply",
+      "description": "Liquid oxygen supply, oxygenation equipment, CO2 stripping systems — critical for fish survival in RAS",
+      "spend_estimate": "3-5% capex + significant opex (ongoing supply)",
+      "risk": "HIGH",
+      "concentration": "HIGH",
+      "tier1": [
+        {"name": "AGA (Linde Group)", "hq": "Finland/Norway", "strength": "Dominant in Norwegian aquaculture. Nationwide logistics, reliable supply chain.", "risk": "Near-monopoly in some regions — limited negotiating leverage"},
+        {"name": "Air Liquide", "hq": "France/Norway", "strength": "Global scale, competitive on large-volume contracts.", "risk": "Logistics in Northern Norway can be challenging"}
+      ],
+      "tier2": [
+        {"name": "Linde Gas", "hq": "Germany/Norway", "note": "Part of same group as AGA — effectively limits choice in practice."},
+        {"name": "Yara Industrial", "hq": "Norway", "note": "CO2 supply and industrial gases — relevant for CO2 stripping applications."}
+      ],
+      "excluded": [],
+      "lock_in_flag": "Infrastructure lock-in: onsite tanks and pipework installed by AGA/Air Liquide create switching friction. Negotiate multi-year pricing caps at build stage. Consider onsite O2 generation (Oxymat, Novair) to reduce dependency for large facilities."
+    },
+    {
+      "name": "Fish Feed Systems",
+      "description": "Automated feeding systems (hardware), feed silos, feed distribution, camera-assisted feeding control",
+      "spend_estimate": "3-6% of total capex",
+      "risk": "MEDIUM",
+      "concentration": "MEDIUM",
+      "tier1": [
+        {"name": "AKVA Group (feed systems)", "hq": "Norway", "strength": "Integrated with their RAS system. Seamless data flow. Market leader in Norway.", "risk": "Increases AKVA dependency if also RAS provider"},
+        {"name": "Arvo-Tec", "hq": "Finland", "strength": "Independent feed system specialist. Strong pellet-detection camera tech.", "risk": "Finnish — less local service in Norway"},
+        {"name": "IFF/Intragilis", "hq": "Norway", "strength": "Norwegian independent. Strong customer base among major salmon farmers.", "risk": "Smaller company, capacity constraints"}
+      ],
+      "tier2": [
+        {"name": "ScaleAQ (feed systems)", "hq": "Norway", "note": "Feed system integration with their software platform. Strong if ScaleAQ chosen for SCADA."}
+      ],
+      "excluded": [],
+      "lock_in_flag": "Evaluate independently from RAS provider. Bundling feed systems with AKVA increases dependency. IFF or Arvo-Tec give independent optionality."
+    },
+    {
+      "name": "Fish Feed Supply (Ongoing)",
+      "description": "Ongoing commercial fish feed — the largest operational cost category over plant lifetime",
+      "spend_estimate": "Largest single opex item — 50-60% of production cost",
+      "risk": "MEDIUM",
+      "concentration": "LOW",
+      "tier1": [
+        {"name": "Skretting (Nutreco/SHV)", "hq": "Norway (Stavanger)", "strength": "Norway's largest feed supplier. Deep R&D. Norwegian salmon specialist.", "risk": "Premium pricing; may deprioritise smaller accounts"},
+        {"name": "BioMar", "hq": "Denmark/Norway", "strength": "Strong sustainability credentials. Growing RAS-specific feed range.", "risk": "Slightly smaller Norwegian market share than Skretting"},
+        {"name": "Ewos (Cargill)", "hq": "Norway (Bergen)", "strength": "Global backing (Cargill). Competitive on price for larger volumes.", "risk": "Less RAS-specific formulation expertise"}
+      ],
+      "tier2": [],
+      "excluded": [],
+      "lock_in_flag": "None significant — this is a competitive market. Run a proper tender and secure multi-year pricing. Volume guarantees unlock 8–15% discount vs spot."
+    }
+  ],
+  "strategic_recommendation": "Cermaq's primary risk in this supply market is over-dependence on AKVA Group. With AKVA already the RAS integrator (Hasvik contract), also awarding feed systems and SCADA creates a single-vendor ecosystem with limited exit options. Recommended strategy: (1) Appoint AKVA for RAS integration but insist on open-architecture SCADA and data portability in the contract. (2) Source feed systems independently (IFF or Arvo-Tec). (3) Engage Munters early for HVAC — 6–9 month lead time is a programme risk. (4) Run competitive tender for civil construction — capacity is the constraint, not capability. (5) Lock oxygen supply pricing at build stage via multi-year contract with capex for onsite generation feasibility review.",
+  "quick_wins": [
+    "Engage Munters immediately — HVAC lead times will be your first programme risk",
+    "Negotiate open-architecture and data portability clauses into the AKVA contract before signing",
+    "Run civil construction tender now — Northern Norway contractor capacity is being absorbed by energy projects",
+    "Lock oxygen pricing — AGA/Air Liquide multi-year contract with capex for onsite O2 feasibility"
+  ]
+}

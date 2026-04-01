@@ -1,0 +1,397 @@
+{
+  "template_name": "Product 1 v15 - CANONICAL",
+  "reference_file": "Jarotech_AS_Product1_v15_PIPELINE.pptx",
+  "slide_dimensions": {
+    "width": "13.333in",
+    "height": "7.500in"
+  },
+  "slides": [
+    {
+      "number": 1,
+      "type": "title",
+      "title": "SUPPLIER EVALUATION REPORT",
+      "elements": {
+        "header_bar": {
+          "position": {"left": "0.000in", "top": "0.000in"},
+          "size": {"width": "13.330in", "height": "7.500in"},
+          "color": "NAVY (#002147)"
+        },
+        "main_title": {
+          "position": {"left": "0.700in", "top": "1.400in"},
+          "size": {"width": "12.000in", "height": "0.500in"},
+          "font": {"size": "28pt", "bold": true, "color": "WHITE"}
+        },
+        "supplier_name": {
+          "position": {"left": "0.700in", "top": "2.050in"},
+          "size": {"width": "12.000in", "height": "1.200in"},
+          "font": {"size": "44pt", "bold": true, "color": "WHITE"}
+        },
+        "tagline": {
+          "position": {"left": "0.700in", "top": "3.500in"},
+          "size": {"width": "12.000in", "height": "0.600in"},
+          "font": {"size": "16pt", "color": "WHITE"}
+        },
+        "key_stats": {
+          "position": {"left": "0.700in", "top": "4.550in"},
+          "size": {"width": "12.000in", "height": "0.400in"},
+          "font": {"size": "14pt", "color": "WHITE"}
+        },
+        "source_line": {
+          "position": {"left": "0.700in", "top": "6.200in"},
+          "size": {"width": "12.000in", "height": "0.400in"},
+          "font": {"size": "10pt", "color": "WHITE"},
+          "text": "Confidential  |  [Month Year]  |  Manu Forti Intelligence"
+        },
+        "manu_forti_logo": {
+          "position": {"left": "12.533in", "top": "6.613in"},
+          "size": {"width": "0.600in", "height": "0.737in"}
+        }
+      }
+    },
+    {
+      "number": 2,
+      "type": "executive_summary",
+      "title": "EXECUTIVE SUMMARY",
+      "subtitle": "[Supplier Name] — Risk & Suitability Overview",
+      "elements": {
+        "header_bar": {
+          "position": {"left": "0.000in", "top": "0.000in"},
+          "size": {"width": "13.330in", "height": "1.000in"},
+          "color": "NAVY (#002147)"
+        },
+        "header_title": {
+          "position": {"left": "0.500in", "top": "0.120in"},
+          "size": {"width": "10.000in", "height": "0.550in"},
+          "font": {"size": "24pt", "bold": true, "color": "WHITE"}
+        },
+        "header_subtitle": {
+          "position": {"left": "0.500in", "top": "0.620in"},
+          "size": {"width": "12.500in", "height": "0.350in"},
+          "font": {"size": "11pt", "italic": true, "color": "#2B6CB0"}
+        },
+        "risk_gauge_visual": {
+          "position": {"left": "0.300in", "top": "1.050in"},
+          "size": {"width": "7.200in", "height": "3.100in"}
+        },
+        "supplier_snapshot_panel": {
+          "position": {"left": "7.600in", "top": "1.050in"},
+          "size": {"width": "5.400in", "height": "5.600in"},
+          "fields": [
+            {"label": "Supplier:", "value": "[Supplier Name]"},
+            {"label": "Type:", "value": "[Public/Private]"},
+            {"label": "Sector:", "value": "[Industry]"},
+            {"label": "HQ:", "value": "[Location]"},
+            {"label": "Founded:", "value": "[Year]"},
+            {"label": "Revenue:", "value": "[Amount]"},
+            {"label": "Employees:", "value": "[Count]"},
+            {"label": "Certifications:", "value": "[ISO, etc.]"}
+          ]
+        },
+        "key_findings_panel": {
+          "position": {"left": "0.300in", "top": "5.220in"},
+          "size": {"width": "7.200in", "height": "1.430in"}
+        },
+        "source_line": {
+          "position": {"left": "0.300in", "top": "7.150in"},
+          "size": {"width": "12.800in", "height": "0.300in"},
+          "font": {"size": "8pt", "color": "GRAY"}
+        },
+        "manu_forti_logo": {
+          "position": {"left": "12.533in", "top": "6.613in"},
+          "size": {"width": "0.600in", "height": "0.737in"}
+        }
+      }
+    },
+    {
+      "number": 3,
+      "type": "recommendation",
+      "title": "RECOMMENDATION",
+      "subtitle": "Decision Summary & Commercial Conditions",
+      "elements": {
+        "header_bar": {
+          "position": {"left": "0.000in", "top": "0.000in"},
+          "size": {"width": "13.330in", "height": "1.000in"},
+          "color": "NAVY (#002147)"
+        },
+        "recommendation_banner": {
+          "position": {"left": "0.500in", "top": "1.100in"},
+          "size": {"width": "12.330in", "height": "1.350in"},
+          "approved_color": "#48BB78",
+          "conditional_color": "#ED8936",
+          "rejected_color": "#E53E3E"
+        },
+        "commercial_conditions_panel": {
+          "position": {"left": "0.500in", "top": "2.650in"},
+          "size": {"width": "6.000in", "height": "2.500in"}
+        },
+        "approval_conditions_panel": {
+          "position": {"left": "6.700in", "top": "2.650in"},
+          "size": {"width": "6.000in", "height": "2.500in"}
+        },
+        "risk_summary_panel": {
+          "position": {"left": "0.500in", "top": "5.350in"},
+          "size": {"width": "12.330in", "height": "1.500in"}
+        },
+        "source_line": {
+          "position": {"left": "0.300in", "top": "7.150in"},
+          "size": {"width": "12.800in", "height": "0.300in"},
+          "font": {"size": "8pt", "color": "GRAY"}
+        },
+        "manu_forti_logo": {
+          "position": {"left": "12.533in", "top": "6.613in"},
+          "size": {"width": "0.600in", "height": "0.737in"}
+        }
+      }
+    },
+    {
+      "number": 4,
+      "type": "supplier_profile",
+      "title": "SUPPLIER PROFILE",
+      "subtitle": "Corporate Structure & Global Footprint",
+      "elements": {
+        "header_bar": {
+          "position": {"left": "0.000in", "top": "0.000in"},
+          "size": {"width": "13.330in", "height": "1.000in"},
+          "color": "NAVY (#002147)"
+        },
+        "org_structure_diagram": {
+          "position": {"left": "0.500in", "top": "1.200in"},
+          "size": {"width": "6.000in", "height": "5.500in"}
+        },
+        "company_overview_panel": {
+          "position": {"left": "7.000in", "top": "1.200in"},
+          "size": {"width": "6.000in", "height": "2.500in"}
+        },
+        "leadership_panel": {
+          "position": {"left": "7.000in", "top": "4.000in"},
+          "size": {"width": "6.000in", "height": "2.500in"}
+        },
+        "source_line": {
+          "position": {"left": "0.300in", "top": "7.150in"},
+          "size": {"width": "12.800in", "height": "0.300in"},
+          "font": {"size": "8pt", "color": "GRAY"}
+        },
+        "manu_forti_logo": {
+          "position": {"left": "12.533in", "top": "6.613in"},
+          "size": {"width": "0.600in", "height": "0.737in"}
+        }
+      }
+    },
+    {
+      "number": 5,
+      "type": "financial_health",
+      "title": "FINANCIAL HEALTH",
+      "subtitle": "Revenue Trajectory [Year-3]–[Year] (Estimated)  |  [Public/Private] Company",
+      "elements": {
+        "header_bar": {
+          "position": {"left": "0.000in", "top": "0.000in"},
+          "size": {"width": "13.330in", "height": "1.000in"},
+          "color": "NAVY (#002147)"
+        },
+        "revenue_chart": {
+          "position": {"left": "0.500in", "top": "1.200in"},
+          "size": {"width": "7.500in", "height": "4.500in"}
+        },
+        "financial_highlights_panel": {
+          "position": {"left": "8.200in", "top": "1.200in"},
+          "size": {"width": "4.800in", "height": "5.500in"},
+          "metrics": [
+            "Revenue (latest)",
+            "Revenue Growth YoY",
+            "EBITDA",
+            "EBITDA Margin",
+            "Net Profit",
+            "Revenue CAGR (3yr)",
+            "Order Book/Backlog",
+            "Gross Debt",
+            "Net Cash/Net Debt",
+            "Debt/EBITDA"
+          ]
+        },
+        "source_line": {
+          "position": {"left": "0.300in", "top": "7.150in"},
+          "size": {"width": "12.800in", "height": "0.300in"},
+          "font": {"size": "8pt", "color": "GRAY"}
+        },
+        "manu_forti_logo": {
+          "position": {"left": "12.533in", "top": "6.613in"},
+          "size": {"width": "0.600in", "height": "0.737in"}
+        }
+      }
+    },
+    {
+      "number": 6,
+      "type": "market_position",
+      "title": "MARKET POSITION",
+      "subtitle": "[Industry] — Revenue Comparison",
+      "elements": {
+        "header_bar": {
+          "position": {"left": "0.000in", "top": "0.000in"},
+          "size": {"width": "13.330in", "height": "1.000in"},
+          "color": "NAVY (#002147)"
+        },
+        "market_chart": {
+          "position": {"left": "0.500in", "top": "1.200in"},
+          "size": {"width": "7.500in", "height": "4.500in"}
+        },
+        "competitive_landscape_panel": {
+          "position": {"left": "8.200in", "top": "1.200in"},
+          "size": {"width": "4.800in", "height": "2.500in"}
+        },
+        "competitive_advantages_panel": {
+          "position": {"left": "8.200in", "top": "4.000in"},
+          "size": {"width": "4.800in", "height": "2.500in"}
+        },
+        "source_line": {
+          "position": {"left": "0.300in", "top": "7.150in"},
+          "size": {"width": "12.800in", "height": "0.300in"},
+          "font": {"size": "8pt", "color": "GRAY"}
+        },
+        "manu_forti_logo": {
+          "position": {"left": "12.533in", "top": "6.613in"},
+          "size": {"width": "0.600in", "height": "0.737in"}
+        }
+      }
+    },
+    {
+      "number": 7,
+      "type": "operational_risk",
+      "title": "OPERATIONAL CAPABILITY  &  RISK ASSESSMENT",
+      "subtitle": "Milestones & Strategic Investment  |  Risk Matrix  |  Capability Summary",
+      "elements": {
+        "header_bar": {
+          "position": {"left": "0.000in", "top": "0.000in"},
+          "size": {"width": "13.330in", "height": "1.000in"},
+          "color": "NAVY (#002147)"
+        },
+        "timeline": {
+          "position": {"left": "0.500in", "top": "1.200in"},
+          "size": {"width": "7.000in", "height": "2.500in"}
+        },
+        "risk_matrix": {
+          "position": {"left": "7.800in", "top": "1.200in"},
+          "size": {"width": "5.200in", "height": "2.500in"}
+        },
+        "risk_table": {
+          "position": {"left": "0.500in", "top": "4.000in"},
+          "size": {"width": "12.500in", "height": "2.500in"}
+        },
+        "source_line": {
+          "position": {"left": "0.300in", "top": "7.150in"},
+          "size": {"width": "12.800in", "height": "0.300in"},
+          "font": {"size": "8pt", "color": "GRAY"}
+        },
+        "manu_forti_logo": {
+          "position": {"left": "12.533in", "top": "6.613in"},
+          "size": {"width": "0.600in", "height": "0.737in"}
+        }
+      }
+    },
+    {
+      "number": 8,
+      "type": "commercial_intelligence",
+      "title": "COMMERCIAL INTELLIGENCE  &  PEER RISK COMPARISON",
+      "subtitle": "Benchmarking Radar  |  Peer Risk Profile  |  Commercial Terms",
+      "elements": {
+        "header_bar": {
+          "position": {"left": "0.000in", "top": "0.000in"},
+          "size": {"width": "13.330in", "height": "1.000in"},
+          "color": "NAVY (#002147)"
+        },
+        "radar_chart": {
+          "position": {"left": "0.500in", "top": "1.200in"},
+          "size": {"width": "6.000in", "height": "4.000in"}
+        },
+        "peer_risk_chart": {
+          "position": {"left": "6.800in", "top": "1.200in"},
+          "size": {"width": "6.200in", "height": "2.500in"}
+        },
+        "commercial_terms_panel": {
+          "position": {"left": "6.800in", "top": "4.000in"},
+          "size": {"width": "6.200in", "height": "2.500in"}
+        },
+        "source_line": {
+          "position": {"left": "0.300in", "top": "7.150in"},
+          "size": {"width": "12.800in", "height": "0.300in"},
+          "font": {"size": "8pt", "color": "GRAY"}
+        },
+        "manu_forti_logo": {
+          "position": {"left": "12.533in", "top": "6.613in"},
+          "size": {"width": "0.600in", "height": "0.737in"}
+        }
+      }
+    },
+    {
+      "number": 9,
+      "type": "esg_assessment",
+      "title": "ESG ASSESSMENT",
+      "subtitle": "Environmental, Social & Governance Screening  |  Overall Rating: [LOW/MEDIUM/HIGH]",
+      "elements": {
+        "header_bar": {
+          "position": {"left": "0.000in", "top": "0.000in"},
+          "size": {"width": "13.330in", "height": "1.000in"},
+          "color": "NAVY (#002147)"
+        },
+        "esg_columns": {
+          "environmental": {
+            "position": {"left": "0.500in", "top": "1.200in"},
+            "size": {"width": "4.000in", "height": "5.500in"}
+          },
+          "social": {
+            "position": {"left": "4.800in", "top": "1.200in"},
+            "size": {"width": "4.000in", "height": "5.500in"}
+          },
+          "governance": {
+            "position": {"left": "9.100in", "top": "1.200in"},
+            "size": {"width": "4.000in", "height": "5.500in"}
+          }
+        },
+        "source_line": {
+          "position": {"left": "0.300in", "top": "7.150in"},
+          "size": {"width": "12.800in", "height": "0.300in"},
+          "font": {"size": "8pt", "color": "GRAY"}
+        },
+        "manu_forti_logo": {
+          "position": {"left": "12.533in", "top": "6.613in"},
+          "size": {"width": "0.600in", "height": "0.737in"}
+        }
+      }
+    }
+  ],
+  "color_palette": {
+    "navy": "#002147",
+    "cobalt": "#2B6CB0",
+    "green": "#48BB78",
+    "amber": "#ED8936",
+    "red": "#E53E3E",
+    "white": "#FFFFFF",
+    "gray": "#718096",
+    "light_gray": "#E2E8F0"
+  },
+  "typography": {
+    "header_title": {"size": "24pt", "bold": true, "color": "white"},
+    "header_subtitle": {"size": "11pt", "italic": true, "color": "cobalt"},
+    "slide_title": {"size": "28pt", "bold": true, "color": "white"},
+    "body_text": {"size": "11pt", "color": "black"},
+    "source_line": {"size": "8pt", "color": "gray"}
+  },
+  "logo_placement": {
+    "manu_forti": {
+      "position": {"left": "12.533in", "top": "6.613in"},
+      "size": {"width": "0.600in", "height": "0.737in"},
+      "location": "bottom_right_every_slide"
+    },
+    "supplier_logo": {
+      "position": {"left": "10.920in", "top": "0.060in"},
+      "size": {"width": "2.260in", "height": "0.870in"},
+      "location": "top_right_white_backing",
+      "note": "White rounded rectangle backing, logo centered inside"
+    }
+  },
+  "source_line": {
+    "text": "Source: Manu Forti Intelligence  |  Confidential  |  [Month Year]",
+    "position": {"left": "0.300in", "top": "7.150in"},
+    "font_size": "8pt",
+    "color": "gray"
+  }
+}

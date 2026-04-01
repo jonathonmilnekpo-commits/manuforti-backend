@@ -1,0 +1,95 @@
+{
+  "supplier_name": "Afak Techniek BV",
+  "supplier_legal_name": "Afak Techniek B.V.",
+  "report_date": "March 2026",
+  "overall_risk_rating": "MEDIUM",
+  "overall_risk_score": 45,
+  "financial_health": {
+    "rating": "MEDIUM",
+    "score": 42,
+    "revenue": "Not publicly disclosed (private company)",
+    "employees": "40+ FTE (as of 2019)",
+    "ownership": "Part of Bon Systems Group (since 2024)",
+    "parent_company": "Bon Systems Group (Netherlands, Belgium, Sweden)",
+    "liquidity": "Stable (backed by Bon Systems Group)",
+    "debt": "Unknown (private company)"
+  },
+  "operational_capability": {
+    "rating": "LOW",
+    "score": 35,
+    "founded": "1993 (32 years)",
+    "headquarters": "Katwijk aan Zee, Netherlands",
+    "specialization": "Food processing machinery design & manufacturing",
+    "key_sectors": [
+      "Pelagic fishing",
+      "Demersal fishing", 
+      "Onshore fish processing",
+      "Mussel industry",
+      "Fruit & vegetables",
+      "Meat processing"
+    ],
+    "capabilities": [
+      "Machine design & construction",
+      "System integration",
+      "Project management",
+      "In-house manufacturing (laser cutting, welding, sandblasting)",
+      "Installation & service"
+    ],
+    "facilities": "Modern manufacturing facility in Katwijk with complete in-house production",
+    "technology": "Autodesk Inventor (since 1999 - early adopter)",
+    "milestones": [
+      "1993: Founded by Henk Mos and Buis van Velzen",
+      "1999: Early adopter of Autodesk Inventor",
+      "2010: Facility renovation & expansion",
+      "2018: 25th anniversary, 50 FTEs",
+      "2024: Joined Bon Systems Group"
+    ]
+  },
+  "geopolitical_risk": {
+    "rating": "LOW",
+    "score": 25,
+    "headquarters_risk": "Netherlands (EU, stable, low risk)",
+    "parent_company_presence": "Netherlands, Belgium, Sweden",
+    "market_focus": "Primarily EU fishing & food processing",
+    "supply_chain": "European suppliers likely",
+    "trade_exposure": "Limited - EU-focused operations"
+  },
+  "esg_rating": {
+    "rating": "LOW",
+    "score": 30,
+    "environmental": "Sustainable machine building focus",
+    "social": "Local employment in Katwijk, skilled workforce",
+    "governance": "Part of Bon Systems Group structure",
+    "sustainability": "Shared responsibility for planet (stated on website)",
+    "controversies": "None identified"
+  },
+  "competitors": [
+    {"name": "Baader", "market_position": "Global leader in fish processing", "origin": "Germany"},
+    {"name": "Marel", "market_position": "Global food processing equipment", "origin": "Iceland/Netherlands"},
+    {"name": "JBT", "market_position": "Food processing technology", "origin": "USA"},
+    {"name": "Arenco", "market_position": "Fish processing equipment", "origin": "Netherlands"}
+  ],
+  "key_risks": [
+    "Private company - limited financial transparency",
+    "Dependent on fishing industry volatility",
+    "Recent acquisition by Bon Systems (2024) - integration risk",
+    "Relatively small scale (40-50 employees)",
+    "Concentrated in single location (Katwijk)"
+  ],
+  "key_strengths": [
+    "32 years of specialization in fish/food processing",
+    "Deep industry knowledge from Katwijk fishing heritage",
+    "Complete in-house manufacturing capability",
+    "Early technology adopter (Autodesk Inventor since 1999)",
+    "Now backed by Bon Systems Group resources",
+    "Strong local reputation and relationships"
+  ],
+  "recommendation": "APPROVE with Conditions",
+  "conditions": [
+    "Verify Bon Systems Group backing for large projects",
+    "Confirm manufacturing capacity for timeline requirements",
+    "Request parent company guarantee for contracts >€500k",
+    "Assess integration status post-2024 acquisition",
+    "Validate service network coverage for your location"
+  ]
+}

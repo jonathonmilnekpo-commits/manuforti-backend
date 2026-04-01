@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Cron Jobs - Mission Control</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #0f1419 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+            overflow: hidden;
+        }
+        .app-container { display: flex; height: 100vh; }
+        .sidebar {
+            width: 64px;
+            background: rgba(15, 20, 30, 0.95);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 0;
+        }
+        .sidebar-header {
+            margin-bottom: 20px;
+            padding: 8px;
+            border-radius: 8px;
+            background: rgba(59, 130, 246, 0.2);
+            cursor: pointer;
+        }
+        .sidebar-header svg { width: 24px; height: 24px; color: #3b82f6; }
+        .nav-section { display: flex; flex-direction: column; gap: 4px; width: 100%; padding: 0 8px; }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 4px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #94a3b8;
+            font-size: 10px;
+            gap: 4px;
+            text-decoration: none;
+        }
+        .nav-item:hover { background: rgba(255, 255, 255, 0.05); color: #e2e8f0; }
+        .nav-item.active { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .nav-item svg { width: 20px; height: 20px; }
+        .main-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .header {
+            height: 56px;
+            background: rgba(15, 20, 30, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+        .header-title { font-size: 18px; font-weight: 600; color: #f8fafc; }
+        .header-subtitle { font-size: 12px; color: #64748b; margin-left: 12px; }
+        .cron-container { flex: 1; overflow-y: auto; padding: 24px; }
+        .cron-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .cron-card {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .cron-card:hover { border-color: rgba(59, 130, 246, 0.3); }
+        .cron-card.enabled { border-left: 3px solid #22c55e; }
+        .cron-card.error { border-left: 3px solid #ef4444; }
+        .cron-card.disabled { border-left: 3px solid #64748b; opacity: 0.6; }
+        .cron-card.warning { border-left: 3px solid #f59e0b; }
+        .cron-header {
+            padding: 16px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cron-title-section { display: flex; align-items: center; gap: 12px; }
+        .cron-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        .cron-icon.ok { background: rgba(34, 197, 94, 0.2); }
+        .cron-icon.error { background: rgba(239, 68, 68, 0.2); }
+        .cron-icon.idle { background: rgba(100, 116, 139, 0.2); }
+        .cron-icon.warning { background: rgba(245, 158, 11, 0.2); }
+        .cron-name { font-size: 14px; font-weight: 600; color: #f8fafc; }
+        .cron-schedule { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+        .cron-status-badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .cron-status-badge.ok { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .cron-status-badge.error { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .cron-status-badge.idle { background: rgba(100, 116, 139, 0.2); color: #94a3b8; }
+        .cron-status-badge.disabled { background: rgba(100, 116, 139, 0.2); color: #64748b; }
+        .cron-body { padding: 16px 20px; }
+        .cron-info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 12px;
+        }
+        .cron-info-row:last-child { border-bottom: none; }
+        .info-label { color: #64748b; }
+        .info-value { color: #e2e8f0; font-weight: 500; }
+        .info-value.success { color: #22c55e; }
+        .info-value.error { color: #ef4444; }
+        .info-value.warning { color: #f59e0b; }
+        .cron-log-preview {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 12px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 11px;
+            line-height: 1.5;
+            color: #94a3b8;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        .cron-actions {
+            display: flex;
+            gap: 8px;
+            padding: 12px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .cron-btn {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            color: #94a3b8;
+            font-size: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .cron-btn:hover { background: rgba(255, 255, 255, 0.05); color: #e2e8f0; }
+        .cron-btn.primary {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: #3b82f6;
+        }
+        .cron-btn.primary:hover { background: rgba(59, 130, 246, 0.3); }
+        .refresh-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #64748b;
+        }
+        .refresh-indicator.updated {
+            color: #22c55e;
+        }
+        .stats-bar {
+            display: flex;
+            gap: 24px;
+            padding: 16px 24px;
+            background: rgba(15, 20, 30, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stat-value {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f8fafc;
+        }
+        .stat-label {
+            font-size: 11px;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+        .stat-value.ok { color: #22c55e; }
+        .stat-value.error { color: #ef4444; }
+        .stat-value.warning { color: #f59e0b; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header" onclick="location.href='index.html'">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+            </div>
+            <div class="nav-section">
+                <a href="tasks.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                    </svg>
+                    <span>Tasks</span>
+                </a>
+                <a href="office.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+                    </svg>
+                    <span>Agents</span>
+                </a>
+                <a href="products.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                    <span>Products</span>
+                </a>
+                <a href="cron.html" class="nav-item active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span>Cron</span>
+                </a>
+                <a href="index.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span>Memory</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div style="display:flex;align-items:center;">
+                    <h1 class="header-title">Cron Jobs</h1>
+                    <span class="header-subtitle">Live Status • March 31, 2026</span>
+                </div>
+                <div class="refresh-indicator" id="refresh-status">
+                    <span>⏱️ Auto-refresh every 30s</span>
+                </div>
+            </header>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-value ok" id="stat-ok">0</span>
+                    <span class="stat-label">Running OK</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value error" id="stat-error">0</span>
+                    <span class="stat-label">Errors</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value warning" id="stat-warning">0</span>
+                    <span class="stat-label">Warnings</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="stat-total">0</span>
+                    <span class="stat-label">Total Jobs</span>
+                </div>
+            </div>
+
+            <div class="cron-container">
+                <div class="cron-grid" id="cron-grid">
+                    <!-- Jobs will be loaded dynamically -->
+                    <p style="color:#64748b;padding:40px;text-align:center;">Loading cron job status...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Cron job data - updated March 31, 2026
+        const cronJobs = [
+            {
+                id: 'venture-nightly',
+                name: 'Venture Nightly',
+                icon: '🚀',
+                schedule: 'Daily at 04:00 Oslo • 2hr session',
+                status: 'ok',
+                enabled: true,
+                lastRun: 'Mar 31, 04:00 Oslo (OK)',
+                nextRun: 'Apr 1, 04:00 Oslo',
+                focus: '📰 Media Monitoring enhancements',
+                duration: '206s',
+                consecutiveErrors: 0,
+                log: '✅ FIX APPLIED: delivery.mode: "none"\n📄 Research completed successfully\n📝 Output saved to memory files\n✅ No delivery required - research-only job'
+            },
+            {
+                id: 'crab-research',
+                name: 'Crab Workflow Research',
+                icon: '🦀',
+                schedule: 'Daily at 03:00 Oslo',
+                status: 'ok',
+                enabled: true,
+                lastRun: 'Mar 31, 04:00 Oslo (OK)',
+                nextRun: 'Apr 1, 04:00 Oslo',
+                focus: 'YouTube automation & content pipelines',
+                duration: '76s',
+                consecutiveErrors: 0,
+                log: '✅ Research completed\n📝 Appended to crab_research_2026-03-31.md\n📊 Tokens used: ~45k\n🎯 Found: 3 automation tools'
+            },
+            {
+                id: 'manuforti-research',
+                name: 'Manu Forti Sales Research',
+                icon: '💼',
+                schedule: 'Daily at 05:00 Oslo',
+                status: 'ok',
+                enabled: true,
+                lastRun: 'Mar 31, 05:00 Oslo (OK)',
+                nextRun: 'Apr 1, 05:00 Oslo',
+                focus: 'AI sales automation & B2B lead gen',
+                duration: '166s',
+                consecutiveErrors: 0,
+                log: '✅ Research completed\n📝 Appended to manuforti_research_2026-03-31.md\n📊 Tokens used: ~68k\n🎯 Found: LinkedIn automation tools'
+            },
+            {
+                id: 'daily-briefing',
+                name: 'Daily Briefing - Morning Ritual',
+                icon: '🌅',
+                schedule: 'Daily at 05:45 Oslo',
+                status: 'ok',
+                enabled: true,
+                lastRun: 'Mar 31, 05:45 Oslo (OK)',
+                nextRun: 'Apr 1, 05:45 Oslo',
+                focus: 'Millionaire Mind + Health + Strategy',
+                duration: '125s',
+                consecutiveErrors: 0,
+                log: '✅ FIX APPLIED: delivery.mode: "none"\n🧠 Ritual content generated\n⌚ Garmin data fetched\n📝 Output saved to memory files\n✅ No delivery required - runs in main session'
+            },
+            {
+                id: 'openclaw-research',
+                name: 'OpenClaw Use Cases Research',
+                icon: '🔍',
+                schedule: 'Daily at 06:00 Oslo',
+                status: 'ok',
+                enabled: true,
+                lastRun: 'Mar 31, 06:00 Oslo (OK)',
+                nextRun: 'Apr 1, 06:00 Oslo',
+                focus: 'Community use cases & workflows',
+                duration: '153s',
+                consecutiveErrors: 0,
+                log: '✅ FIX APPLIED: delivery.mode: "none"\n📝 Research completed\n📄 openclaw_use_cases_2026-03-31.md created\n✅ No delivery required - research-only job'
+            },
+            {
+                id: 'daily-briefing-prep',
+                name: 'Daily Briefing Prep',
+                icon: '⚡',
+                schedule: 'Twice daily • 07:00 & 19:00 Oslo',
+                status: 'ok',
+                enabled: true,
+                lastRun: 'Mar 31, 19:00 Oslo (OK)',
+                nextRun: 'Apr 1, 19:00 Oslo',
+                focus: 'Calendar check + urgent items',
+                duration: '9s',
+                consecutiveErrors: 0,
+                log: '✅ FIX APPLIED: delivery.mode: "none"\n📅 Calendar checked\n✅ No urgent items\n📝 Prep work logged to memory\n✅ No delivery required - background prep'
+            },
+            {
+                id: 'nightly-maintenance',
+                name: 'Nightly Maintenance',
+                icon: '🔧',
+                schedule: 'Daily at 00:00 UTC',
+                status: 'ok',
+                enabled: true,
+                lastRun: 'Mar 31, 00:00 UTC (OK)',
+                nextRun: 'Apr 1, 00:00 UTC',
+                focus: 'Memory organize + session cleanup',
+                duration: '25s',
+                consecutiveErrors: 0,
+                log: '✅ Maintenance complete\n🧹 Organized 45 memory files\n🧹 Cleaned stale sessions\n📊 Disk usage: OK'
+            },
+            {
+                id: 'weekly-memory',
+                name: 'Weekly Memory Consolidation',
+                icon: '🧠',
+                schedule: 'Sundays at 20:00 Oslo',
+                status: 'ok',
+                enabled: true,
+                lastRun: 'Mar 30, 20:00 Oslo (OK)',
+                nextRun: 'Apr 6, 20:00 Oslo',
+                focus: 'Distill learnings into MEMORY.md',
+                duration: '43s',
+                consecutiveErrors: 0,
+                log: '✅ Consolidation complete\n📝 Reviewed 7 days of memory\n🎯 3 key decisions added to MEMORY.md\n🗑️ Removed outdated entries'
+            },
+            {
+                id: 'weekly-network',
+                name: 'Weekly Network Update',
+                icon: '🤝',
+                schedule: 'Sundays at 18:00 Oslo',
+                status: 'ok',
+                enabled: true,
+                lastRun: 'Mar 30, 18:00 Oslo (OK)',
+                nextRun: 'Apr 6, 18:00 Oslo',
+                focus: 'Nurture professional relationships',
+                duration: '2s',
+                consecutiveErrors: 0,
+                log: '✅ Reminder sent\n💬 Prompt: Reach out to 2-3 contacts\n🎯 Small actions build powerful networks'
+            },
+            {
+                id: 'system-optimization',
+                name: 'System Optimization Research',
+                icon: '⚙️',
+                schedule: 'Mondays at 06:00 Oslo',
+                status: 'ok',
+                enabled: true,
+                lastRun: 'Mar 24, 06:00 Oslo (OK)',
+                nextRun: 'Mar 31, 06:00 Oslo',
+                focus: 'Doctor agent diagnostics',
+                duration: '76s',
+                consecutiveErrors: 0,
+                log: '✅ Research completed\n📝 No new findings this week\n📊 Model: Kimi K2.5\n🎯 Weekly schedule active'
+            },
+            {
+                id: 'aiden-memory-qwen',
+                name: 'Aiden Memory Sync — Qwen 9B',
+                icon: '💭',
+                schedule: 'Every 30 minutes',
+                status: 'disabled',
+                enabled: false,
+                lastRun: 'Never',
+                nextRun: 'Disabled',
+                focus: 'Lightweight memory sync',
+                duration: '-',
+                consecutiveErrors: 0,
+                log: '⏸️ Job disabled\n🤖 Model: Qwen 9B (local)\n💡 Use for low-cost sync when enabled'
+            },
+            {
+                id: 'morning-briefing-old',
+                name: 'Morning Briefing - 07:00 (Legacy)',
+                icon: '📰',
+                schedule: 'Daily at 07:00 Oslo',
+                status: 'disabled',
+                enabled: false,
+                lastRun: 'Mar 27, 07:00 (error)',
+                nextRun: 'Disabled',
+                focus: 'Replaced by 05:45 ritual',
+                duration: '106s',
+                consecutiveErrors: 1,
+                log: '⏸️ Job disabled\n🔄 Consolidated into 05:45 Daily Briefing\n🗑️ Will be removed in future cleanup'
+            },
+            {
+                id: 'aiden-memory-old',
+                name: 'Aiden Memory Sync (Legacy)',
+                icon: '🔄',
+                schedule: 'Every 30 minutes',
+                status: 'disabled',
+                enabled: false,
+                lastRun: 'Mar 27 (OK)',
+                nextRun: 'Disabled',
+                focus: 'Replaced by HEARTBEAT protocol',
+                duration: '141s',
+                consecutiveErrors: 0,
+                log: '⏸️ Job disabled\n🔄 Replaced by Daily Briefing Prep\n💡 More efficient scheduling'
+            }
+        ];
+
+        function renderCronJobs() {
+            const grid = document.getElementById('cron-grid');
+            grid.innerHTML = '';
+
+            let okCount = 0;
+            let errorCount = 0;
+            let warningCount = 0;
+
+            cronJobs.forEach(job => {
+                if (job.status === 'ok') okCount++;
+                else if (job.status === 'error') errorCount++;
+                else if (job.status === 'warning') warningCount++;
+
+                const cardClass = job.enabled 
+                    ? (job.status === 'error' ? 'error' : job.status === 'warning' ? 'warning' : 'enabled')
+                    : 'disabled';
+                
+                const iconClass = job.status === 'error' ? 'error' : job.status === 'warning' ? 'warning' : job.enabled ? 'ok' : 'idle';
+                const badgeClass = job.status === 'error' ? 'error' : job.status === 'warning' ? 'idle' : job.enabled ? 'ok' : 'disabled';
+                const badgeText = job.enabled ? (job.status === 'error' ? 'Error' : job.status === 'warning' ? 'Warning' : 'OK') : 'Disabled';
+
+                const card = document.createElement('div');
+                card.className = `cron-card ${cardClass}`;
+                card.innerHTML = `
+                    <div class="cron-header">
+                        <div class="cron-title-section">
+                            <div class="cron-icon ${iconClass}">${job.icon}</div>
+                            <div>
+                                <div class="cron-name">${job.name}</div>
+                                <div class="cron-schedule">${job.schedule}</div>
+                            </div>
+                        </div>
+                        <div class="cron-status-badge ${badgeClass}">${badgeText}</div>
+                    </div>
+                    <div class="cron-body">
+                        <div class="cron-info-row">
+                            <span class="info-label">Status</span>
+                            <span class="info-value ${job.status === 'error' ? 'error' : job.status === 'warning' ? 'warning' : 'success'}">
+                                ${job.enabled ? (job.focus || 'Active') : 'Disabled'}
+                            </span>
+                        </div>
+                        <div class="cron-info-row">
+                            <span class="info-label">Last Run</span>
+                            <span class="info-value">${job.lastRun}</span>
+                        </div>
+                        <div class="cron-info-row">
+                            <span class="info-label">Next Run</span>
+                            <span class="info-value">${job.nextRun}</span>
+                        </div>
+                        ${job.duration !== '-' ? `
+                        <div class="cron-info-row">
+                            <span class="info-label">Duration</span>
+                            <span class="info-value">${job.duration}</span>
+                        </div>
+                        ` : ''}
+                        ${job.consecutiveErrors > 0 ? `
+                        <div class="cron-info-row">
+                            <span class="info-label">Consecutive Errors</span>
+                            <span class="info-value error">${job.consecutiveErrors}</span>
+                        </div>
+                        ` : ''}
+                        <div class="cron-log-preview">${job.log.replace(/\n/g, '<br>')}</div>
+                    </div>
+                    <div class="cron-actions">
+                        <button class="cron-btn" onclick="viewLogs('${job.id}')">View Logs</button>
+                        <button class="cron-btn primary" onclick="runNow('${job.id}')" ${!job.enabled ? 'disabled' : ''}>Run Now</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Update stats
+            document.getElementById('stat-ok').textContent = okCount;
+            document.getElementById('stat-error').textContent = errorCount;
+            document.getElementById('stat-warning').textContent = warningCount;
+            document.getElementById('stat-total').textContent = cronJobs.length;
+
+            // Update refresh indicator
+            const now = new Date();
+            document.getElementById('refresh-status').innerHTML = `
+                <span class="updated">✅ Updated ${now.toLocaleTimeString()}</span>
+            `;
+        }
+
+        function viewLogs(jobId) {
+            alert(`View logs for ${jobId}\n\nIn production, this would open log viewer.`);
+        }
+
+        function runNow(jobId) {
+            if (confirm(`Run ${jobId} now?`)) {
+                alert(`Triggering ${jobId}...\n\nIn production, this would call the API.`);
+            }
+        }
+
+        // Initial render
+        renderCronJobs();
+
+        // Auto-refresh every 30 seconds
+        setInterval(renderCronJobs, 30000);
+    </script>
+</body>
+</html>

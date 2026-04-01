@@ -1,0 +1,48 @@
+{
+  "skills": {
+    "product-1-generator": {
+      "last_used": "2026-03-04",
+      "times_used": 3,
+      "successes": 0,
+      "failures": 3,
+      "common_mistakes": [
+        "Did not check canonical v15 template in MEMORY.md before starting",
+        "Used hand-written JSON instead of proper skill input format",
+        "Failed to include required metrics (Gross Debt, Net Cash, Debt/EBITDA)",
+        "Did not generate proper risk gauge visual",
+        "Skipped validation step"
+      ],
+      "prevention_checklist": [
+        "Read MEMORY.md Product 1 section",
+        "Review Jarotech/Boskalis reference files",
+        "Use proper skill input format",
+        "Validate output against canonical template"
+      ],
+      "last_validated": "2026-03-05T07:31:15.632096",
+      "validation_failures": [
+        "Slide 6 (Market Position): Missing Horizontal bar chart vs competitors",
+        "Slide 7: Missing timeline (no year markers found)",
+        "Slide 7: Missing 2x2 risk matrix (no table or impact/probability text)",
+        "Slide 8 (Commercial Intelligence): Missing Radar chart + peer risk comparison",
+        "Slide count: 8, expected 9",
+        "Slide 5: Missing required metrics: Revenue, EBITDA, Net Profit, CAGR, Order Book, Gross Debt, Net Cash, Debt/EBITDA",
+        "Slide 5 (Financial Health): Missing Dual-axis chart (revenue + EBITDA)",
+        "Slide 6 (Market Position): Missing Horizontal bar chart vs competitors",
+        "Slide 7: Missing 2x2 risk matrix (no table or impact/probability text)",
+        "Slide 8 (Commercial Intelligence): Missing Radar chart + peer risk comparison"
+      ]
+    },
+    "web-search": {
+      "last_used": "2026-03-04",
+      "times_used": 50,
+      "successes": 48,
+      "failures": 2
+    },
+    "email-sender": {
+      "last_used": "2026-03-04",
+      "times_used": 3,
+      "successes": 2,
+      "failures": 1
+    }
+  }
+}

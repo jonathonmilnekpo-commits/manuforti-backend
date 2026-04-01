@@ -1,0 +1,88 @@
+{
+  "template": "Product 1 v15",
+  "supplier": "[SUPPLIER_NAME]",
+  "sector": "[SECTOR_TAGS]",
+  "stats": "[REVENUE] | [EMPLOYEES] | [COUNTRIES] | [OTHER_KEY_STATS]",
+  "financials": {
+    "revenue_2024": "[AMOUNT]",
+    "revenue_yoy": "[PERCENTAGE]",
+    "ebitda": "[AMOUNT]",
+    "ebitda_margin": "[PERCENTAGE]",
+    "net_profit": "[AMOUNT]",
+    "cagr_3yr": "[PERCENTAGE]",
+    "order_book": "[AMOUNT]",
+    "gross_debt": "[AMOUNT]",
+    "net_cash": "[AMOUNT]",
+    "debt_ebitda": "[RATIO]",
+    "trend": "[TREND_DESCRIPTION]"
+  },
+  "executive_summary": {
+    "overall_risk": "[LOW/MEDIUM/HIGH]",
+    "risk_score": "[0-100]",
+    "key_insight": "[KEY_INSIGHT_TEXT]",
+    "risk_factors": [
+      "[RISK_1]",
+      "[RISK_2]",
+      "[RISK_3]"
+    ]
+  },
+  "recommendation": {
+    "verdict": "[APPROVE/APPROVE_WITH_CONDITIONS/DECLINE]",
+    "conditions": [
+      "[CONDITION_1]",
+      "[CONDITION_2]"
+    ],
+    "risk_summary": {
+      "financial": "[LOW/MEDIUM/HIGH]",
+      "operational": "[LOW/MEDIUM/HIGH]",
+      "geopolitical": "[LOW/MEDIUM/HIGH]",
+      "esg": "[LOW/MEDIUM/HIGH]"
+    }
+  },
+  "profile": {
+    "description": "[COMPANY_DESCRIPTION]",
+    "leadership": [
+      {
+        "name": "[NAME]",
+        "role": "[ROLE]",
+        "tenure": "[TENURE]"
+      }
+    ],
+    "headquarters": "[LOCATION]",
+    "employees": "[COUNT]"
+  },
+  "market_position": {
+    "rank": "[NUMBER]",
+    "competitors": [
+      {
+        "name": "[COMPETITOR_1]",
+        "revenue": "[AMOUNT]"
+      },
+      {
+        "name": "[COMPETITOR_2]",
+        "revenue": "[AMOUNT]"
+      }
+    ],
+    "advantages": [
+      "[ADVANTAGE_1]",
+      "[ADVANTAGE_2]"
+    ]
+  },
+  "risks": [
+    {
+      "category": "[CATEGORY]",
+      "description": "[DESCRIPTION]",
+      "impact": "[HIGH/MEDIUM/LOW]",
+      "probability": "[HIGH/MEDIUM/LOW]"
+    }
+  ],
+  "esg": {
+    "environmental": "[LOW/MEDIUM/HIGH]",
+    "social": "[LOW/MEDIUM/HIGH]",
+    "governance": "[LOW/MEDIUM/HIGH]",
+    "overall": "[LOW/MEDIUM/HIGH]",
+    "controversies": [
+      "[CONTROVERSY_1]"
+    ]
+  }
+}

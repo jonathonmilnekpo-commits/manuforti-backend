@@ -1,0 +1,115 @@
+{
+  "supplier": "SANY Heavy Industry Co., Ltd.",
+  "sector": "Construction & Mining Equipment Manufacturing",
+  "stats": "SSE: 600031 | Founded: 1986 | HQ: Changsha, China | ~90,000 Employees",
+  "financials": {
+    "revenue_2024": "$10.88B",
+    "revenue_yoy": "+6.22%",
+    "ebitda": "$1.2B (est.)",
+    "ebitda_margin": "~11%",
+    "net_profit": "$840M",
+    "cagr_3yr": "+2.1%",
+    "order_book": "$6.5B (est.)",
+    "gross_debt": "$3.5B (est.)",
+    "net_cash": "+$2.1B",
+    "debt_ebitda": "2.9x"
+  },
+  "executive_summary": {
+    "overall_risk": "MEDIUM-HIGH",
+    "risk_score": 58,
+    "key_insight": "SANY is the world's #4 construction equipment manufacturer with strong financial recovery (net profit up 32% YoY) and expanding international presence (64% of revenue from overseas). However, significant geopolitical exposure as a China-based manufacturer amid escalating US-China trade tensions creates elevated supply chain and operational risks.",
+    "risk_factors": [
+      "China-based manufacturing exposes SANY to US/EU tariff escalation (up to 30-145% duties)",
+      "Strong financial performance with $10.88B revenue and improving margins",
+      "Global #1 in concrete machinery, #1 in excavators by volume",
+      "Leadership transition: Founder Liang Wengen stepped down in 2022; rotating chair system now in place"
+    ]
+  },
+  "recommendation": {
+    "verdict": "APPROVE WITH GEOPOLITICAL CONDITIONS",
+    "conditions": [
+      "Maintain diversified supplier base - SANY should not exceed 30% of equipment procurement",
+      "Contractually secure alternative supply routes through non-China manufacturing (India, Brazil, Indonesia)",
+      "Include force majeure clauses for trade restriction escalations",
+      "Require quarterly financial health reporting and 60-day payment terms",
+      "Establish local spare parts inventory to mitigate supply chain disruption risks"
+    ],
+    "risk_summary": {
+      "financial": "LOW",
+      "operational": "MEDIUM",
+      "geopolitical": "HIGH",
+      "esg": "MEDIUM"
+    }
+  },
+  "profile": {
+    "description": "SANY Heavy Industry is one of the world's largest construction equipment manufacturers, founded in 1986 in Changsha, China. The company produces excavators, concrete machinery, cranes, road machinery, and mining equipment. SANY operates 25+ industrial bases globally including manufacturing facilities in China, USA, Germany, India, Brazil, Indonesia, and Russia. The company is particularly dominant in concrete machinery (#1 globally) and excavators (#1 by volume). SANY has been aggressively expanding internationally, with overseas revenue now representing 64% of total sales.",
+    "leadership": [
+      {"name": "Xiang Wenbo", "role": "Chairman (Rotating)", "tenure": "Since 2022"},
+      {"name": "Yu Hongfu", "role": "Vice Chairman & CEO", "tenure": "Since 2022"},
+      {"name": "Liang Wengen", "role": "Founder & Former Chairman", "tenure": "1986-2022"}
+    ],
+    "headquarters": "Changsha, Hunan Province, China",
+    "employees": "~90,000"
+  },
+  "market_position": {
+    "rank": 4,
+    "competitors": [
+      {"name": "Caterpillar (CAT)", "revenue": "$64.0B"},
+      {"name": "Komatsu", "revenue": "$25.0B"},
+      {"name": "XCMG", "revenue": "$13.0B"},
+      {"name": "John Deere", "revenue": "$12.9B"},
+      {"name": "SANY", "revenue": "$10.88B"}
+    ],
+    "advantages": [
+      "Global #1 market share in concrete machinery",
+      "Global #1 in excavator sales by unit volume (100,000+ units in 2021)",
+      "Cost-competitive pricing vs Western manufacturers",
+      "Strong R&D with 20+ R&D centers worldwide",
+      "Comprehensive product portfolio from mini-excavators to mining trucks",
+      "Expanding international manufacturing footprint reduces China concentration"
+    ]
+  },
+  "risks": [
+    {
+      "category": "Geopolitical",
+      "description": "US-China trade tensions have resulted in tariffs of 10-145% on Chinese heavy equipment. Additional export controls on critical minerals (tungsten, tellurium) could impact supply chains.",
+      "impact": "High",
+      "probability": "High"
+    },
+    {
+      "category": "Operational",
+      "description": "While SANY has 16+ overseas manufacturing plants, core R&D and significant production remains China-based, creating supply chain concentration risk.",
+      "impact": "Medium",
+      "probability": "Medium"
+    },
+    {
+      "category": "Financial",
+      "description": "Debt/EBITDA of ~2.9x is manageable but higher than Western peers. Currency exposure (RMB/USD/EUR) affects margins.",
+      "impact": "Low",
+      "probability": "Low"
+    },
+    {
+      "category": "ESG",
+      "description": "Chinese manufacturing sector faces elevated ESG scrutiny. Limited independent ESG rating coverage compared to Western peers.",
+      "impact": "Medium",
+      "probability": "Medium"
+    },
+    {
+      "category": "Governance",
+      "description": "Recent leadership transition with founder stepping down and adoption of rotating chair system creates some governance uncertainty.",
+      "impact": "Low",
+      "probability": "Low"
+    }
+  ],
+  "esg": {
+    "environmental": "MEDIUM",
+    "social": "MEDIUM",
+    "governance": "MEDIUM",
+    "overall": "MEDIUM",
+    "controversies": [
+      "Limited independent ESG rating coverage (Sustainalytics, MSCI)",
+      "Chinese manufacturing sector carbon intensity higher than Western peers",
+      "Supply chain transparency concerns typical of Chinese industrial sector"
+    ]
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "supplier": "Air France-KLM Group",
+  "sector": "Aviation / Airlines",
+  "financials": {
+    "revenue_2024": "€31.5B ($34.2B)",
+    "revenue_yoy": "+4.8%",
+    "ebitda": "€4.2B ($4.6B)",
+    "ebitda_margin": "13.5%",
+    "net_profit": "€489M ($533M)",
+    "cagr_3yr": "+12.4% (post-COVID recovery)",
+    "order_book": "191 aircraft firm orders",
+    "gross_debt": "€14.3B ($15.6B)",
+    "net_cash": "-€7.3B net debt",
+    "debt_ebitda": "1.7x"
+  },
+  "executive_summary": {
+    "overall_risk": "MEDIUM",
+    "risk_score": 52,
+    "key_insight": "Air France-KLM is Europe's second-largest airline group by revenue, showing solid post-COVID recovery with 4.8% revenue growth in 2024. However, profitability pressure persists with net income down 51% YoY due to cost headwinds, Olympic Games impact, and KLM operational challenges. The group maintains adequate liquidity (~€9.4B cash) and investment-grade leverage at 1.7x net debt/EBITDA. Key risks include labor disputes (€30M+ strike losses), fuel price volatility, and intense competition from low-cost carriers. Strong ESG commitment with 10% SAF target by 2030 and fleet modernization (80% new-gen aircraft target)."
+  },
+  "recommendation": {
+    "verdict": "APPROVE WITH CONDITIONS",
+    "conditions": [
+      "Require quarterly financial health reporting given margin compression",
+      "Include force majeure clauses for labor strike disruptions",
+      "Mandate SAF usage reporting for ESG compliance",
+      "Secure parent guarantee for material contracts",
+      "Monitor KLM 'Back on Track' program progress"
+    ],
+    "risk_summary": {
+      "financial": "MEDIUM",
+      "operational": "MEDIUM",
+      "geopolitical": "MEDIUM",
+      "esg": "LOW"
+    }
+  },
+  "profile": {
+    "description": "Air France-KLM Group is Europe's second-largest airline group, formed in 2004 through the merger of Air France and KLM. The group operates a comprehensive network spanning passenger transportation (Air France, KLM, Transavia), cargo services, and aircraft maintenance (AFI KLM E&M). With hubs at Paris-Charles de Gaulle and Amsterdam Schiphol, the group serves 97.96 million passengers annually across 300+ destinations. The group is pursuing an ambitious fleet modernization program, targeting 80% new-generation aircraft by 2030 to reduce CO2 emissions by 30% per passenger/km.",
+    "leadership": [
+      {"name": "Benjamin Smith", "role": "CEO", "tenure": "7 years (since Sep 2018)"},
+      {"name": "Anne-Marie Couderc", "role": "Chairman of the Board", "tenure": "6 years"},
+      {"name": "Olivier Roussat", "role": "Deputy CEO Air France-KLM & CEO Air France", "tenure": "2 years"},
+      {"name": "Marjan Rintel", "role": "President & CEO KLM", "tenure": "2 years"}
+    ],
+    "headquarters": "Paris, France / Amstelveen, Netherlands",
+    "employees": "75,000+",
+    "founded": "2004 (merger)",
+    "stock": "Euronext Paris (AF)"
+  },
+  "market_position": {
+    "rank": 2,
+    "market_share": "~18% of European legacy carrier market",
+    "competitors": [
+      {"name": "Lufthansa Group", "revenue": "€35.4B", "market_position": 1},
+      {"name": "IAG (British Airways/Iberia)", "revenue": "€32.2B", "market_position": 3},
+      {"name": "Ryanair Group", "revenue": "€15.4B", "market_position": "LCC Leader"},
+      {"name": "Turkish Airlines", "revenue": "€18.5B", "market_position": "Rising competitor"}
+    ],
+    "advantages": [
+      "Dual hub strategy (CDG + Schiphol) provides network resilience",
+      "Strong North Atlantic market presence (premium revenue focus)",
+      "Integrated maintenance division (AFI KLM E&M) generates €5.1B revenue",
+      "Flying Blue loyalty program: 9M+ active members, 52% of passenger revenue",
+      "Strategic partnership with Delta/Air France-KLM transatlantic JV"
+    ],
+    "disadvantages": [
+      "Higher cost structure vs low-cost competitors",
+      "KLM operational underperformance (3.3% margin vs Air France 5.1%)",
+      "Labor relations challenges in both France and Netherlands",
+      "Complex dual-nationality governance structure"
+    ]
+  },
+  "operational": {
+    "fleet_size": 574,
+    "fleet_in_operation": 564,
+    "new_generation_percentage": "26.9% (target: 80% by 2030)",
+    "firm_orders": 191,
+    "options": 156,
+    "passengers_2024": "97.96 million",
+    "load_factor": "87.8%",
+    "capacity_growth": "+3.6% ASK growth in 2024",
+    "key_routes": "North Atlantic (30% of revenue), Europe (45%), Asia-Pacific (12%), Africa/Middle East (8%), Latin America (5%)",
+    "hubs": "Paris-Charles de Gaulle (CDG), Amsterdam Schiphol (AMS)"
+  },
+  "risks": [
+    {
+      "category": "Financial",
+      "description": "Net income declined 51% YoY despite revenue growth, reflecting margin compression from cost inflation and operational challenges at KLM. Net debt increased €2.3B to €7.3B due to lease obligations.",
+      "impact": "Medium",
+      "probability": "Medium",
+      "mitigation": "KLM 'Back on Track' program targeting €450M structural improvement; medium-term target of 8%+ operating margin"
+    },
+    {
+      "category": "Operational",
+      "description": "Labor disputes resulted in €30M+ losses from ground crew strikes at Schiphol (2025). French ATC strikes continue disrupting operations. Pilot union tensions over pay and conditions.",
+      "impact": "Medium",
+      "probability": "High",
+      "mitigation": "Negotiations ongoing; operational flexibility through dual-hub structure"
+    },
+    {
+      "category": "Geopolitical",
+      "description": "Jet fuel price volatility (major cost driver - ~25% of operating costs). Regulatory pressure from EU ETS and CORSIA compliance. Potential trade tensions affecting North Atlantic routes.",
+      "impact": "Medium",
+      "probability": "Medium",
+      "mitigation": "Fuel hedging program; fleet modernization reducing fuel consumption 25% on new aircraft"
+    },
+    {
+      "category": "Competitive",
+      "description": "Intense pressure from low-cost carriers (Ryanair, EasyJet) on short-haul. IAG and Lufthansa outperformed on margins in 2024. Gulf carriers expanding European connectivity.",
+      "impact": "Medium",
+      "probability": "High",
+      "mitigation": "Transavia LCC expansion; premium product focus on long-haul; loyalty program strength"
+    },
+    {
+      "category": "ESG",
+      "description": "SAF supply constraints may limit ability to meet 10% incorporation target by 2030. Carbon pricing costs increasing. Reputational risk if climate targets missed.",
+      "impact": "Low",
+      "probability": "Medium",
+      "mitigation": "10-year SAF supply agreement with TotalEnergies (1.5M tons); fleet renewal program on track"
+    }
+  ],
+  "esg": {
+    "environmental": "LOW",
+    "social": "MEDIUM",
+    "governance": "LOW",
+    "overall": "LOW-MEDIUM",
+    "environmental_details": "Strong commitment: 30% CO2 reduction per passenger/km by 2030 vs 2019; 10% SAF target; 80% new-generation fleet by 2030; 928 gCO2eq/RTK (down 3% vs 2019). 10-year SAF agreement with TotalEnergies for 1.5M tons.",
+    "social_details": "Labor relations remain challenging with strikes in 2024-2025. KLM 'Back on Track' includes 250 non-operational job cuts. Safety record strong. Customer satisfaction impacted by operational disruptions.",
+    "governance_details": "Experienced leadership team with Ben Smith (7 years CEO). Stable board with strong airline industry expertise. Transparent ESG reporting. Dual-listed structure (Paris/Amsterdam) adds complexity.",
+    "controversies": [
+      "2024-2025: Ground crew strikes at Schiphol causing €30M+ losses",
+      "2024: French ATC strikes disrupted CDG operations multiple times",
+      "Ongoing: KLM operational restructuring with job reductions"
+    ],
+    "esg_rating": "B+ (improving trajectory)"
+  },
+  "financial_history": {
+    "years": ["2022", "2023", "2024"],
+    "revenue": ["23.0", "30.0", "31.5"],
+    "ebitda": ["2.7", "4.2", "4.2"],
+    "net_debt": ["6.1", "5.0", "7.3"],
+    "unit": "€B"
+  },
+  "peer_comparison": {
+    "metrics": ["Revenue (€B)", "Op Margin (%)", "Net Debt/EBITDA", "Load Factor (%)"],
+    "air_france_klm": [31.5, 5.1, 1.7, 87.8],
+    "lufthansa": [35.4, 4.5, 1.4, 82.5],
+    "iag": [32.2, 13.7, 1.2, 87.0],
+    "ryanair": [15.4, 16.0, 0.0, 93.0]
+  },
+  "sources": [
+    "Air France-KLM FY 2024 Results (March 6, 2025)",
+    "Air France-KLM Consolidated Financial Statements 2024",
+    "Company Fleet Information (Dec 31, 2024)",
+    "Lufthansa Group Annual Report 2024",
+    "IAG Full Year Results 2024",
+    "Reuters, Bloomberg, Aerotime.aero industry analysis"
+  ]
+}

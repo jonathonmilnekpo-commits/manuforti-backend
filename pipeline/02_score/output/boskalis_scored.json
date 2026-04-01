@@ -1,0 +1,59 @@
+{
+  "supplier": "Boskalis",
+  "scored_at": "2026-03-02T12:07:48.381024",
+  "model": "kimi-k2.5",
+  "scored_data": {
+    "financial": {
+      "reliability": 8,
+      "facts": [
+        "Revenue 2024: $2.4B verified from annual report",
+        "EBITDA margin: 12.3% (Q3 confirmed)",
+        "Debt/EBITDA: 2.1x (acceptable leverage)"
+      ],
+      "exclude": [
+        "Unverified Q4 preliminary estimates"
+      ]
+    },
+    "operational": {
+      "reliability": 9,
+      "facts": [
+        "CEO Peter Berdowski tenure: 14 years (high stability)",
+        "CFO Koos Tichelaar: 2 years (recent appointment)",
+        "Rotterdam facility expansion: Q2 2026 (confirmed)"
+      ],
+      "exclude": []
+    },
+    "risk_factors": {
+      "reliability": 7,
+      "facts": [
+        "Both ENDS lawsuit: Social/license-to-operate risk (ongoing)",
+        "Offshore wind pivot: Strategic opportunity + execution risk",
+        "Fleet expansion: 3 new vessels (capacity increase)"
+      ],
+      "exclude": [
+        "Rumored Middle East issues (no sources)"
+      ]
+    },
+    "esg": {
+      "reliability": 6,
+      "facts": [
+        "Both ENDS legal action: Social pillar concern",
+        "Renewables pivot: Positive environmental signal",
+        "No recent ISO 14001 audit data found"
+      ],
+      "exclude": []
+    }
+  },
+  "overall_quality_score": 7.5,
+  "recommendation": "PROCEED",
+  "gaps": [
+    "Missing detailed order book breakdown",
+    "No recent ESG audit certification data",
+    "Limited competitor benchmarking data"
+  ],
+  "kimi_metadata": {
+    "input_tokens": 2500,
+    "output_tokens": 800,
+    "cost_usd": 0.004
+  }
+}

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="30">
+<title>Manu Forti Intelligence — Product Roadmap Calendar (LIVE)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0f1923; color: #e0e6ed; min-height: 100vh; }
+
+  .header {
+    background: linear-gradient(135deg, #002147 0%, #1a3a5c 100%);
+    padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 2px solid #2B6CB0;
+  }
+  .header h1 { font-size: 20px; font-weight: 700; color: #fff; }
+  .header h1 span { color: #2B6CB0; }
+  .header-right { display: flex; align-items: center; gap: 20px; }
+  .today-badge {
+    background: rgba(72,187,120,0.15); color: #48BB78; padding: 6px 14px;
+    border-radius: 20px; font-size: 12px; font-weight: 600;
+  }
+  .revenue-target {
+    color: #D69E2E; font-size: 13px; font-weight: 600;
+  }
+  .last-update { font-size: 10px; color: #718096; margin-top: 4px; text-align: right; }
+  .live-indicator {
+    position: fixed; top: 10px; right: 10px; z-index: 1000;
+    background: #48BB78; color: white; padding: 4px 12px;
+    border-radius: 12px; font-size: 11px; font-weight: 600;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .live-indicator::before {
+    content: ''; width: 8px; height: 8px; background: white;
+    border-radius: 50%; animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .container { max-width: 1500px; margin: 0 auto; padding: 30px 20px; }
+
+  /* Milestone header bars */
+  .milestone-bar {
+    display: flex; align-items: center; gap: 12px; margin: 30px 0 16px;
+    padding: 12px 20px; border-radius: 10px; border-left: 4px solid;
+  }
+  .milestone-bar .ms-icon { font-size: 24px; }
+  .milestone-bar .ms-title { font-size: 18px; font-weight: 700; color: #fff; }
+  .milestone-bar .ms-dates { font-size: 12px; color: #8899aa; margin-left: auto; }
+  .milestone-bar .ms-goal { font-size: 12px; color: #a0aec0; }
+
+  .ms-revenue { background: rgba(72,187,120,0.08); border-color: #48BB78; }
+  .ms-platform { background: rgba(43,108,176,0.08); border-color: #2B6CB0; }
+  .ms-diff { background: rgba(159,122,234,0.08); border-color: #9F7AEA; }
+  .ms-frontier { background: rgba(229,62,62,0.08); border-color: #E53E3E; }
+
+  /* Timeline grid */
+  .timeline {
+    position: relative; overflow-x: auto; padding-bottom: 20px;
+  }
+
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: 200px repeat(10, 1fr);
+    min-width: 1200px;
+    gap: 0;
+  }
+
+  /* Month headers */
+  .month-header {
+    padding: 10px 8px; text-align: center; font-size: 13px; font-weight: 600;
+    color: #2B6CB0; border-bottom: 2px solid #1e293b;
+    background: rgba(43,108,176,0.05);
+  }
+  .month-header.current { color: #48BB78; border-bottom-color: #48BB78; }
+  .phase-label-header {
+    padding: 10px 8px; font-size: 11px; font-weight: 600; color: #4a5568;
+    border-bottom: 2px solid #1e293b; text-transform: uppercase; letter-spacing: 1px;
+  }
+
+  /* Phase rows */
+  .phase-row {
+    display: contents;
+  }
+
+  .phase-name {
+    padding: 14px 12px; border-bottom: 1px solid #1a2332;
+    display: flex; flex-direction: column; gap: 4px; min-height: 70px;
+  }
+  .phase-name .pn-title { font-size: 13px; font-weight: 600; color: #fff; }
+  .phase-name .pn-product { font-size: 11px; color: #2B6CB0; }
+  .phase-name .pn-revenue { font-size: 10px; color: #48BB78; }
+
+  .phase-cell {
+    padding: 6px 4px; border-bottom: 1px solid #1a2332;
+    position: relative; min-height: 70px;
+  }
+
+  /* Gantt bars */
+  .gantt-bar {
+    height: 32px; border-radius: 6px; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 600; color: #fff;
+    cursor: pointer; transition: all 0.2s;
+    margin-top: 14px;
+  }
+  .gantt-bar:hover { transform: scaleY(1.15); filter: brightness(1.2); }
+
+  .bar-done { background: linear-gradient(135deg, #48BB78, #38a169); }
+  .bar-active { background: linear-gradient(135deg, #2B6CB0, #3182ce); animation: bar-pulse 2s infinite; }
+  .bar-upcoming { background: linear-gradient(135deg, #4a5568, #718096); }
+  .bar-milestone { background: linear-gradient(135deg, #D69E2E, #ecc94b); }
+
+  @keyframes bar-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(43,108,176,0.3); }
+    50% { box-shadow: 0 0 0 4px rgba(43,108,176,0); }
+  }
+
+  /* Week markers inside cells */
+  .week-markers {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    display: flex; pointer-events: none;
+  }
+  .week-marker {
+    flex: 1; border-right: 1px solid rgba(30,41,59,0.5);
+  }
+  .week-marker:last-child { border-right: none; }
+
+  /* Today line */
+  .today-line {
+    position: absolute; top: 0; bottom: 0; width: 2px;
+    background: #48BB78; z-index: 10; opacity: 0.6;
+  }
+  .today-line::before {
+    content: 'TODAY'; position: absolute; top: -18px; left: -18px;
+    font-size: 8px; font-weight: 700; color: #48BB78;
+    letter-spacing: 1px;
+  }
+
+  /* Key dates section */
+  .key-dates {
+    margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .key-date-card {
+    background: #151f2e; border: 1px solid #1e293b; border-radius: 10px;
+    padding: 14px 18px; display: flex; gap: 14px; align-items: center;
+    transition: border-color 0.2s;
+  }
+  .key-date-card:hover { border-color: #2B6CB0; }
+  .kd-date {
+    background: #002147; border-radius: 8px; padding: 8px 12px; text-align: center;
+    min-width: 60px;
+  }
+  .kd-month { font-size: 10px; color: #2B6CB0; font-weight: 600; text-transform: uppercase; }
+  .kd-day { font-size: 22px; font-weight: 700; color: #fff; }
+  .kd-info .kd-title { font-size: 13px; font-weight: 600; color: #fff; }
+  .kd-info .kd-desc { font-size: 11px; color: #718096; margin-top: 2px; }
+  .kd-info .kd-type { font-size: 9px; padding: 2px 8px; border-radius: 8px; font-weight: 600; display: inline-block; margin-top: 4px; }
+  .type-personal { background: rgba(72,187,120,0.15); color: #48BB78; }
+  .type-business { background: rgba(43,108,176,0.15); color: #2B6CB0; }
+  .type-milestone { background: rgba(214,158,46,0.15); color: #D69E2E; }
+
+  /* Revenue chart */
+  .revenue-section { margin-top: 30px; }
+  .revenue-title {
+    font-size: 14px; font-weight: 600; color: #718096; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .revenue-chart {
+    background: #151f2e; border: 1px solid #1e293b; border-radius: 12px;
+    padding: 20px 24px; display: flex; align-items: flex-end; gap: 12px;
+    height: 220px;
+  }
+  .rev-bar-group {
+    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  .rev-bar {
+    width: 100%; max-width: 60px; border-radius: 6px 6px 0 0;
+    transition: height 0.5s ease; position: relative;
+  }
+  .rev-bar .rev-value {
+    position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+    font-size: 11px; font-weight: 600; color: #fff; white-space: nowrap;
+  }
+  .rev-label { font-size: 11px; color: #718096; font-weight: 500; }
+
+  /* Summary stats */
+  .summary-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px;
+  }
+  .stat-card {
+    background: #151f2e; border: 1px solid #1e293b; border-radius: 10px;
+    padding: 16px 20px; text-align: center;
+  }
+  .stat-number { font-size: 28px; font-weight: 700; }
+  .stat-label { font-size: 11px; color: #718096; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>MANU FORTI <span>INTELLIGENCE</span> — Product Roadmap</h1>
+  </div>
+  <div class="header-right">
+    <div class="today-badge">📅 March 2026</div>
+    <div class="revenue-target">Target: €50K/mo by Q1 2027</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Summary stats -->
+  <div class="summary-stats">
+    <div class="stat-card">
+      <div class="stat-number" style="color:#48BB78">1/8</div>
+      <div class="stat-label">Products Live</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" style="color:#2B6CB0">12</div>
+      <div class="stat-label">Phases Planned</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" style="color:#D69E2E">25</div>
+      <div class="stat-label">Tasks Mapped</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" style="color:#9F7AEA">10mo</div>
+      <div class="stat-label">To Full Platform</div>
+    </div>
+  </div>
+
+  <!-- GANTT TIMELINE -->
+  <div class="timeline">
+    <div class="timeline-grid">
+      <!-- Month headers -->
+      <div class="phase-label-header">Phase</div>
+      <div class="month-header current">Mar 2026</div>
+      <div class="month-header">Apr</div>
+      <div class="month-header">May</div>
+      <div class="month-header">Jun</div>
+      <div class="month-header">Jul</div>
+      <div class="month-header">Aug</div>
+      <div class="month-header">Sep</div>
+      <div class="month-header">Oct</div>
+      <div class="month-header">Nov</div>
+      <div class="month-header">Dec</div>
+
+      <!-- MS1: Revenue -->
+      <!-- Phase 1 -->
+      <div class="phase-name">
+        <div class="pn-title">Phase 1: Product 1</div>
+        <div class="pn-product">Supplier Evaluation</div>
+        <div class="pn-revenue">€99–149/report</div>
+      </div>
+      <div class="phase-cell"><div class="gantt-bar bar-done" style="width:80%">✅ COMPLETE</div></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+
+      <!-- Phase 2 -->
+      <div class="phase-name">
+        <div class="pn-title">Phase 2: Go-to-Market</div>
+        <div class="pn-product">Landing page, demos, sales</div>
+        <div class="pn-revenue">First 5 customers</div>
+      </div>
+      <div class="phase-cell"><div class="gantt-bar bar-active" style="width:50%;margin-left:50%">NOW</div></div>
+      <div class="phase-cell"><div class="gantt-bar bar-active" style="width:60%">🎯</div></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+
+      <!-- Phase 3 -->
+      <div class="phase-name">
+        <div class="pn-title">Phase 3: Product 2</div>
+        <div class="pn-product">Supplier Risk Monitor</div>
+        <div class="pn-revenue">€29/mo per supplier</div>
+      </div>
+      <div class="phase-cell"></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:90%;margin-left:10%">Build</div></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:40%">Launch</div></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div>
+
+      <!-- Phase 4 -->
+      <div class="phase-name">
+        <div class="pn-title">Phase 4: Product 3</div>
+        <div class="pn-product">Price Benchmarking</div>
+        <div class="pn-revenue">€49/mo per category</div>
+      </div>
+      <div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:90%;margin-left:10%">Build</div></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:30%">Launch</div></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div>
+
+      <!-- MS2: Platform -->
+      <!-- Phase 5 -->
+      <div class="phase-name">
+        <div class="pn-title">Phase 5: Product 4</div>
+        <div class="pn-product">RFQ/RFP Scorer</div>
+        <div class="pn-revenue">€99/analysis</div>
+      </div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:95%">Build</div></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:30%">🚀</div></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div>
+
+      <!-- Phase 6 -->
+      <div class="phase-name">
+        <div class="pn-title">Phase 6: Product 5</div>
+        <div class="pn-product">Spend Analysis</div>
+        <div class="pn-revenue">€199/analysis</div>
+      </div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:95%">Build</div></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:30%">🚀</div></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div>
+
+      <!-- Phase 7 -->
+      <div class="phase-name">
+        <div class="pn-title">Phase 7: Platform Bundle</div>
+        <div class="pn-product">Subscription Launch</div>
+        <div class="pn-revenue">€499–1,999/mo</div>
+      </div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"><div class="gantt-bar bar-milestone" style="width:95%">⭐ BUNDLE</div></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div>
+
+      <!-- MS3: Differentiation -->
+      <!-- Phase 8 -->
+      <div class="phase-name">
+        <div class="pn-title">Phase 8: Product 6</div>
+        <div class="pn-product">Should-Cost Model</div>
+        <div class="pn-revenue">€149/model</div>
+      </div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:95%">Build</div></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:20%">🚀</div></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div>
+
+      <!-- Phase 9 -->
+      <div class="phase-name">
+        <div class="pn-title">Phase 9: Product 7</div>
+        <div class="pn-product">Negotiation Briefs</div>
+        <div class="pn-revenue">€99/brief</div>
+      </div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:95%">Build</div></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:20%">🚀</div></div>
+      <div class="phase-cell"></div>
+
+      <!-- Phase 10 -->
+      <div class="phase-name">
+        <div class="pn-title">Phase 10: Product 8</div>
+        <div class="pn-product">Compliance Monitor</div>
+        <div class="pn-revenue">€299/mo</div>
+      </div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:95%">Build</div></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:20%">🚀</div></div>
+
+      <!-- Phase 11-12 -->
+      <div class="phase-name">
+        <div class="pn-title">Phase 11–12: Frontier</div>
+        <div class="pn-product">Auto PO + Predictive</div>
+        <div class="pn-revenue">Enterprise only</div>
+      </div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"></div><div class="phase-cell"></div><div class="phase-cell"></div>
+      <div class="phase-cell"><div class="gantt-bar bar-upcoming" style="width:95%">Q1 2027 →</div></div>
+    </div>
+  </div>
+
+  <!-- Revenue Projection -->
+  <div class="revenue-section">
+    <div class="revenue-title">💰 Monthly Revenue Projection</div>
+    <div class="revenue-chart">
+      <div class="rev-bar-group">
+        <div class="rev-bar" style="height:5%;background:linear-gradient(#48BB78,#38a169)"><div class="rev-value">€0</div></div>
+        <div class="rev-label">Mar</div>
+      </div>
+      <div class="rev-bar-group">
+        <div class="rev-bar" style="height:8%;background:linear-gradient(#48BB78,#38a169)"><div class="rev-value">€1K</div></div>
+        <div class="rev-label">Apr</div>
+      </div>
+      <div class="rev-bar-group">
+        <div class="rev-bar" style="height:15%;background:linear-gradient(#48BB78,#38a169)"><div class="rev-value">€3.5K</div></div>
+        <div class="rev-label">May</div>
+      </div>
+      <div class="rev-bar-group">
+        <div class="rev-bar" style="height:22%;background:linear-gradient(#2B6CB0,#3182ce)"><div class="rev-value">€6K</div></div>
+        <div class="rev-label">Jun</div>
+      </div>
+      <div class="rev-bar-group">
+        <div class="rev-bar" style="height:30%;background:linear-gradient(#2B6CB0,#3182ce)"><div class="rev-value">€8K</div></div>
+        <div class="rev-label">Jul</div>
+      </div>
+      <div class="rev-bar-group">
+        <div class="rev-bar" style="height:42%;background:linear-gradient(#D69E2E,#ecc94b)"><div class="rev-value">€12K</div></div>
+        <div class="rev-label">Aug</div>
+      </div>
+      <div class="rev-bar-group">
+        <div class="rev-bar" style="height:55%;background:linear-gradient(#9F7AEA,#805ad5)"><div class="rev-value">€18K</div></div>
+        <div class="rev-label">Sep</div>
+      </div>
+      <div class="rev-bar-group">
+        <div class="rev-bar" style="height:65%;background:linear-gradient(#9F7AEA,#805ad5)"><div class="rev-value">€25K</div></div>
+        <div class="rev-label">Oct</div>
+      </div>
+      <div class="rev-bar-group">
+        <div class="rev-bar" style="height:78%;background:linear-gradient(#9F7AEA,#805ad5)"><div class="rev-value">€35K</div></div>
+        <div class="rev-label">Nov</div>
+      </div>
+      <div class="rev-bar-group">
+        <div class="rev-bar" style="height:100%;background:linear-gradient(#E53E3E,#fc8181)"><div class="rev-value">€50K</div></div>
+        <div class="rev-label">Dec+</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Dates -->
+  <div style="margin-top:30px;">
+    <div class="revenue-title">📌 Key Dates</div>
+    <div class="key-dates">
+      <div class="key-date-card">
+        <div class="kd-date"><div class="kd-month">Mar</div><div class="kd-day">15</div></div>
+        <div class="kd-info">
+          <div class="kd-title">Landing Page Live</div>
+          <div class="kd-desc">manuforti.no — Product 1 showcase</div>
+          <div class="kd-type type-business">Business</div>
+        </div>
+      </div>
+      <div class="key-date-card">
+        <div class="kd-date"><div class="kd-month">Apr</div><div class="kd-day">1</div></div>
+        <div class="kd-info">
+          <div class="kd-title">First Paying Customer 🎯</div>
+          <div class="kd-desc">Product 1 — €99 or €149 report sold</div>
+          <div class="kd-type type-milestone">Milestone</div>
+        </div>
+      </div>
+      <div class="key-date-card">
+        <div class="kd-date"><div class="kd-month">May</div><div class="kd-day">19</div></div>
+        <div class="kd-info">
+          <div class="kd-title">Ragnhild's Birthday 🎂</div>
+          <div class="kd-desc">Plan something special — she'll be very pregnant</div>
+          <div class="kd-type type-personal">Personal</div>
+        </div>
+      </div>
+      <div class="key-date-card">
+        <div class="kd-date"><div class="kd-month">Jun</div><div class="kd-day">1</div></div>
+        <div class="kd-info">
+          <div class="kd-title">Gordon Due Date 👶</div>
+          <div class="kd-desc">Baby #2 — expect reduced capacity Jun/Jul</div>
+          <div class="kd-type type-personal">Personal</div>
+        </div>
+      </div>
+      <div class="key-date-card">
+        <div class="kd-date"><div class="kd-month">Aug</div><div class="kd-day">1</div></div>
+        <div class="kd-info">
+          <div class="kd-title">Platform Bundle Launch ⭐</div>
+          <div class="kd-desc">Products 1–5 bundled — subscription model</div>
+          <div class="kd-type type-milestone">Milestone</div>
+        </div>
+      </div>
+      <div class="key-date-card">
+        <div class="kd-date"><div class="kd-month">Oct</div><div class="kd-day">15</div></div>
+        <div class="kd-info">
+          <div class="kd-title">Ingrid's Birthday 🎂</div>
+          <div class="kd-desc">Turns 2 years old!</div>
+          <div class="kd-type type-personal">Personal</div>
+        </div>
+      </div>
+      <div class="key-date-card">
+        <div class="kd-date"><div class="kd-month">Dec</div><div class="kd-day">31</div></div>
+        <div class="kd-info">
+          <div class="kd-title">€50K MRR Target 🚀</div>
+          <div class="kd-desc">Full platform + Enterprise tier live</div>
+          <div class="kd-type type-milestone">Milestone</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:40px;"></div>
+</div>
+
+<div class="live-indicator">LIVE UPDATES</div>
+
+<script>
+  // Load data from JSON
+  async function loadRoadmapData() {
+    try {
+      const response = await fetch('roadmap-data.json?t=' + Date.now());
+      const data = await response.json();
+      
+      document.getElementById('lastUpdate').textContent = 'Last updated: ' + new Date(data.lastUpdated).toLocaleString();
+      document.getElementById('currentMonth').textContent = '📅 ' + data.currentMonth;
+      document.getElementById('revenueTarget').textContent = 'Target: ' + data.target;
+      
+      // Update stats
+      document.querySelector('.stat-value').textContent = data.stats.productsLive + '/' + (data.stats.productsLive + data.stats.phasesPlanned - 1);
+      
+      // Could dynamically update phases, revenue bars, and key dates here
+      // For now, the page auto-refreshes every 30 seconds via meta tag
+    } catch (e) {
+      console.error('Failed to load roadmap data:', e);
+    }
+  }
+  
+  // Load initially and every 10 seconds
+  loadRoadmapData();
+  setInterval(loadRoadmapData, 10000);
+</script>
+
+</body>
+</html>

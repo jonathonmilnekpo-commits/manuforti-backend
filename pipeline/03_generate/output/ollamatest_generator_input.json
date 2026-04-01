@@ -1,0 +1,77 @@
+{
+  "supplier": "OllamaTest",
+  "sector": "[MOCK] Limited operational data",
+  "stats": "Revenue data extracted from sources",
+  "financials": {
+    "revenue_2024": "N/A",
+    "revenue_yoy": "N/A",
+    "ebitda": "N/A",
+    "ebitda_margin": "N/A",
+    "net_profit": "N/A",
+    "cagr_3yr": "N/A",
+    "order_book": "N/A",
+    "gross_debt": "N/A",
+    "net_cash": "N/A",
+    "debt_ebitda": "N/A",
+    "trend": "Stable"
+  },
+  "executive_summary": {
+    "overall_risk": "MEDIUM",
+    "risk_score": 50,
+    "key_insight": "[MOCK] Limited data available for OllamaTest",
+    "risk_factors": [
+      "API unavailable - using mock generation"
+    ]
+  },
+  "recommendation": {
+    "verdict": "FLAG_FOR_REVIEW",
+    "conditions": [
+      "Re-run with live API"
+    ],
+    "risk_summary": {
+      "financial": "UNKNOWN",
+      "operational": "UNKNOWN",
+      "geopolitical": "UNKNOWN",
+      "esg": "UNKNOWN"
+    }
+  },
+  "profile": {
+    "description": "OllamaTest is a supplier analyzed through automated intelligence pipeline.",
+    "leadership": [
+      {
+        "name": "See raw extraction",
+        "role": "TBD",
+        "tenure": "N/A"
+      }
+    ],
+    "headquarters": "TBD",
+    "employees": "TBD"
+  },
+  "market_position": {
+    "rank": 3,
+    "competitors": [
+      {
+        "name": "Competitor A",
+        "revenue": "N/A"
+      },
+      {
+        "name": "Competitor B",
+        "revenue": "N/A"
+      }
+    ],
+    "advantages": [
+      "See detailed report"
+    ]
+  },
+  "risks": [
+    {
+      "category": "General",
+      "description": "See risk assessment",
+      "impact": "Medium",
+      "probability": "Low"
+    }
+  ],
+  "esg": {
+    "overall": "UNKNOWN"
+  }
+}

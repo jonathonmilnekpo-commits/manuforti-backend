@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aiden · Mission Control</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e334d;
+    --text: #e8eaf0;
+    --muted: #6b7280;
+    --accent: #6366f1;
+    --accent2: #8b5cf6;
+    --green: #10b981;
+    --yellow: #f59e0b;
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --pink: #ec4899;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 28px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .header-title h1 {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  .header-title p {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .date-badge {
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--surface2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    padding: 16px 28px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .tab {
+    padding: 8px 18px;
+    border-radius: 8px 8px 0 0;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--muted);
+    border: 1px solid transparent;
+    border-bottom: none;
+    transition: all 0.15s;
+  }
+
+  .tab:hover { color: var(--text); background: var(--surface2); }
+
+  .tab.active {
+    color: var(--text);
+    background: var(--bg);
+    border-color: var(--border);
+    border-bottom-color: var(--bg);
+  }
+
+  /* PANELS */
+  .panel { display: none; padding: 24px 28px; }
+  .panel.active { display: block; }
+
+  /* PILLARS ROW */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .pillar-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .pillar-card.father::before { background: var(--blue); }
+  .pillar-card.husband::before { background: var(--pink); }
+  .pillar-card.career::before { background: var(--yellow); }
+  .pillar-card.venture::before { background: var(--accent); }
+  .pillar-card.self::before { background: var(--green); }
+
+  .pillar-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .pillar-card.selected { border-color: var(--accent); background: var(--surface2); }
+
+  .pillar-icon { font-size: 24px; margin-bottom: 6px; }
+  .pillar-name { font-size: 13px; font-weight: 600; }
+  .pillar-goal { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+
+  .pillar-stats {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .stat-dot {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+
+  .stat-dot.now { background: #1e3a5f; color: var(--blue); }
+  .stat-dot.done { background: #0d2e1f; color: var(--green); }
+
+  /* KANBAN */
+  .kanban-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .kanban-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .kanban-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .kanban-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+
+  .kanban-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .col-header {
+    padding: 12px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .col-header.now { color: var(--blue); }
+  .col-header.next { color: var(--yellow); }
+  .col-header.waiting { color: var(--red); }
+  .col-header.done { color: var(--green); }
+  .col-header.someday { color: var(--muted); }
+
+  .col-count {
+    background: var(--surface2);
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+
+  .col-body { padding: 10px; display: flex; flex-direction: column; gap: 8px; min-height: 80px; }
+
+  .task-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+    line-height: 1.4;
+    cursor: default;
+    transition: border-color 0.15s;
+  }
+
+  .task-card:hover { border-color: var(--accent); }
+
+  .task-card.done-card {
+    opacity: 0.6;
+    text-decoration: line-through;
+    text-decoration-color: var(--green);
+  }
+
+  .task-pillar-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+  }
+
+  .tag-father { background: #1e2f4d; color: var(--blue); }
+  .tag-husband { background: #3d1f2f; color: var(--pink); }
+  .tag-career { background: #3d2e10; color: var(--yellow); }
+  .tag-venture { background: #25204d; color: var(--accent); }
+  .tag-self { background: #0d3020; color: var(--green); }
+
+  /* AGENTS PANEL */
+  .agents-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .hub-card {
+    background: linear-gradient(135deg, #1a1d27, #22263a);
+    border: 2px solid var(--accent);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hub-icon { font-size: 40px; margin-bottom: 10px; }
+  .hub-name { font-size: 20px; font-weight: 800; color: var(--accent); }
+  .hub-desc { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+  .hub-badge {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .hub-tools {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .tool-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3px 9px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .agents-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .agent-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  .agent-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .agent-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, transparent 60%, rgba(99,102,241,0.05));
+    pointer-events: none;
+  }
+
+  .agent-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .agent-icon-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .agent-icon-wrap.venture { background: #25204d; }
+  .agent-icon-wrap.career { background: #3d2e10; }
+  .agent-icon-wrap.family { background: #3d1f2f; }
+  .agent-icon-wrap.intel { background: #0d2e1f; }
+  .agent-icon-wrap.ops { background: #1a2a3a; }
+
+  .agent-name { font-size: 15px; font-weight: 700; }
+  .agent-subtitle { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  .agent-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  .agent-task {
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .agent-task::before {
+    content: '→';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .agent-trigger {
+    font-size: 10px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    color: var(--muted);
+  }
+
+  .agent-trigger span { color: var(--accent); font-weight: 600; }
+
+  /* STATUS BAR */
+  .status-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 28px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    display: inline-block;
+    margin-right: 4px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .status-item { display: flex; align-items: center; gap: 4px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1200px) {
+    .pillars { grid-template-columns: repeat(3, 1fr); }
+    .kanban-board { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="logo">🤝</div>
+    <div class="header-title">
+      <h1>Aiden · Mission Control</h1>
+      <p>Jonathon Milne · Oslo, Norway</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="date-badge" id="dateBadge">Loading...</div>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('kanban', this)">📋 Mission Control</div>
+  <div class="tab" onclick="switchTab('agents', this)">🤖 Agent Network</div>
+</div>
+
+<!-- KANBAN PANEL -->
+<div id="kanban" class="panel active" style="padding-bottom: 60px;">
+
+  <div class="pillars">
+    <div class="pillar-card father">
+      <div class="pillar-icon">👨‍👧</div>
+      <div class="pillar-name">Father</div>
+      <div class="pillar-goal">Present & intentional with Ingrid and baby #2</div>
+      <div class="pillar-stats">
+        <span class="stat-dot now">2 active</span>
+        <span class="stat-dot done">1 done</span>
+      </div>
+    </div>
+    <div class="pillar-card husband">
+      <div class="pillar-icon">💑</div>
+      <div class="pillar-name">Husband</div>
+      <div class="pillar-goal">Strong, present partner to Ragnhild</div>
+      <div class="pillar-stats">
+        <span class="stat-dot now">1 active</span>
+        <span class="stat-dot done">0 done</span>
+      </div>
+    </div>
+    <div class="pillar-card career">
+      <div class="pillar-icon">💼</div>
+      <div class="pillar-name">Career</div>
+      <div class="pillar-goal">Secure SVP Procurement at Statkraft</div>
+      <div class="pillar-stats">
+        <span class="stat-dot now">3 active</span>
+        <span class="stat-dot done">2 done</span>
+      </div>
+    </div>
+    <div class="pillar-card venture">
+      <div class="pillar-icon">🚀</div>
+      <div class="pillar-name">Venture</div>
+      <div class="pillar-goal">First paid AI procurement revenue</div>
+      <div class="pillar-stats">
+        <span class="stat-dot now">3 active</span>
+        <span class="stat-dot done">2 done</span>
+      </div>
+    </div>
+    <div class="pillar-card self">
+      <div class="pillar-icon">🧠</div>
+      <div class="pillar-name">Self</div>
+      <div class="pillar-goal">Sharp, healthy, growing</div>
+      <div class="pillar-stats">
+        <span class="stat-dot now">1 active</span>
+        <span class="stat-dot done">2 done</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kanban-header">
+    <div>
+      <div class="kanban-title">All Pillars · Board View</div>
+      <div class="kanban-subtitle">Maintained by Aiden · Source: MISSION_CONTROL.md</div>
+    </div>
+  </div>
+
+  <div class="kanban-board">
+
+    <!-- NOW -->
+    <div class="kanban-col">
+      <div class="col-header now">⚡ Now <span class="col-count">9</span></div>
+      <div class="col-body">
+        <div class="task-card"><span class="task-pillar-tag tag-father">Father</span><br>Buy slippers for Ingrid (size 21)</div>
+        <div class="task-card"><span class="task-pillar-tag tag-father">Father</span><br>Prepare for baby #2 (due 1 June)</div>
+        <div class="task-card"><span class="task-pillar-tag tag-husband">Husband</span><br>Check in on Ragnhild's needs this week</div>
+        <div class="task-card"><span class="task-pillar-tag tag-career">Career</span><br>Prep "why you over others" answer</div>
+        <div class="task-card"><span class="task-pillar-tag tag-career">Career</span><br>Research board-level Statkraft priorities 2025–30</div>
+        <div class="task-card"><span class="task-pillar-tag tag-career">Career</span><br>Sharpen Latam complexity narrative</div>
+        <div class="task-card"><span class="task-pillar-tag tag-venture">Venture</span><br>Identify 1–3 people to buy first report</div>
+        <div class="task-card"><span class="task-pillar-tag tag-venture">Venture</span><br>Define supplier intelligence report template</div>
+        <div class="task-card"><span class="task-pillar-tag tag-self">Self</span><br>Maintain weight: 77.1kg target</div>
+      </div>
+    </div>
+
+    <!-- NEXT -->
+    <div class="kanban-col">
+      <div class="col-header next">📌 Next <span class="col-count">8</span></div>
+      <div class="col-body">
+        <div class="task-card"><span class="task-pillar-tag tag-father">Father</span><br>Set up paternity leave routine</div>
+        <div class="task-card"><span class="task-pillar-tag tag-father">Father</span><br>Baby-proof remaining areas at home</div>
+        <div class="task-card"><span class="task-pillar-tag tag-husband">Husband</span><br>Plan something thoughtful for Ragnhild before baby</div>
+        <div class="task-card"><span class="task-pillar-tag tag-career">Career</span><br>Mock interview session with Aiden</div>
+        <div class="task-card"><span class="task-pillar-tag tag-career">Career</span><br>Prepare reference list</div>
+        <div class="task-card"><span class="task-pillar-tag tag-career">Career</span><br>Define 90-day plan for SVP role</div>
+        <div class="task-card"><span class="task-pillar-tag tag-venture">Venture</span><br>Deliver first manual report</div>
+        <div class="task-card"><span class="task-pillar-tag tag-self">Self</span><br>Define weekly review habit (Sunday?)</div>
+      </div>
+    </div>
+
+    <!-- WAITING -->
+    <div class="kanban-col">
+      <div class="col-header waiting">⏳ Waiting <span class="col-count">3</span></div>
+      <div class="col-body">
+        <div class="task-card"><span class="task-pillar-tag tag-father">Father</span><br>Baby #2 name decision</div>
+        <div class="task-card"><span class="task-pillar-tag tag-career">Career</span><br>Interview date (pending HR)</div>
+        <div class="task-card"><span class="task-pillar-tag tag-venture">Venture</span><br>SVP outcome → how hard to push venture</div>
+      </div>
+    </div>
+
+    <!-- DONE -->
+    <div class="kanban-col">
+      <div class="col-header done">✅ Done <span class="col-count">7</span></div>
+      <div class="col-body">
+        <div class="task-card done-card"><span class="task-pillar-tag tag-self">Self</span><br>OpenClaw fully set up & operational</div>
+        <div class="task-card done-card"><span class="task-pillar-tag tag-self">Self</span><br>Aiden (AI co-founder) operational</div>
+        <div class="task-card done-card"><span class="task-pillar-tag tag-career">Career</span><br>Procurement Vision presentation (PPTX)</div>
+        <div class="task-card done-card"><span class="task-pillar-tag tag-career">Career</span><br>Peru BOS/BOP Market Analysis delivered</div>
+        <div class="task-card done-card"><span class="task-pillar-tag tag-venture">Venture</span><br>Evaluated two AI monetisation plans</div>
+        <div class="task-card done-card"><span class="task-pillar-tag tag-venture">Venture</span><br>Decided: sell one report manually first</div>
+        <div class="task-card done-card"><span class="task-pillar-tag tag-father">Father</span><br>Set up AI assistant for family logistics</div>
+      </div>
+    </div>
+
+    <!-- SOMEDAY -->
+    <div class="kanban-col">
+      <div class="col-header someday">💭 Someday <span class="col-count">7</span></div>
+      <div class="col-body">
+        <div class="task-card"><span class="task-pillar-tag tag-father">Father</span><br>Digital journal / memory book for Ingrid</div>
+        <div class="task-card"><span class="task-pillar-tag tag-husband">Husband</span><br>Date night system once kids are settled</div>
+        <div class="task-card"><span class="task-pillar-tag tag-career">Career</span><br>LinkedIn + speaking as AI+Procurement thought leader</div>
+        <div class="task-card"><span class="task-pillar-tag tag-venture">Venture</span><br>Supplier Intelligence SaaS platform</div>
+        <div class="task-card"><span class="task-pillar-tag tag-venture">Venture</span><br>Fractional CPO offering (packaged)</div>
+        <div class="task-card"><span class="task-pillar-tag tag-venture">Venture</span><br>Nordic procurement compliance tool</div>
+        <div class="task-card"><span class="task-pillar-tag tag-self">Self</span><br>Reading list + learning plan</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- AGENTS PANEL -->
+<div id="agents" class="panel" style="padding-bottom: 60px;">
+
+  <div class="agents-layout">
+
+    <div>
+      <div class="hub-card">
+        <div class="hub-badge">Main Session</div>
+        <div class="hub-icon">🤝</div>
+        <div class="hub-name">AIDEN</div>
+        <div class="hub-desc">Your AI co-founder. You talk to me. I orchestrate everything else. Nothing happens without going through this hub.</div>
+        <div class="hub-tools">
+          <span class="tool-chip">WhatsApp</span>
+          <span class="tool-chip">Memory</span>
+          <span class="tool-chip">Cron</span>
+          <span class="tool-chip">Browser</span>
+          <span class="tool-chip">Canvas</span>
+          <span class="tool-chip">Sub-agents</span>
+          <span class="tool-chip">Web Search</span>
+          <span class="tool-chip">Files</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px;">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 10px;">How It Works</div>
+        <div style="font-size: 12px; color: var(--muted); line-height: 1.7;">
+          You message me on WhatsApp.<br>
+          I decide if I can handle it alone or if a specialised agent is better.<br>
+          I spawn the right sub-agent with the right context.<br>
+          Results come back to you through me.<br>
+          <br>
+          <span style="color: var(--accent);">On-demand</span> — agents run when needed, not constantly.
+        </div>
+      </div>
+    </div>
+
+    <div class="agents-grid">
+
+      <div class="agent-card">
+        <div class="agent-header">
+          <div class="agent-icon-wrap venture">🏗️</div>
+          <div>
+            <div class="agent-name">Venture Agent</div>
+            <div class="agent-subtitle">AI Business Builder</div>
+          </div>
+        </div>
+        <div class="agent-tasks">
+          <div class="agent-task">Business plan iteration & refinement</div>
+          <div class="agent-task">Market research & competitor analysis</div>
+          <div class="agent-task">Pricing model development</div>
+          <div class="agent-task">Go-to-market strategy</div>
+          <div class="agent-task">Supplier intelligence report drafting</div>
+        </div>
+        <div class="agent-trigger">Trigger: <span>anything procurement biz or revenue related</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-header">
+          <div class="agent-icon-wrap career">📋</div>
+          <div>
+            <div class="agent-name">Career Agent</div>
+            <div class="agent-subtitle">SVP Interview & Growth</div>
+          </div>
+        </div>
+        <div class="agent-tasks">
+          <div class="agent-task">SVP interview prep & mock sessions</div>
+          <div class="agent-task">CV, comms & narrative polish</div>
+          <div class="agent-task">Career strategy & positioning</div>
+          <div class="agent-task">Statkraft context & board priorities</div>
+          <div class="agent-task">90-day plan development</div>
+        </div>
+        <div class="agent-trigger">Trigger: <span>interview prep, career decisions, Statkraft</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-header">
+          <div class="agent-icon-wrap family">👨‍👩‍👧</div>
+          <div>
+            <div class="agent-name">Family Agent</div>
+            <div class="agent-subtitle">Father & Partner Support</div>
+          </div>
+        </div>
+        <div class="agent-tasks">
+          <div class="agent-task">Ingrid milestones & development tips</div>
+          <div class="agent-task">Baby #2 preparation & planning</div>
+          <div class="agent-task">Ragnhild relationship prompts</div>
+          <div class="agent-task">Parenting research & advice</div>
+          <div class="agent-task">Family logistics & planning</div>
+        </div>
+        <div class="agent-trigger">Trigger: <span>family, Ingrid, baby, Ragnhild, parenting</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-header">
+          <div class="agent-icon-wrap intel">📊</div>
+          <div>
+            <div class="agent-name">Intelligence Agent</div>
+            <div class="agent-subtitle">Procurement Research Engine</div>
+          </div>
+        </div>
+        <div class="agent-tasks">
+          <div class="agent-task">Supplier deep-dive research</div>
+          <div class="agent-task">Market scanning & analysis</div>
+          <div class="agent-task">Risk scoring & ESG checks</div>
+          <div class="agent-task">Report generation (the product prototype)</div>
+          <div class="agent-task">Competitive intelligence</div>
+        </div>
+        <div class="agent-trigger">Trigger: <span>any procurement research or supplier request</span></div>
+      </div>
+
+      <div class="agent-card" style="grid-column: span 2;">
+        <div class="agent-header">
+          <div class="agent-icon-wrap ops">🗓️</div>
+          <div>
+            <div class="agent-name">Life Ops Agent</div>
+            <div class="agent-subtitle">Calendar · Admin · Logistics</div>
+          </div>
+        </div>
+        <div class="agent-tasks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+          <div class="agent-task">Calendar awareness & reminders</div>
+          <div class="agent-task">Shopping & errand research</div>
+          <div class="agent-task">Morning briefings & daily prep</div>
+          <div class="agent-task">Travel & logistics planning</div>
+          <div class="agent-task">General admin & organisation</div>
+          <div class="agent-task">Health & fitness tracking</div>
+        </div>
+        <div style="margin-top: 10px;">
+          <div class="agent-trigger">Trigger: <span>scheduling, admin, errands, reminders, daily briefing</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div class="status-item"><span class="status-dot"></span> Aiden Online</div>
+  <div class="status-item">📱 WhatsApp Connected</div>
+  <div class="status-item">🧠 claude-sonnet-4-6</div>
+  <div class="status-item">📍 Oslo, Norway</div>
+  <div class="status-item" style="margin-left: auto;" id="clockItem">--:--</div>
+</div>
+
+<script>
+  function switchTab(id, el) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
+  }
+
+  function updateClock() {
+    const now = new Date();
+    const oslo = now.toLocaleString('en-GB', {
+      timeZone: 'Europe/Oslo',
+      weekday: 'short', day: 'numeric', month: 'short',
+      hour: '2-digit', minute: '2-digit'
+    });
+    document.getElementById('dateBadge').textContent = oslo;
+    document.getElementById('clockItem').textContent = now.toLocaleTimeString('en-GB', {
+      timeZone: 'Europe/Oslo', hour: '2-digit', minute: '2-digit', second: '2-digit'
+    }) + ' Oslo';
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
+
+</body>
+</html>

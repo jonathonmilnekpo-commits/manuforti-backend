@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Agent Office - Mission Control</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #0f1419 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+            overflow: hidden;
+        }
+        .app-container { display: flex; height: 100vh; }
+        .sidebar {
+            width: 64px;
+            background: rgba(15, 20, 30, 0.95);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 0;
+        }
+        .sidebar-header {
+            margin-bottom: 20px;
+            padding: 8px;
+            border-radius: 8px;
+            background: rgba(59, 130, 246, 0.2);
+            cursor: pointer;
+        }
+        .sidebar-header svg { width: 24px; height: 24px; color: #3b82f6; }
+        .nav-section { display: flex; flex-direction: column; gap: 4px; width: 100%; padding: 0 8px; }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 4px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #94a3b8;
+            font-size: 10px;
+            gap: 4px;
+            text-decoration: none;
+        }
+        .nav-item:hover { background: rgba(255, 255, 255, 0.05); color: #e2e8f0; }
+        .nav-item.active { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .nav-item svg { width: 20px; height: 20px; }
+        .main-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .header {
+            height: 56px;
+            background: rgba(15, 20, 30, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
+        .header-title { font-size: 18px; font-weight: 600; color: #f8fafc; margin-right: 16px; }
+        .header-status { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #64748b; }
+        .status-indicator { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .office-container { flex: 1; overflow: auto; padding: 24px; }
+        .office-floor {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-height: 700px;
+            padding: 40px;
+        }
+        .office-title { text-align: center; margin-bottom: 40px; font-size: 24px; font-weight: 600; color: #f8fafc; }
+        .office-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+        .work-area {
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .area-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .area-title::before { content: ''; width: 4px; height: 16px; background: #3b82f6; border-radius: 2px; }
+        .desks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .desk {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 12px;
+            padding: 16px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .desk.active { border-color: #22c55e; box-shadow: 0 0 20px rgba(34, 197, 94, 0.2); }
+        .desk.idle { border-color: rgba(255, 255, 255, 0.1); opacity: 0.7; }
+        .desk.error { border-color: #ef4444; box-shadow: 0 0 20px rgba(239, 68, 68, 0.2); }
+        .desk-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .agent-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .agent-avatar.working { animation: working 2s ease-in-out infinite; }
+        @keyframes working { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+        .agent-info { flex: 1; }
+        .agent-name { font-size: 14px; font-weight: 600; color: #f8fafc; }
+        .agent-role { font-size: 11px; color: #64748b; }
+        .status-badge { padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 500; }
+        .status-badge.working { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .status-badge.idle { background: rgba(100, 116, 139, 0.2); color: #64748b; }
+        .status-badge.error { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .desk-content { background: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 12px; min-height: 60px; }
+        .current-task { font-size: 12px; color: #94a3b8; line-height: 1.4; }
+        .task-progress { margin-top: 8px; height: 4px; background: rgba(255, 255, 255, 0.1); border-radius: 2px; overflow: hidden; }
+        .task-progress-bar { height: 100%; background: linear-gradient(90deg, #3b82f6, #06b6d4); border-radius: 2px; }
+        .pc-screen {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            padding: 8px;
+            margin-top: 8px;
+            font-family: monospace;
+            font-size: 10px;
+            color: #22c55e;
+            min-height: 40px;
+        }
+        .lounge-area {
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .lounge-area .area-title::before { background: #f59e0b; }
+        .sofa-section {
+            background: linear-gradient(180deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+        .sofa { display: flex; justify-content: center; gap: 16px; padding: 20px 0; flex-wrap: wrap; }
+        .sofa-seat { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .seat-icon {
+            width: 60px;
+            height: 50px;
+            background: rgba(245, 158, 11, 0.2);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        .seat-icon.occupied { background: rgba(245, 158, 11, 0.4); border-color: rgba(245, 158, 11, 0.6); }
+        .seat-label { font-size: 11px; color: #64748b; text-align: center; }
+        .coffee-table { height: 30px; background: rgba(255, 255, 255, 0.05); border-radius: 4px; margin-top: 10px; }
+        .agent-details {
+            position: fixed;
+            right: -400px;
+            top: 56px;
+            bottom: 0;
+            width: 380px;
+            background: rgba(15, 20, 30, 0.95);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            transition: right 0.3s ease;
+            z-index: 100;
+            overflow-y: auto;
+        }
+        .agent-details.open { right: 0; }
+        .details-close { position: absolute; top: 16px; right: 16px; background: none; border: none; color: #64748b; font-size: 24px; cursor: pointer; }
+        .details-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .details-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #06b6d4); display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 600; }
+        .details-info h2 { font-size: 20px; color: #f8fafc; margin-bottom: 4px; }
+        .details-info p { font-size: 13px; color: #64748b; }
+        .details-section { margin-bottom: 24px; }
+        .details-section h3 { font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+        .stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 13px; }
+        .stat-label { color: #94a3b8; }
+        .stat-value { color: #f8fafc; font-weight: 500; }
+        .activity-log { background: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 12px; max-height: 200px; overflow-y: auto; }
+        .log-entry { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 12px; }
+        .log-time { color: #64748b; font-size: 11px; }
+        .log-message { color: #e2e8f0; margin-top: 2px; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <a href="index.html" class="sidebar-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+            </a>
+            <div class="nav-section">
+            <a href="tasks.html" class="nav-item ">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                <span>Tasks</span>
+            </a>
+            <a href="office.html" class="nav-item ">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                <span>Agents</span>
+            </a>
+            <a href="products.html" class="nav-item ">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                <span>Products</span>
+            </a>
+            <a href="cron.html" class="nav-item ">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Cron</span>
+            </a>
+            <a href="index.html" class="nav-item ">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>
+                <span>Memory</span>
+            </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <h1 class="header-title">Agent Office</h1>
+                <div class="header-status">
+                    <div class="status-indicator"></div>
+                    <span>5 agents online</span>
+                </div>
+            </header>
+
+            <div class="office-container">
+                <div class="office-floor">
+                    <h2 class="office-title">🏢 Manu Forti HQ</h2>
+                    
+                    <div class="office-layout">
+                        <div class="work-area">
+                            <div class="area-title">Workstations</div>
+                            <div class="desks-grid" id="desks-container"></div>
+                        </div>
+
+                        <div class="lounge-area">
+                            <div class="area-title">Break Room</div>
+                            <div class="sofa-section">
+                                <div class="sofa" id="sofa-container"></div>
+                                <div class="coffee-table"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agent-details" id="agent-details">
+                <button class="details-close" onclick="closeDetails()">×</button>
+                <div id="details-content"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const agents = [
+            {
+                id: 'venture', name: 'Venture', role: 'Business Development', avatar: 'V',
+                status: 'idle', currentTask: 'Waiting for tonight\'s 02:00 session', progress: 0,
+                lastRun: '2026-03-27 02:00', nextRun: '2026-03-28 02:00', schedule: 'Daily at 02:00',
+                location: 'desk',
+                stats: { totalRuns: 47, successRate: '94%', avgDuration: '2h 15m' },
+                recentActivity: [
+                    { time: '02:00', message: 'Completed Category Strategy review' },
+                    { time: 'Yesterday', message: 'Spawned Eirik for quality check' }
+                ]
+            },
+            {
+                id: 'daily-brief', name: 'Daily Brief', role: 'Morning Reporter', avatar: '📰',
+                status: 'working', currentTask: 'Preparing tomorrow\'s 06:00 briefing', progress: 75,
+                lastRun: '2026-03-27 06:00', nextRun: '2026-03-28 06:00', schedule: 'Daily at 06:00',
+                location: 'desk',
+                stats: { totalRuns: 89, successRate: '98%', avgDuration: '8m' },
+                recentActivity: [
+                    { time: '06:00', message: 'Delivered briefing to Jonathon' },
+                    { time: 'Yesterday', message: 'Added Manu Forti updates' }
+                ]
+            },
+            {
+                id: 'openclaw-research', name: 'OpenClaw Research', role: 'Security Monitor', avatar: '🔍',
+                status: 'error', currentTask: 'Rate limit hit - retrying...', progress: 15,
+                lastRun: '2026-03-27 02:00', nextRun: '2026-03-28 02:00', schedule: 'Daily at 02:00',
+                location: 'desk',
+                stats: { totalRuns: 45, successRate: '67%', avgDuration: '15m' },
+                recentActivity: [
+                    { time: '02:00', message: 'Error: API rate limit reached' },
+                    { time: '2 days ago', message: 'Found 3 security updates' }
+                ]
+            },
+            {
+                id: 'memory-consolidation', name: 'Memory Agent', role: 'Weekly Reviewer', avatar: '🧠',
+                status: 'idle', currentTask: 'Scheduled for Sunday', progress: 0,
+                lastRun: '2026-03-23 20:00', nextRun: '2026-03-30 20:00', schedule: 'Sundays at 20:00',
+                location: 'sofa',
+                stats: { totalRuns: 12, successRate: '100%', avgDuration: '45m' },
+                recentActivity: [
+                    { time: 'Last Sunday', message: 'Consolidated 28 entries' },
+                    { time: '2 weeks ago', message: 'Updated MEMORY.md' }
+                ]
+            },
+            {
+                id: 'maintenance', name: 'Maintenance', role: 'System Cleaner', avatar: '🔧',
+                status: 'idle', currentTask: 'Waiting for midnight', progress: 0,
+                lastRun: '2026-03-27 00:00', nextRun: '2026-03-28 00:00', schedule: 'Daily at 00:00',
+                location: 'sofa',
+                stats: { totalRuns: 92, successRate: '99%', avgDuration: '5m' },
+                recentActivity: [
+                    { time: '00:00', message: 'Cleaned up session logs' },
+                    { time: 'Yesterday', message: 'Archived old memory files' }
+                ]
+            }
+        ];
+
+        function renderOffice() {
+            const desksContainer = document.getElementById('desks-container');
+            const sofaContainer = document.getElementById('sofa-container');
+            
+            desksContainer.innerHTML = '';
+            sofaContainer.innerHTML = '';
+            
+            agents.forEach(agent => {
+                if (agent.location === 'desk') {
+                    const desk = document.createElement('div');
+                    desk.className = `desk ${agent.status}`;
+                    desk.onclick = () => showAgentDetails(agent);
+                    
+                    desk.innerHTML = `
+                        <div class="desk-header">
+                            <div class="agent-avatar ${agent.status === 'working' ? 'working' : ''}">${agent.avatar}</div>
+                            <div class="agent-info">
+                                <div class="agent-name">${agent.name}</div>
+                                <div class="agent-role">${agent.role}</div>
+                            </div>
+                            <div class="status-badge ${agent.status}">${agent.status}</div>
+                        </div>
+                        <div class="desk-content">
+                            <div class="current-task">${agent.currentTask}</div>
+                            ${agent.status === 'working' ? `
+                                <div class="task-progress">
+                                    <div class="task-progress-bar" style="width: ${agent.progress}%"></div>
+                                </div>
+                            ` : ''}
+                            <div class="pc-screen">${getTerminalText(agent)}</div>
+                        </div>
+                    `;
+                    desksContainer.appendChild(desk);
+                } else {
+                    const seat = document.createElement('div');
+                    seat.className = 'sofa-seat';
+                    seat.onclick = () => showAgentDetails(agent);
+                    seat.innerHTML = `
+                        <div class="seat-icon occupied">🛋️</div>
+                        <div class="seat-label">${agent.name}</div>
+                    `;
+                    sofaContainer.appendChild(seat);
+                }
+            });
+            
+            for (let i = 0; i < 3; i++) {
+                const emptySeat = document.createElement('div');
+                emptySeat.className = 'sofa-seat';
+                emptySeat.innerHTML = `<div class="seat-icon"></div><div class="seat-label">Available</div>`;
+                sofaContainer.appendChild(emptySeat);
+            }
+        }
+
+        function getTerminalText(agent) {
+            if (agent.status === 'working') return `> ${agent.name.toLowerCase()} --run\n> Processing... ${agent.progress}%`;
+            if (agent.status === 'error') return `> ERROR: Rate limit\n> Retrying in 5m...`;
+            return `> idle\n> Next: ${agent.nextRun.split(' ')[1]}`;
+        }
+
+        function showAgentDetails(agent) {
+            const panel = document.getElementById('agent-details');
+            const content = document.getElementById('details-content');
+            
+            content.innerHTML = `
+                <div class="details-header">
+                    <div class="details-avatar">${agent.avatar}</div>
+                    <div class="details-info">
+                        <h2>${agent.name}</h2>
+                        <p>${agent.role}</p>
+                        <span class="status-badge ${agent.status}">${agent.status}</span>
+                    </div>
+                </div>
+                <div class="details-section">
+                    <h3>Current Task</h3>
+                    <p style="color: #e2e8f0; font-size: 14px;">${agent.currentTask}</p>
+                    ${agent.status === 'working' ? `<div class="task-progress" style="margin-top: 12px;"><div class="task-progress-bar" style="width: ${agent.progress}%"></div></div>` : ''}
+                </div>
+                <div class="details-section">
+                    <h3>Schedule</h3>
+                    <div class="stat-row"><span class="stat-label">Frequency</span><span class="stat-value">${agent.schedule}</span></div>
+                    <div class="stat-row"><span class="stat-label">Last Run</span><span class="stat-value">${agent.lastRun}</span></div>
+                    <div class="stat-row"><span class="stat-label">Next Run</span><span class="stat-value">${agent.nextRun}</span></div>
+                </div>
+                <div class="details-section">
+                    <h3>Statistics</h3>
+                    <div class="stat-row"><span class="stat-label">Total Runs</span><span class="stat-value">${agent.stats.totalRuns}</span></div>
+                    <div class="stat-row"><span class="stat-label">Success Rate</span><span class="stat-value">${agent.stats.successRate}</span></div>
+                    <div class="stat-row"><span class="stat-label">Avg Duration</span><span class="stat-value">${agent.stats.avgDuration}</span></div>
+                </div>
+                <div class="details-section">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-log">
+                        ${agent.recentActivity.map(log => `
+                            <div class="log-entry">
+                                <div class="log-time">${log.time}</div>
+                                <div class="log-message">${log.message}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            panel.classList.add('open');
+        }
+
+        function closeDetails() {
+            document.getElementById('agent-details').classList.remove('open');
+        }
+
+        renderOffice();
+    </script>
+</body>
+</html>

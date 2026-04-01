@@ -1,0 +1,270 @@
+{
+  "_schema_version": "1.0.0",
+  "_template": "Product 1 v15 Supplier Data",
+  "_instructions": "Fill in all fields. Use null for unknown values. Validation will fail if required fields are missing.",
+  
+  "supplier_name": "EXAMPLE SUPPLIER",
+  "legal_name": "Example Supplier S.A.",
+  "founded_year": 1985,
+  "headquarters": "Buenos Aires, Argentina",
+  "employees": "500-750",
+  "duns": "123456789",
+  "cnpj": "12.345.678/0001-90",
+  "website": "https://example.com",
+  
+  "company_description": "Brief 2-3 sentence description of what the company does, its market position, and key differentiators.",
+  
+  "financials": {
+    "_note": "All monetary values in local currency (e.g., BRL, ARS, USD). Include currency symbol in display_value.",
+    "reporting_currency": "BRL",
+    
+    "revenue_latest": {
+      "value": 500000000,
+      "display": "R$500M",
+      "year": 2024
+    },
+    "revenue_yoy_percent": 12.5,
+    
+    "ebitda": {
+      "value": 75000000,
+      "display": "R$75M"
+    },
+    "ebitda_margin_percent": 15.0,
+    
+    "net_profit": {
+      "value": 35000000,
+      "display": "R$35M"
+    },
+    
+    "revenue_cagr_3yr": 8.2,
+    
+    "order_book": {
+      "value": 1200000000,
+      "display": ">R$1.2B"
+    },
+    
+    "gross_debt": {
+      "value": 150000000,
+      "display": "R$150M"
+    },
+    "net_cash_debt": {
+      "value": 25000000,
+      "display": "R$25M (Net Cash)",
+      "is_positive": true
+    },
+    "debt_to_ebitda": 2.0
+  },
+  
+  "risk_ratings": {
+    "_note": "Use only: LOW, MEDIUM, HIGH",
+    "overall": "MEDIUM",
+    "score_out_of_100": 42,
+    "financial": "LOW",
+    "operational": "LOW",
+    "geopolitical": "MEDIUM",
+    "esg": "MEDIUM"
+  },
+  
+  "leadership": [
+    {
+      "name": "Jane Smith",
+      "title": "CEO / Managing Director",
+      "background": "20+ years in industry. Previously at Major Corp. Engineering background.",
+      "tenure_years": 5
+    },
+    {
+      "name": "John Doe",
+      "title": "CFO",
+      "background": "CPA, former Big 4. 10 years with company.",
+      "tenure_years": 10
+    }
+  ],
+  
+  "operations": {
+    "countries": [
+      {"name": "Brazil", "code": "BR", "facilities": "Headquarters, 2 manufacturing plants"},
+      {"name": "Argentina", "code": "AR", "facilities": "1 facility"},
+      {"name": "Chile", "code": "CL", "facilities": "Office only"}
+    ],
+    
+    "key_projects": [
+      {
+        "name": "Major Wind Farm",
+        "location": "Northeast Brazil",
+        "value": "R$200M",
+        "status": "In Progress",
+        "completion": "2026"
+      }
+    ],
+    
+    "certifications": ["ISO 9001", "ISO 14001", "OHSAS 18001"],
+    
+    "facilities": [
+      {
+        "name": "Main Manufacturing Plant",
+        "location": "São Paulo, Brazil",
+        "size_sqm": 50000,
+        "specialization": "Primary production",
+        "recent_investment": "R$50M expansion completed 2024"
+      }
+    ],
+    
+    "strategic_timeline": [
+      {"year": "2022", "event": "New facility opened in Porto Alegre"},
+      {"year": "2024", "event": "Major capacity expansion at São Paulo plant"},
+      {"year": "2025", "event": "Planned ISO 45001 certification"}
+    ]
+  },
+  
+  "market_position": {
+    "estimated_market_share_percent": 8.5,
+    "market_rank": "Top 5",
+    "competitors": [
+      {"name": "Competitor A", "relative_size": "Larger", "headquarters": "Germany"},
+      {"name": "Competitor B", "relative_size": "Similar", "headquarters": "Brazil"},
+      {"name": "Competitor C", "relative_size": "Smaller", "headquarters": "Chile"},
+      {"name": "Competitor D", "relative_size": "Larger", "headquarters": "USA"}
+    ],
+    "competitive_advantages": [
+      "Local manufacturing capability",
+      "Strong relationships with utilities",
+      "Proven track record in renewables"
+    ]
+  },
+  
+  "risks": [
+    {
+      "category": "Financial",
+      "description": "Exposure to currency fluctuations (BRL/USD)",
+      "impact": "MEDIUM",
+      "probability": "HIGH",
+      "mitigation": "Natural hedging through local operations",
+      "trend": "Stable"
+    },
+    {
+      "category": "Operational",
+      "description": "Single-source dependency for key components",
+      "impact": "HIGH",
+      "probability": "MEDIUM",
+      "mitigation": "Dual-sourcing strategy being implemented",
+      "trend": "Improving"
+    },
+    {
+      "category": "Geopolitical",
+      "description": "Regulatory changes in Brazilian energy sector",
+      "impact": "MEDIUM",
+      "probability": "MEDIUM",
+      "mitigation": "Active industry association participation",
+      "trend": "Stable"
+    },
+    {
+      "category": "ESG",
+      "description": "Both ENDS legal action reference (legacy issue)",
+      "impact": "MEDIUM",
+      "probability": "LOW",
+      "mitigation": "Enhanced community engagement programs",
+      "trend": "Improving"
+    }
+  ],
+  
+  "commercial_intelligence": {
+    "strengths": ["Competitive pricing", "Strong local content", "Fast delivery"],
+    "weaknesses": ["Limited international presence", "Higher warranty costs"],
+    "negotiation_notes": "Price-sensitive but values long-term relationships. Responsive to volume commitments.",
+    
+    "radar_benchmarks": {
+      "price": 8,
+      "lead_time": 7,
+      "quality": 7,
+      "technical_capability": 8,
+      "supply_chain": 6,
+      "service": 8
+    }
+  },
+  
+  "esg": {
+    "overall_rating": "MEDIUM",
+    
+    "environmental": {
+      "rating": "LOW",
+      "details": [
+        "ISO 14001 certified",
+        "Scope 1 & 2 emissions tracked",
+        "EcoVadis Silver rating",
+        "No major environmental violations"
+      ]
+    },
+    
+    "social": {
+      "rating": "MEDIUM",
+      "details": [
+        "Code of Conduct implemented",
+        "Labour rights compliance verified",
+        "Health & Safety programs active",
+        "Grievance mechanisms in place",
+        "Note: Both ENDS legal action 2020 (resolved)"
+      ]
+    },
+    
+    "governance": {
+      "rating": "LOW",
+      "details": [
+        "Anti-corruption policy documented",
+        "Beneficial ownership transparent",
+        "No sanctions exposure"
+      ]
+    },
+    
+    "controversies": [
+      {
+        "date": "2020",
+        "description": "Both ENDS legal action regarding project impact",
+        "status": "Resolved",
+        "severity": "Medium"
+      }
+    ],
+    
+    "conditions_for_approval": [
+      "Maintain ISO 14001 certification",
+      "Submit annual ESG progress report",
+      "Confirm resolution of Both ENDS matter",
+      "Provide updated EcoVadis rating within 6 months",
+      "Document supply chain due diligence process",
+      "Disclose any new legal/regulatory proceedings"
+    ]
+  },
+  
+  "recommendation": {
+    "status": "APPROVED_WITH_CONDITIONS",
+    "summary": "Supplier demonstrates solid financial health and operational capability. ESG MEDIUM rating requires monitoring but does not preclude approval.",
+    
+    "conditions": [
+      "ESG conditions as outlined above",
+      "Quarterly business reviews for first 12 months",
+      "Parent company guarantee for contracts >R$10M"
+    ],
+    
+    "next_steps": [
+      "Confirm acceptance of ESG conditions",
+      "Schedule quarterly review calendar",
+      "Execute standard vendor agreement"
+    ],
+    
+    "risk_summary": "Overall MEDIUM risk (42/100). Financial position stable. Key watch items: ESG compliance and currency exposure."
+  },
+  
+  "sources": [
+    "Company annual report 2024",
+    "Dun & Bradstreet profile",
+    "EcoVadis rating",
+    "Trade registry filings",
+    "Industry interviews"
+  ],
+  
+  "report_metadata": {
+    "author": "Aiden / Manu Forti Intelligence",
+    "date_prepared": "2026-02-26",
+    "confidentiality": "Confidential",
+    "version": "1.0"
+  }
+}

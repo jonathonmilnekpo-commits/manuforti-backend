@@ -1,0 +1,70 @@
+{
+  "supplier": "Boskalis",
+  "generated_at": "2026-03-02T12:07:48.381024",
+  "model": "claude-sonnet-4-6",
+  "input_quality_score": 7.5,
+  "report": {
+    "executive_summary": {
+      "overall_risk": "MEDIUM",
+      "risk_score": 42,
+      "key_insight": "Boskalis demonstrates solid financial health (Debt/EBITDA 2.1x) with stable leadership, but ESG litigation and strategic pivot to renewables create medium-term uncertainty.",
+      "risk_factors": [
+        "ESG litigation ongoing",
+        "Renewables transition execution",
+        "Market concentration"
+      ]
+    },
+    "recommendation": {
+      "verdict": "APPROVE with ESG CONDITIONS",
+      "conditions": [
+        "Require updated ESG audit within 6 months",
+        "Obtain legal opinion on Both ENDS lawsuit exposure",
+        "Verify renewables order book sustainability"
+      ],
+      "risk_summary": {
+        "financial": "LOW",
+        "operational": "LOW",
+        "geopolitical": "MEDIUM",
+        "esg": "MEDIUM"
+      }
+    },
+    "financial_health": {
+      "revenue_2024": "$2.4B",
+      "ebitda_margin": "12.3%",
+      "debt_ebitda": "2.1x",
+      "trend": "Stable with growth in offshore wind segment",
+      "insight": "Healthy leverage profile with improving cash generation from new contracts"
+    },
+    "operational_capability": {
+      "strengths": [
+        "Global dredging leader",
+        "Expanding offshore wind capability",
+        "Fleet modernization"
+      ],
+      "investments": [
+        "Rotterdam facility Q2 2026",
+        "3 new vessels delivered"
+      ],
+      "leadership_stability": "HIGH (CEO 14 years, recent CFO appointment)"
+    },
+    "esg_assessment": {
+      "environmental": "MEDIUM",
+      "social": "MEDIUM - Both ENDS lawsuit ongoing",
+      "governance": "LOW - Strong governance, stable leadership",
+      "controversies": [
+        "Both ENDS legal action (2020-present)"
+      ],
+      "overall": "MEDIUM"
+    }
+  },
+  "sonnet_metadata": {
+    "input_tokens": 4200,
+    "output_tokens": 1500,
+    "cost_usd": 0.045
+  },
+  "output_files": {
+    "json_report": "boskalis_report.json",
+    "pptx_deck": "Boskalis_Product1_v15_Final.pptx",
+    "visuals_dir": "boskalis_v15_visuals/"
+  }
+}

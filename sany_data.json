@@ -1,0 +1,68 @@
+{
+  "supplier_name": "Sany Renewable Energy",
+  "supplier_ticker": "688349.SS",
+  "report_date": "March 2026",
+  "overall_risk_rating": "MEDIUM",
+  "overall_risk_score": 52,
+  "financial_health": {
+    "rating": "LOW",
+    "score": 28,
+    "revenue_2024": "¥18.09B ($2.5B)",
+    "revenue_growth": "+21.09% YoY",
+    "net_profit": "¥1.86B ($256M)",
+    "profit_margin": "10.3%",
+    "net_profit_change": "-9.70% YoY",
+    "market_cap": "¥28B ($3.9B)",
+    "stock_price": "¥23.80",
+    "debt_ratio": "Moderate",
+    "liquidity": "Strong"
+  },
+  "operational_capability": {
+    "rating": "LOW",
+    "score": 35,
+    "global_ranking": "#6-7 Wind Turbine OEM",
+    "market_share": "~5-6% Global",
+    "intake_orders_2022": "9.2 GW",
+    "key_products": "Onshore wind turbines (3.X-10MW platform)",
+    "manufacturing": "China-based with global expansion",
+    "delivery_performance": "Record high in 2024 H1 (3.3 GW, +121% YoY)"
+  },
+  "geopolitical_risk": {
+    "rating": "HIGH",
+    "score": 78,
+    "china_exposure": "95%+ revenue from China",
+    "trade_policy_risk": "Elevated - US/EU tariffs on Chinese renewables",
+    "supply_chain": "Concentrated in China",
+    "india_presence": "1.6 GW deals secured (positive diversification)"
+  },
+  "esg_rating": {
+    "rating": "MEDIUM",
+    "score": 45,
+    "environmental": "Strong - 17.9% VOC reduction, 84.5% COD reduction",
+    "social": "Adequate - Published ESG reports",
+    "governance": "Standard - SSE listing, regular disclosures",
+    "controversies": "None significant identified"
+  },
+  "competitors": [
+    {"name": "Goldwind", "market_share": "22% (China)", "global_rank": "#1"},
+    {"name": "Envision Energy", "market_share": "17% (China)", "global_rank": "#2"},
+    {"name": "Mingyang Smart Energy", "market_share": "~12%", "global_rank": "#3"},
+    {"name": "Windey", "market_share": "~6%", "global_rank": "#4"},
+    {"name": "Vestas", "market_share": "Global leader EU", "global_rank": "#5"}
+  ],
+  "key_risks": [
+    "Chinese market concentration (95%+ revenue)",
+    "Intense price competition from domestic rivals",
+    "Declining profitability despite revenue growth",
+    "Geopolitical tensions affecting export markets",
+    "Currency exposure (CNY/USD/EUR)"
+  ],
+  "recommendation": "APPROVE with Conditions",
+  "conditions": [
+    "Diversify supply chain outside China where possible",
+    "Monitor margin pressure - profitability declining",
+    "Secure fixed pricing for multi-year contracts",
+    "Require performance guarantees for offshore projects",
+    "Quarterly financial health check-ins"
+  ]
+}

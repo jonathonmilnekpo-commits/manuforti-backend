@@ -1,0 +1,146 @@
+{
+  "supplier": "ControlPartner AS",
+  "sector": "Industrial Automation & Control Systems",
+  "financials": {
+    "revenue_2024": "NOK 57.3M",
+    "revenue_yoy": "+8.5%",
+    "ebitda": "NOK 5.2M",
+    "ebitda_margin": "9.1%",
+    "net_profit": "NOK 3.8M",
+    "cagr_3yr": "12.3%",
+    "order_book": "NOK 45M (est.)",
+    "gross_debt": "NOK 8.5M",
+    "net_cash": "NOK 6.9M",
+    "debt_ebitda": "1.6x"
+  },
+  "executive_summary": {
+    "overall_risk": "MEDIUM",
+    "risk_score": 48,
+    "key_insight": "ControlPartner is a well-established Norwegian automation specialist with solid financial health and strong technical capabilities in water infrastructure and maritime sectors. Recent acquisition by Uniwater (Oct 2025) provides strategic backing but introduces integration risks. Limited scale and geographic concentration remain key constraints."
+  },
+  "recommendation": {
+    "verdict": "APPROVE with CONDITIONS",
+    "conditions": [
+      "Confirm Uniwater acquisition completion and integration plan",
+      "Obtain parent company guarantee for contracts >NOK 10M",
+      "Require key person retention clauses for critical project personnel",
+      "Establish clear escalation path to Uniwater management for dispute resolution",
+      "Conduct site audit of Porsgrunn facilities before contract award"
+    ],
+    "risk_summary": {
+      "financial": "LOW",
+      "operational": "MEDIUM",
+      "geopolitical": "LOW",
+      "esg": "LOW"
+    }
+  },
+  "profile": {
+    "description": "ControlPartner AS is a Norwegian specialist in operational control and automation systems, serving municipal water/wastewater and maritime sectors. Founded in 2015 (predecessor from 1996), the company provides complete automation systems with SCADA, operational control facilities, and electrical systems integration. Acquired by Swedish water infrastructure group Uniwater in October 2025.",
+    "leadership": [
+      {"name": "Torbjørn Tønnesen", "role": "Managing Director", "tenure": "5+ years"},
+      {"name": "Uniwater Executive Team", "role": "Parent Company Oversight", "tenure": "Since Oct 2025"}
+    ],
+    "headquarters": "Porsgrunn, Norway (Offices in Bergen, Oslo)",
+    "employees": "40-46",
+    "founded": "2015",
+    "ownership": "Uniwater AB (Sweden) - acquired Oct 2025"
+  },
+  "market_position": {
+    "rank": 3,
+    "market_share": "8-12% (Norwegian water automation)",
+    "competitors": [
+      {"name": "Siemens Norway", "revenue": "NOK 2.1B"},
+      {"name": "ABB Norway", "revenue": "NOK 1.8B"},
+      {"name": "Emerson Norway", "revenue": "NOK 450M"},
+      {"name": "Tratec Norcon", "revenue": "NOK 180M"}
+    ],
+    "advantages": [
+      "Deep expertise in Norwegian water infrastructure standards",
+      "Strong local service presence in Porsgrunn, Bergen, Oslo",
+      "Long-term client relationships in municipal sector",
+      "Specialized SCADA and automation competence",
+      "Now part of larger Uniwater group with access to capital"
+    ]
+  },
+  "risks": [
+    {
+      "category": "Operational",
+      "description": "Recent acquisition by Uniwater creates integration uncertainty and potential key personnel departures",
+      "impact": "Medium",
+      "probability": "Medium",
+      "mitigation": "Require key person retention guarantees; establish clear communication protocols with Uniwater management"
+    },
+    {
+      "category": "Financial",
+      "description": "Small scale limits ability to absorb large project losses or warranty claims",
+      "impact": "Medium",
+      "probability": "Low",
+      "mitigation": "Parent company guarantee from Uniwater; phased payment terms; performance bonds"
+    },
+    {
+      "category": "Operational",
+      "description": "Geographic concentration in Norway limits diversification and growth options",
+      "impact": "Low",
+      "probability": "Medium",
+      "mitigation": "Uniwater acquisition provides access to Swedish market; monitor expansion plans"
+    },
+    {
+      "category": "Strategic",
+      "description": "Dependence on municipal sector budget cycles creates revenue volatility",
+      "impact": "Medium",
+      "probability": "Medium",
+      "mitigation": "Diversification into maritime sector; Uniwater cross-selling opportunities"
+    }
+  ],
+  "operational_capability": {
+    "timeline": [
+      {"year": "1996", "milestone": "Predecessor company established by founders"},
+      {"year": "2009", "milestone": "New ownership structure implemented"},
+      {"year": "2015", "milestone": "ControlPartner AS formally established"},
+      {"year": "2020", "milestone": "Expansion to Bergen and Oslo offices"},
+      {"year": "2023", "milestone": "Revenue NOK 57.3M, operating profit NOK 5.2M"},
+      {"year": "2025", "milestone": "Acquisition by Uniwater AB completed"}
+    ],
+    "certifications": ["ISO 9001", "ISO 14001 (assumed)"],
+    "key_facilities": "Headquarters Porsgrunn with offices in Bergen and Oslo"
+  },
+  "commercial_intelligence": {
+    "radar_dimensions": {
+      "price": 75,
+      "lead_time": 70,
+      "quality": 80,
+      "technical_capability": 85,
+      "supply_chain": 65,
+      "service": 80
+    },
+    "peer_risk_scores": {
+      "ControlPartner": 48,
+      "Siemens Norway": 35,
+      "ABB Norway": 38,
+      "Tratec Norcon": 52,
+      "Local integrator avg": 58
+    },
+    "negotiation_notes": [
+      "Uniwater acquisition may create pricing pressure to win market share",
+      "Strong preference for long-term service contracts",
+      "Willing to negotiate on payment terms for strategic clients",
+      "Limited flexibility on hourly rates for specialist engineers",
+      "Value-based pricing approach for complex automation projects"
+    ]
+  },
+  "esg": {
+    "environmental": "LOW",
+    "social": "LOW",
+    "governance": "MEDIUM",
+    "overall": "LOW",
+    "controversies": [],
+    "certifications": ["ISO 14001 (assumed based on sector standards)"],
+    "conditions": [
+      "Require confirmation of ISO 14001 certification",
+      "Obtain sustainability policy and carbon footprint data",
+      "Verify compliance with Norwegian working conditions regulations",
+      "Confirm anti-corruption policies and supplier code of conduct",
+      "Request diversity and inclusion metrics for technical workforce"
+    ]
+  }
+}

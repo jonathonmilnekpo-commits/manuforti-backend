@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manu Forti Agent Office — Core + Crab 🦀</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-panel: rgba(20, 20, 30, 0.95);
+            --accent: #e94560;
+            --accent-green: #4ade80;
+            --accent-yellow: #fbbf24;
+            --accent-purple: #a855f7;
+        }
+        body {
+            background: var(--bg-dark);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+        }
+        .app {
+            display: grid;
+            grid-template-rows: 50px 1fr 180px;
+            height: 100vh;
+        }
+        .header {
+            background: var(--bg-panel);
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .header-title {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+        .clock {
+            font-size: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+        .office-container {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+        .office {
+            position: absolute;
+            width: 1200px;
+            height: 700px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .zone {
+            position: absolute;
+            border: 2px dashed;
+            border-radius: 10px;
+            padding: 30px;
+        }
+        .zone-label {
+            position: absolute;
+            top: -28px;
+            left: 15px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: rgba(0,0,0,0.6);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .core-zone {
+            left: 50px;
+            top: 50px;
+            width: 450px;
+            height: 300px;
+            border-color: rgba(233, 69, 96, 0.3);
+            background: rgba(233, 69, 96, 0.03);
+        }
+        .core-zone .zone-label { color: var(--accent); }
+        .crab-zone {
+            right: 50px;
+            top: 50px;
+            width: 600px;
+            height: 500px;
+            border-color: rgba(168, 85, 247, 0.3);
+            background: rgba(168, 85, 247, 0.03);
+        }
+        .crab-zone .zone-label { color: var(--accent-purple); }
+        .agent {
+            position: absolute;
+            width: 50px;
+            height: 90px;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+        .agent:hover { transform: scale(1.05); }
+        .agent-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            white-space: nowrap;
+            background: rgba(0,0,0,0.85);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .bottom-panel {
+            background: var(--bg-panel);
+            border-top: 1px solid #333;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 15px 20px;
+        }
+        .panel-section h3 {
+            font-size: 11px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .panel-section.crab h3 { color: var(--accent-purple); }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="header-title">🦞 MANU FORTI + CRAB 🦀 AGENT OFFICE</div>
+            <div class="clock" id="clock">00:00:00</div>
+        </div>
+        
+        <div class="office-container">
+            <div class="office">
+                <!-- Core Team Zone -->
+                <div class="zone core-zone">
+                    <div class="zone-label">Core Team</div>
+                    <div class="agent" style="left: 50px; top: 50px;">
+                        <div class="agent-label">Aiden 🤝 Lead</div>
+                    </div>
+                    <div class="agent" style="left: 150px; top: 50px;">
+                        <div class="agent-label">Venture 📊</div>
+                    </div>
+                    <div class="agent" style="left: 250px; top: 50px;">
+                        <div class="agent-label">Researcher 🔍</div>
+                    </div>
+                    <div class="agent" style="left: 350px; top: 50px;">
+                        <div class="agent-label">Eirik 🔴</div>
+                    </div>
+                </div>
+                
+                <!-- Crab Zone -->
+                <div class="zone crab-zone">
+                    <div class="zone-label">Crab Content Empire</div>
+                    <div class="agent" style="left: 50px; top: 50px;">
+                        <div class="agent-label">Crab 🦀 Lead</div>
+                    </div>
+                    <div class="agent" style="left: 150px; top: 50px;">
+                        <div class="agent-label">Strategist 📋</div>
+                    </div>
+                    <div class="agent" style="left: 250px; top: 50px;">
+                        <div class="agent-label">Scribe ✍️</div>
+                    </div>
+                    <div class="agent" style="left: 350px; top: 50px;">
+                        <div class="agent-label">Producer 🎬</div>
+                    </div>
+                    <div class="agent" style="left: 450px; top: 50px;">
+                        <div class="agent-label">Poster 📱</div>
+                    </div>
+                    <div class="agent" style="left: 50px; top: 150px;">
+                        <div class="agent-label">Qualifier 💼</div>
+                    </div>
+                    <div class="agent" style="left: 150px; top: 150px;">
+                        <div class="agent-label">Builder 🛠️</div>
+                    </div>
+                    <div class="agent" style="left: 250px; top: 150px;">
+                        <div class="agent-label">Maker 📦</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-panel">
+            <div class="panel-section">
+                <h3>📋 Core Team Status</h3>
+                <div>Agents: 4/4 online</div>
+                <div>Active tasks: 12</div>
+            </div>
+            <div class="panel-section crab">
+                <h3>🦀 Crab Empire Status</h3>
+                <div>Sub-agents: 7/7 ready</div>
+                <div>Content queued: 21 posts</div>
+            </div>
+            <div class="panel-section">
+                <h3>📊 Revenue Tracking</h3>
+                <div>Core: €12,450</div>
+                <div>Crab: €0 (launching)</div>
+            </div>
+            <div class="panel-section">
+                <h3>🎯 Today's Priority</h3>
+                <div>Launch Crab socials</div>
+                <div>Post first content</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB');
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+{
+  "lastUpdated": "2026-03-03T14:24:00Z",
+  "currentMonth": "Mar 2026",
+  "target": "€50K/mo by Q1 2027",
+  "stats": {
+    "productsLive": 1,
+    "phasesPlanned": 12,
+    "tasksMapped": 25,
+    "monthsToPlatform": 10
+  },
+  "phases": [
+    {
+      "id": 1,
+      "name": "Phase 1: Product 1",
+      "product": "Supplier Evaluation",
+      "price": "€99–149/report",
+      "status": "complete",
+      "startMonth": 0,
+      "duration": 1,
+      "revenue": "€0"
+    },
+    {
+      "id": 2,
+      "name": "Phase 2: Go-to-Market",
+      "product": "Landing page, demos, sales",
+      "price": "First 5 customers",
+      "status": "active",
+      "startMonth": 1,
+      "duration": 2,
+      "revenue": "€1K"
+    },
+    {
+      "id": 3,
+      "name": "Phase 3: Product 2",
+      "product": "Supplier Risk Monitor",
+      "price": "€29/mo per supplier",
+      "status": "upcoming",
+      "startMonth": 2,
+      "duration": 2,
+      "revenue": "€3.5K"
+    },
+    {
+      "id": 4,
+      "name": "Phase 4: Product 3",
+      "product": "Price Benchmarking",
+      "price": "€49/mo per category",
+      "status": "upcoming",
+      "startMonth": 3,
+      "duration": 2,
+      "revenue": "€6K"
+    },
+    {
+      "id": 5,
+      "name": "Phase 5: Product 4",
+      "product": "RFQ/RFP Scorer",
+      "price": "€99/analysis",
+      "status": "upcoming",
+      "startMonth": 4,
+      "duration": 2,
+      "revenue": "€8K"
+    },
+    {
+      "id": 6,
+      "name": "Phase 6: Product 5",
+      "product": "Spend Analysis",
+      "price": "€199/analysis",
+      "status": "upcoming",
+      "startMonth": 5,
+      "duration": 2,
+      "revenue": "€12K"
+    },
+    {
+      "id": 7,
+      "name": "Phase 7: Platform Bundle",
+      "product": "Subscription Launch",
+      "price": "€499–1,999/mo",
+      "status": "milestone",
+      "startMonth": 6,
+      "duration": 1,
+      "revenue": "€18K"
+    },
+    {
+      "id": 8,
+      "name": "Phase 8: Product 6",
+      "product": "Should-Cost Model",
+      "price": "€149/model",
+      "status": "upcoming",
+      "startMonth": 7,
+      "duration": 2,
+      "revenue": "€25K"
+    },
+    {
+      "id": 9,
+      "name": "Phase 9: Product 7",
+      "product": "Negotiation Briefs",
+      "price": "€99/brief",
+      "status": "upcoming",
+      "startMonth": 8,
+      "duration": 2,
+      "revenue": "€35K"
+    },
+    {
+      "id": 10,
+      "name": "Phase 10: Product 8",
+      "product": "Compliance Monitor",
+      "price": "€299/mo",
+      "status": "upcoming",
+      "startMonth": 9,
+      "duration": 2,
+      "revenue": "€50K"
+    },
+    {
+      "id": 11,
+      "name": "Phase 11-12: Frontier",
+      "product": "Auto PO + Predictive",
+      "price": "Enterprise only",
+      "status": "upcoming",
+      "startMonth": 11,
+      "duration": 2,
+      "revenue": "€50K+"
+    }
+  ],
+  "revenueProjection": [
+    {"month": "Mar", "revenue": 0, "label": "€0"},
+    {"month": "Apr", "revenue": 1, "label": "€1K"},
+    {"month": "May", "revenue": 3.5, "label": "€3.5K"},
+    {"month": "Jun", "revenue": 6, "label": "€6K"},
+    {"month": "Jul", "revenue": 8, "label": "€8K"},
+    {"month": "Aug", "revenue": 12, "label": "€12K"},
+    {"month": "Sep", "revenue": 18, "label": "€18K"},
+    {"month": "Oct", "revenue": 25, "label": "€25K"},
+    {"month": "Nov", "revenue": 35, "label": "€35K"},
+    {"month": "Dec+", "revenue": 50, "label": "€50K"}
+  ],
+  "keyDates": [
+    {"date": "Mar 15", "title": "Landing Page Live", "desc": "manuforti.no — Product 1 showcase", "type": "business"},
+    {"date": "Apr 1", "title": "First Paying Customer 🎯", "desc": "Product 1 — €99 or €149 report sold", "type": "milestone"},
+    {"date": "May 19", "title": "Ragnhild's Birthday 🎂", "desc": "Plan something special — she'll be very pregnant", "type": "personal"},
+    {"date": "Jun 1", "title": "Gordon Due Date 👶", "desc": "Baby #2 — expect reduced capacity Jun/Jul", "type": "personal"},
+    {"date": "Aug 1", "title": "Platform Bundle Launch ⭐", "desc": "Products 1-5 bundled — subscription model", "type": "milestone"},
+    {"date": "Oct 15", "title": "Ingrid's Birthday 🎂", "desc": "Turns 2 years old!", "type": "personal"},
+    {"date": "Dec 31", "title": "€50K MRR Target 🚀", "desc": "Full platform + Enterprise tier live", "type": "milestone"}
+  ]
+}

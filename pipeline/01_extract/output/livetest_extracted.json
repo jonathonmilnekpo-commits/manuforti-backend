@@ -1,0 +1,30 @@
+{
+  "supplier": "LiveTest",
+  "extracted_at": "2026-03-02T12:51:51.239994",
+  "model": "qwen3:8b-local (MOCK FALLBACK)",
+  "cost": 0.0,
+  "sources_processed": 1,
+  "raw_extractions": {
+    "financial_snippets": [
+      "[MOCK] Financial data for LiveTest"
+    ],
+    "news_mentions": [
+      "[MOCK] Recent news about LiveTest"
+    ],
+    "leadership": [
+      "[MOCK] Leadership info for LiveTest"
+    ],
+    "capabilities": [
+      "[MOCK] Capabilities of LiveTest"
+    ]
+  },
+  "confidence_scores": {
+    "financial": 0.5,
+    "news": 0.5,
+    "leadership": 0.5,
+    "capabilities": 0.5
+  },
+  "unstructured_notes": [
+    "[MOCK] Ollama not available - using fallback"
+  ]
+}

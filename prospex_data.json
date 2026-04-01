@@ -1,0 +1,81 @@
+{
+  "supplier_name": "Prospex Energy",
+  "supplier_legal_name": "Prospex Energy PLC",
+  "ticker": "PXEN (AIM)",
+  "report_date": "March 2026",
+  "overall_risk_rating": "HIGH",
+  "overall_risk_score": 72,
+  "financial_health": {
+    "rating": "HIGH",
+    "score": 78,
+    "market_cap": "£27.8M ($35M)",
+    "shares_outstanding": "429M",
+    "stock_price": "~3.8 GBX (~$0.06)",
+    "revenue_2024": "Investment entity (IFRS10) — revenue not consolidated",
+    "net_loss_2024": "£46,759 (improved from £1.23M loss)",
+    "ownership": "Public (AIM-listed)",
+    "liquidity": "Limited — small cap stock",
+    "debt": "Minimal reported"
+  },
+  "operational_capability": {
+    "rating": "MEDIUM",
+    "score": 55,
+    "founded": "2000 (25 years)",
+    "headquarters": "London, UK",
+    "business_model": "Investment company — holds working interests in energy projects",
+    "core_investments": [
+      "37% working interest — Selva Malvezzi (Italy, Po Valley)",
+      "100% working interest — El Romeral (Spain, gas power)",
+      "7.2365% working interest — Tesorillo (Spain)",
+      "100% — Tarba (Northern Spain)",
+      "17% economic interest — Podere Gallina (Italy)",
+      "Poland — exploration interests"
+    ],
+    "focus": "Natural gas, transition fuel for carbon-free future",
+    "strategy": "Low capex, late-stage exploration, reworking existing fields"
+  },
+  "geopolitical_risk": {
+    "rating": "MEDIUM",
+    "score": 58,
+    "uk_exposure": "Headquarters only — no UK production",
+    "european_diversification": "Strong — Italy, Spain, Poland",
+    "regulatory_risk": "Moderate — EU energy transition policies",
+    "country_risk": "Italy/Spain stable, Poland moderate"
+  },
+  "esg_rating": {
+    "rating": "MEDIUM",
+    "score": 50,
+    "environmental": "Natural gas focus — transition fuel positioning",
+    "social": "Limited disclosure",
+    "governance": "Standard AIM-listed company governance",
+    "controversies": "None significant identified"
+  },
+  "competitors": [
+    {"name": "Serica Energy", "market_position": "UK gas producer", "size": "Mid-cap"},
+    {"name": "Europa Oil & Gas", "market_position": "UK/Europe explorer", "size": "Small-cap"},
+    {"name": "United Oil & Gas", "market_position": "Multi-asset explorer", "size": "Small-cap"},
+    {"name": "i3 Energy", "market_position": "UK producer", "size": "Small-cap"}
+  ],
+  "key_risks": [
+    "Micro-cap stock with limited liquidity",
+    "Investment entity structure — no operating revenue",
+    "Dependent on partner operators for production",
+    "Regulatory changes in EU energy sector",
+    "Exploration risk in Poland and Spain"
+  ],
+  "key_strengths": [
+    "Diversified European portfolio (Italy, Spain, Poland)",
+    "Production from Selva Malvezzi (Italy)",
+    "100% ownership of El Romeral and Tarba",
+    "Low capex investment model",
+    "Natural gas focus — transition fuel demand"
+  ],
+  "recommendation": "CONDITIONAL APPROVAL",
+  "conditions": [
+    "Verify partner operator financial stability",
+    "Confirm working interest percentages with legal docs",
+    "Review joint operating agreements",
+    "Assess Poland exploration timeline and commitments",
+    "Quarterly production updates from investee companies"
+  ]
+}

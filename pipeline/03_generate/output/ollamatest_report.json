@@ -1,0 +1,47 @@
+{
+  "supplier": "OllamaTest",
+  "generated_at": "2026-03-02T12:49:51.005174",
+  "model": "claude-sonnet-4-6 (MOCK FALLBACK)",
+  "input_quality_score": 5.0,
+  "report": {
+    "executive_summary": {
+      "overall_risk": "MEDIUM",
+      "risk_score": 50,
+      "key_insight": "[MOCK] Limited data available for OllamaTest",
+      "risk_factors": [
+        "API unavailable - using mock generation"
+      ]
+    },
+    "recommendation": {
+      "verdict": "FLAG_FOR_REVIEW",
+      "conditions": [
+        "Re-run with live API"
+      ],
+      "risk_summary": {
+        "financial": "UNKNOWN",
+        "operational": "UNKNOWN",
+        "geopolitical": "UNKNOWN",
+        "esg": "UNKNOWN"
+      }
+    },
+    "financial_health": {
+      "note": "[MOCK] Limited data"
+    },
+    "operational_capability": {
+      "note": "[MOCK] Limited data"
+    },
+    "esg_assessment": {
+      "overall": "UNKNOWN"
+    }
+  },
+  "sonnet_metadata": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0
+  },
+  "output_files": {
+    "json_report": "ollamatest_report.json",
+    "pptx_deck": "[MOCK]_OllamaTest_Product1_v15_Final.pptx",
+    "visuals_dir": "ollamatest_v15_visuals/"
+  }
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClawExpert — Automate Your Life</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #002147 0%, #1a365d 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .tagline {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        .section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #002147;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+        .pricing-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .pricing-card {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .pricing-card:hover {
+            border-color: #002147;
+            transform: translateY(-2px);
+        }
+        .pricing-card.featured {
+            border-color: #002147;
+            background: #f7fafc;
+        }
+        .tier-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #002147;
+            margin-bottom: 0.5rem;
+        }
+        .tier-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2b6cb0;
+            margin-bottom: 1rem;
+        }
+        .tier-desc {
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: 700;
+        }
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: #002147;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .cta-button:hover {
+            background: #1a365d;
+            transform: translateY(-1px);
+        }
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .badge {
+            text-align: center;
+        }
+        .badge-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #002147;
+        }
+        .badge-label {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        .social-links {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 1rem;
+            color: #002147;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.75rem; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🦀</div>
+        <h1>OpenClawExpert</h1>
+        <p class="tagline">Done-for-you OpenClaw setup services</p>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Automate Your Life with OpenClaw</h2>
+            <p>I help professionals save 10+ hours/week by building custom OpenClaw automations.</p>
+            <p>From simple task automation to complex enterprise workflows — I handle the setup so you can focus on what matters.</p>
+            
+            <div class="trust-badges">
+                <div class="badge">
+                    <div class="badge-number">50+</div>
+                    <div class="badge-label">Setups Delivered</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-number">10,000+</div>
+                    <div class="badge-label">Hours Saved</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-number">100%</div>
+                    <div class="badge-label">Satisfaction</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Choose Your Setup</h2>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="tier-name">🚀 Starter Setup</div>
+                    <div class="tier-price">€500-1,000</div>
+                    <div class="tier-desc">Perfect for individuals ready to automate</div>
+                    <ul>
+                        <li>OpenClaw installation & config</li>
+                        <li>1-2 custom skills built for you</li>
+                        <li>Telegram/WhatsApp/Discord integration</li>
+                        <li>30-minute handoff call</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="tier-name">⚡ Professional Setup</div>
+                    <div class="tier-price">€2,000-5,000</div>
+                    <div class="tier-desc">For small teams and power users</div>
+                    <ul>
+                        <li>Everything in Starter</li>
+                        <li>2-3 custom skills</li>
+                        <li>Google/Notion/Slack integration</li>
+                        <li>Security hardening</li>
+                        <li>2 hours training + docs</li>
+                        <li>30 days support</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Most Popular</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="tier-name">🏢 Enterprise Setup</div>
+                    <div class="tier-price">€10,000-50,000</div>
+                    <div class="tier-desc">Full deployment for organizations</div>
+                    <ul>
+                        <li>Everything in Professional</li>
+                        <li>Multi-user setup with permissions</li>
+                        <li>Custom agent workflows</li>
+                        <li>Enterprise security audit</li>
+                        <li>Team training program</li>
+                        <li>90 days support + maintenance</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="contact">
+            <h2>Ready to Automate?</h2>
+            <p>Book a free 15-minute discovery call to discuss your needs.</p>
+            <p style="text-align: center; margin: 2rem 0;">
+                <a href="mailto:openclawexpert@example.com?subject=OpenClaw Setup Inquiry" class="cta-button" style="max-width: 400px; margin: 0 auto;">
+                    📧 Email: openclawexpert@example.com
+                </a>
+            </p>
+            <p style="text-align: center;">
+                Or DM me on X: <a href="https://x.com/OpenClawExpert" style="color: #002147; font-weight: 600;">@OpenClawExpert</a>
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Follow the Journey</h2>
+            <p>I share daily OpenClaw tips, tutorials, and behind-the-scenes builds.</p>
+            <div class="social-links">
+                <a href="https://x.com/OpenClawExpert">🐦 X/Twitter</a>
+                <a href="https://youtube.com/OpenClawExpert">📹 YouTube</a>
+                <a href="https://instagram.com/openclawexpert">📸 Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🦀 OpenClawExpert — Automating everything, one workflow at a time</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Not affiliated with OpenClaw. Independent setup services.</p>
+    </footer>
+</body>
+</html>

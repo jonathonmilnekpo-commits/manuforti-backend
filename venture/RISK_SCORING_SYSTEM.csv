@@ -1,0 +1,64 @@
+Risk Category,Risk Factor,Weight,Scoring Criteria Low (0-33),Scoring Criteria Medium (34-66),Scoring Criteria High (67-100),Data Sources,Notes
+FINANCIAL (30%),Revenue Trend,10%,Revenue growing >10% CAGR,Revenue flat or volatile ±10%,Revenue declining >10% CAGR,Annual reports; Bloomberg,3-year trend
+FINANCIAL (30%),EBITDA Margin,10%,>15% margin stable,5-15% margin or declining,<5% or negative margin,Annual reports; Capital IQ,Operating profitability
+FINANCIAL (30%),Leverage (Debt/EBITDA),10%,<2.0x with stable cash flow,2.0-4.0x or covenant pressure,>4.0x or restructuring risk,Credit reports; Annual reports,Debt sustainability
+OPERATIONAL (25%),Manufacturing Capacity,8%,Capacity >120% of demand; diversified,Capacity 100-120%; some constraints,Capacity <100%; single point of failure,Company reports; Site visits,Utilization vs demand
+OPERATIONAL (25%),Customer Concentration,8%,No customer >20% revenue,One customer 20-40% revenue,One customer >40% revenue,Annual reports; Contracts,Revenue stability risk
+OPERATIONAL (25%),Certifications & Track Record,9%,ISO certified; >10 years track record,Some certifications; 5-10 years history,Certification gaps; <5 years or poor record,ISO registry; Industry databases,Quality assurance
+GEOPOLITICAL (25%),Country Risk Rating,10%,OECD member; stable democracy,Emerging market; moderate risk,High risk; sanctions; conflict zone,OECD; World Bank; OFAC,Political stability
+GEOPOLITICAL (25%),Sanctions Exposure,8%,No sanctions; clean screening,Minor sanctions (non-blocking),Primary sanctions; SDN list match,OFAC; EU; UN sanctions lists,Compliance risk
+GEOPOLITICAL (25%),Currency & Regulatory,7%,Stable currency; favorable regulations,Moderate FX risk; evolving regulations,Volatile currency; restrictive regulations,IMF; Central bank; Local counsel,Financial predictability
+ESG (20%),Environmental Record,7%,No violations; strong sustainability,Minor violations; improvement plans,Major violations; legal action; poor ratings,EcoVadis; EPA; Media screening,Environmental compliance
+ESG (20%),Social & Labor,7%,Clean record; strong labor practices,Minor labor issues; ongoing disputes,Major labor disputes; human rights concerns,Media; Labor unions; NGO reports,Social license
+ESG (20%),Governance & Ethics,6%,Transparent ownership; strong governance,Governance gaps; minor controversies,Poor governance; corruption issues; sanctions,Beneficial ownership registries; FCPA,Corporate integrity
+,,,,,,,
+OVERALL RISK CALCULATION,,,,,,,
+Score Range,Risk Level,Recommendation,Color Code,,,,
+0-33,LOW,✅ APPROVE,Green (#48BB78),,,,
+34-50,MEDIUM-LOW,✅ APPROVE with minor conditions,Amber-Light (#ECC94B),,,,
+51-66,MEDIUM,⚠️ CONDITIONAL,Amber (#ED8936),,,,
+67-80,MEDIUM-HIGH,⚠️ CONDITIONAL with significant safeguards,Red-Light (#FC8181),,,,
+81-100,HIGH,❌ REJECT / EXTREME CAUTION,Red (#E53E3E),,,,
+,,,,,,,
+ESG OVERRIDE RULES,,,,,,,
+Rule,Condition,Result,,,,,
+ESG Elevator,ESG=MEDIUM + All Others=LOW,Overall=MEDIUM (not LOW),,,,,
+ESG Cap,ESG=HIGH,Overall elevated by one tier minimum,,,,,
+,,,,,,,
+TIER-SPECIFIC RISK THRESHOLDS,,,,,,,
+Tier,Max Acceptable Risk,Approval Authority,Notes,,,,
+Standard,66 (MEDIUM),Aiden,Conditional approval acceptable,,,,
+Premium,66 (MEDIUM),Aiden,Enhanced due diligence for 51-66,,,,
+Enterprise,80 (MEDIUM-HIGH),Jonathon,All HIGH risk require Jonathon sign-off,,,,
+,,,,,,,
+RISK MITIGATION CONDITIONS (Examples),,,,,,,
+Risk Level,Sample Conditions,,,,,,
+MEDIUM (34-66),Milestone-based payments; Parent guarantee; Performance bond; Quarterly reviews,,,,,,
+MEDIUM-HIGH (67-80),Letter of credit; Escrow arrangement; Reduced contract value; Monthly monitoring; Board approval required,,,,,,
+HIGH (81-100),Do not proceed; Alternative supplier required; Exceptional circumstances only with CEO approval,,,,,,
+,,,,,,,
+SCORING WORKSHEET (Example - Nel ASA),,,,,,,
+Risk Factor,Raw Score,Weight,Weighted Score,Notes,,,
+Revenue Trend,45,10%,4.5,Growth slowing but positive,,,
+EBITDA Margin,55,10%,5.5,Negative EBITDA in recent quarters,,,
+Leverage,40,10%,4.0,Moderate debt levels,,,
+Manufacturing Capacity,35,8%,2.8,Capacity expansion ongoing,,,
+Customer Concentration,30,8%,2.4,Diversified customer base,,,
+Certifications,25,9%,2.25,Strong track record,,,
+Country Risk,15,10%,1.5,Norway - very low risk,,,
+Sanctions Exposure,5,8%,0.4,No sanctions,,,
+Currency/Regulatory,20,7%,1.4,Stable NOK,,,
+Environmental Record,50,7%,3.5,Some project concerns,,,
+Social & Labor,40,7%,2.8,Generally positive,,,
+Governance & Ethics,30,6%,1.8,Standard governance,,,
+,,,,,,,
+FINANCIAL Subtotal,,30%,14.0,,,,
+OPERATIONAL Subtotal,,25%,7.45,,,,
+GEOPOLITICAL Subtotal,,25%,3.3,,,,
+ESG Subtotal,,20%,8.1,,,,
+,,,,,,,
+RAW TOTAL,,100%,32.85 → ROUNDED: 33,,,,
+ESG Override Check,ESG=40 (MEDIUM); Others avg=28 → Apply elevator,,,,,,
+FINAL SCORE,,,48 (MEDIUM),,,,
+RECOMMENDATION,,,⚠️ CONDITIONAL APPROVAL,,,,
+CONDITIONS,,,Milestone-based payments; Monitor Q4 results; Reassess in 6 months,,,,

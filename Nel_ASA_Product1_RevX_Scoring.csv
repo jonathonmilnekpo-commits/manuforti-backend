@@ -1,0 +1,25 @@
+Risk Category,Risk Factor,Score (0-100),Weight,Weighted Score,Rationale
+Financial,EBITDA Profitability,75,25%,18.75,Negative EBITDA NOK -275M in 2024; Alkaline division positive but PEM dragging
+Financial,Cash Position,20,20%,4.00,Strong cash buffer NOK 1.9B provides runway through 2026-27
+Financial,Debt Position,15,15%,2.25,Debt-free company; NOK 4.8B equity; 0% debt/equity ratio
+Financial,Revenue Growth,35,15%,5.25,+28% YoY growth showing market traction
+Financial,Order Backlog Quality,70,15%,10.50,Backlog declined NOK 2.4B to 1.6B in 2024; concerning trend
+Financial,Market Cap Stability,60,10%,6.00,Volatility typical of growth/loss-making clean tech
+Financial Subtotal,,,,47.75,Medium-High Financial Risk
+Operational,Manufacturing Scale,25,30%,7.50,1+ GW capacity operational at Heroya; proven at scale
+Operational,Technology Maturity,20,25%,5.00,Alkaline technology mature; PEM via GM partnership
+Operational,Quality Certifications,30,20%,6.00,Industrial certifications for electrolyser equipment
+Operational,Delivery Track Record,35,15%,5.25,Mixed delivery performance; some project delays noted
+Operational,Service Network,25,10%,2.50,Global service network established
+Operational Subtotal,,,,26.25,Low Operational Risk
+Geopolitical,Country Risk,10,40%,4.00,Norway - AAA rated; stable jurisdiction
+Geopolitical,Trade Policy Risk,20,30%,6.00,EU/Norway trade agreements favorable
+Geopolitical,Sanctions Exposure,5,20%,1.00,No sanctions exposure; clean energy sector
+Geopolitical,Supply Chain Geo,20,10%,2.00,Some China exposure for components
+Geopolitical Subtotal,,,,13.00,Low Geopolitical Risk
+ESG,Environmental Impact,15,35%,5.25,Green hydrogen enabler; net positive environmental impact
+ESG,Social Standards,20,25%,5.00,Norwegian labour standards; strong safety record
+ESG,Governance Quality,30,25%,7.50,Public company disclosure; board independence
+ESG,Controversies,50,15%,7.50,Negative EBITDA and backlog decline flagged
+ESG Subtotal,,,,25.25,Low ESG Risk
+OVERALL RISK SCORE,,48,,,MEDIUM RISK - Conditional Approval Recommended

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manu Forti Intelligence — AI-Powered Supplier Intelligence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #002147;
+            --cobalt: #2B6CB0;
+            --white: #FFFFFF;
+            --gray: #718096;
+            --light-gray: #F7FAFC;
+            --green: #48BB78;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: var(--navy);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--cobalt);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cobalt);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a365d 100%);
+            color: var(--white);
+            padding: 10rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--cobalt);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #1e4e8c;
+            transform: translateY(-2px);
+        }
+
+        /* Features */
+        .features {
+            padding: 5rem 0;
+            background: var(--light-gray);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: var(--navy);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--cobalt);
+        }
+
+        .pricing-card.featured {
+            background: var(--navy);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--cobalt);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card.featured .price {
+            color: var(--white);
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .pricing-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .pricing-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            padding: 5rem 0;
+            background: var(--light-gray);
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 3rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--cobalt);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 5rem 0;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background: var(--cobalt);
+            color: var(--white);
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #1e4e8c;
+        }
+
+        /* Footer */
+        footer {
+            background: #001a38;
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Manu Forti <span>Intelligence</span></div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Get a grip of procurement with a strong hand</h1>
+            <p>Get to grips with procurement with the use of AI and 80 years of procurement experience. Professional supplier evaluation reports delivered in 24 hours.</p>
+            <a href="#contact" class="cta-button">Request a Demo</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Why Manu Forti?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🎯 AI-Powered Analysis</h3>
+                    <p>Advanced AI models analyze financial health, operational capability, geopolitical risk, and ESG factors for comprehensive supplier intelligence.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ 24-Hour Delivery</h3>
+                    <p>Professional 9-slide reports delivered within 24 hours. No waiting weeks for traditional credit assessments.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💼 Procurement Expertise</h3>
+                    <p>Built by procurement professionals with 80+ years of combined experience in energy, manufacturing, and global supply chains.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Executive-Ready Format</h3>
+                    <p>Beautiful, professional reports with risk gauges, financial charts, and clear recommendations your board will appreciate.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌍 Global Coverage</h3>
+                    <p>Evaluate suppliers anywhere in the world. From Chinese manufacturers to European energy companies.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔒 Confidential & Secure</h3>
+                    <p>Your supplier evaluations remain strictly confidential. Enterprise-grade security for sensitive procurement decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Simple, Transparent Pricing</h2>
+            <p class="pricing-subtitle">No subscriptions. No hidden fees. Pay per report.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Standard Report</h3>
+                    <div class="price">€149<span>/report</span></div>
+                    <ul>
+                        <li>9-slide professional report</li>
+                        <li>Financial health analysis</li>
+                        <li>Operational capability assessment</li>
+                        <li>Risk rating & recommendation</li>
+                        <li>24-hour delivery</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Premium Report</h3>
+                    <div class="price">€199<span>/report</span></div>
+                    <ul>
+                        <li>Everything in Standard, plus:</li>
+                        <li>ESG assessment included</li>
+                        <li>Competitor benchmarking</li>
+                        <li>Commercial intelligence</li>
+                        <li>Negotiation recommendations</li>
+                        <li>Priority 12-hour delivery</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Submit Request</h3>
+                    <p>Tell us which supplier you need evaluated. Provide their name, website, and any specific concerns.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Analysis</h3>
+                    <p>Our AI pipeline gathers data, analyzes financials, assesses risks, and generates insights.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Expert Review</h3>
+                    <p>Procurement experts review the AI output, add context, and validate recommendations.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Receive Report</h3>
+                    <p>Get your professional 9-slide report within 24 hours, ready for your board or procurement committee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Ready to evaluate your suppliers?</h2>
+            <p>Request a demo or submit your first supplier evaluation.</p>
+            <form class="contact-form" action="mailto:Jonathon.Milne137@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell us which supplier you'd like evaluated or request a demo..."></textarea>
+                </div>
+                <button type="submit" class="submit-button">Request a Demo</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Manu Forti Intelligence. All rights reserved. | Confidential Supplier Evaluations</p>
+        </div>
+    </footer>
+</body>
+</html>

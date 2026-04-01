@@ -1,0 +1,2129 @@
+{
+  "template_name": "Product 1 \u2014 Canonical Template",
+  "based_on": "Boskalis_Product1_v15_Final-1.pptx",
+  "slide_count": 9,
+  "dimensions": {
+    "width_inches": 13.33299978127734,
+    "height_inches": 7.5
+  },
+  "color_scheme": {
+    "navy": "#002147",
+    "steel_blue": "#2B6CB0",
+    "mid_grey": "#718096",
+    "green": "#48BB78",
+    "amber": "#D69E2E",
+    "red": "#E53E3E",
+    "background": "#FFFFFF",
+    "text_primary": "#1A202C",
+    "text_secondary": "#4A5568"
+  },
+  "typography": {
+    "slide_title": {
+      "size_pt": 28,
+      "color": "#002147",
+      "bold": true
+    },
+    "section_header": {
+      "size_pt": 20,
+      "color": "#2B6CB0",
+      "bold": true
+    },
+    "body_text": {
+      "size_pt": 14,
+      "color": "#1A202C",
+      "bold": false
+    },
+    "source_line": {
+      "size_pt": 8,
+      "color": "#718096",
+      "bold": false
+    },
+    "minimum_body": "14pt",
+    "minimum_source": "8pt"
+  },
+  "slides": [
+    {
+      "slide_number": 1,
+      "shapes": [
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.0,
+            "top_inches": 0.0,
+            "width_inches": 13.33299978127734,
+            "height_inches": 7.5
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.0,
+            "top_inches": 5.55,
+            "width_inches": 13.33299978127734,
+            "height_inches": 0.08
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "SUPPLIER EVALUATION REPORT",
+          "position": {
+            "left_inches": 0.7,
+            "top_inches": 1.4,
+            "width_inches": 12.0,
+            "height_inches": 0.5
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Royal Boskalis Westminster N.V.",
+          "position": {
+            "left_inches": 0.7,
+            "top_inches": 2.0499989063867017,
+            "width_inches": 12.0,
+            "height_inches": 1.2
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Dredging  |  Offshore Energy  |  Towage & Salvage",
+          "position": {
+            "left_inches": 0.7,
+            "top_inches": 3.5,
+            "width_inches": 12.0,
+            "height_inches": 0.6
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.7,
+            "top_inches": 4.349998906386702,
+            "width_inches": 4.5,
+            "height_inches": 0.05
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR 4.4B Revenue  |  11,683 Employees  |  94 Countries  |  500+ Vessels",
+          "position": {
+            "left_inches": 0.7,
+            "top_inches": 4.55,
+            "width_inches": 12.0,
+            "height_inches": 0.4
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Confidential  |  February 2026  |  Manu Forti Intelligence",
+          "position": {
+            "left_inches": 0.7,
+            "top_inches": 6.2,
+            "width_inches": 12.0,
+            "height_inches": 0.4
+          }
+        }
+      ],
+      "layout": "title_slide"
+    },
+    {
+      "slide_number": 2,
+      "shapes": [
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.0,
+            "top_inches": 0.0,
+            "width_inches": 13.33299978127734,
+            "height_inches": 1.0
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EXECUTIVE SUMMARY",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.12,
+            "width_inches": 10.0,
+            "height_inches": 0.55
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Royal Boskalis Westminster N.V. \u2014 Risk & Suitability Overview",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.62,
+            "width_inches": 12.5,
+            "height_inches": 0.35
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 10.92,
+            "top_inches": 0.06,
+            "width_inches": 2.2599989063867016,
+            "height_inches": 0.87
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 11.0,
+            "top_inches": 0.1,
+            "width_inches": 2.1,
+            "height_inches": 0.7910958005249343
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 1.05,
+            "width_inches": 7.2,
+            "height_inches": 3.0997725284339457
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 7.6,
+            "top_inches": 1.05,
+            "width_inches": 5.4,
+            "height_inches": 5.6
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "SUPPLIER SNAPSHOT",
+          "position": {
+            "left_inches": 7.8,
+            "top_inches": 1.22,
+            "width_inches": 5.2,
+            "height_inches": 0.32
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Supplier:",
+          "position": {
+            "left_inches": 7.8,
+            "top_inches": 1.64,
+            "width_inches": 2.3,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Royal Boskalis Westminster N.V.",
+          "position": {
+            "left_inches": 10.1,
+            "top_inches": 1.64,
+            "width_inches": 2.7,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Ticker:",
+          "position": {
+            "left_inches": 7.8,
+            "top_inches": 1.94,
+            "width_inches": 2.3,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Euronext Amsterdam: BOKA",
+          "position": {
+            "left_inches": 10.1,
+            "top_inches": 1.94,
+            "width_inches": 2.7,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Sector:",
+          "position": {
+            "left_inches": 7.8,
+            "top_inches": 2.2399989063867016,
+            "width_inches": 2.3,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Marine Infrastructure & Offshore Energy",
+          "position": {
+            "left_inches": 10.1,
+            "top_inches": 2.2399989063867016,
+            "width_inches": 2.7,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "HQ:",
+          "position": {
+            "left_inches": 7.8,
+            "top_inches": 2.5399989063867014,
+            "width_inches": 2.3,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Papendrecht, Netherlands",
+          "position": {
+            "left_inches": 10.1,
+            "top_inches": 2.5399989063867014,
+            "width_inches": 2.7,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Founded:",
+          "position": {
+            "left_inches": 7.8,
+            "top_inches": 2.8399989063867017,
+            "width_inches": 2.3,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "1910 (Royal designation 1978)",
+          "position": {
+            "left_inches": 10.1,
+            "top_inches": 2.8399989063867017,
+            "width_inches": 2.7,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Revenue:",
+          "position": {
+            "left_inches": 7.8,
+            "top_inches": 3.1399989063867015,
+            "width_inches": 2.3,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR 4.4B (2024, record year)",
+          "position": {
+            "left_inches": 10.1,
+            "top_inches": 3.1399989063867015,
+            "width_inches": 2.7,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EBITDA:",
+          "position": {
+            "left_inches": 7.8,
+            "top_inches": 3.439998906386702,
+            "width_inches": 2.3,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR 1.3B (30% margin, +28% YoY)",
+          "position": {
+            "left_inches": 10.1,
+            "top_inches": 3.439998906386702,
+            "width_inches": 2.7,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Order Book:",
+          "position": {
+            "left_inches": 7.8,
+            "top_inches": 3.7399989063867016,
+            "width_inches": 2.3,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR 7.0B (16 months coverage)",
+          "position": {
+            "left_inches": 10.1,
+            "top_inches": 3.7399989063867016,
+            "width_inches": 2.7,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Employees:",
+          "position": {
+            "left_inches": 7.8,
+            "top_inches": 4.0399989063867014,
+            "width_inches": 2.3,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "11,683 globally",
+          "position": {
+            "left_inches": 10.1,
+            "top_inches": 4.0399989063867014,
+            "width_inches": 2.7,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Fleet:",
+          "position": {
+            "left_inches": 7.8,
+            "top_inches": 4.339998906386701,
+            "width_inches": 2.3,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "500+ vessels, 94 countries",
+          "position": {
+            "left_inches": 10.1,
+            "top_inches": 4.339998906386701,
+            "width_inches": 2.7,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 5.22,
+            "width_inches": 7.2,
+            "height_inches": 1.43
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Key Findings",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 5.33,
+            "width_inches": 7.0,
+            "height_inches": 0.3
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\u2022 Record 2024: EUR 4.4B revenue (+3% YoY), EUR 1.3B EBITDA (+28%) \u2014 margin at 30%",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 5.65,
+            "width_inches": 7.0,
+            "height_inches": 0.26
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\u2022 115-year heritage \u2014 Royal designation, Euronext-listed, world-class governance",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 5.92,
+            "width_inches": 7.0,
+            "height_inches": 0.26
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\u2022 EUR 7.0B order book = 16 months of revenue locked in \u2014 exceptional pipeline visibility",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 6.19,
+            "width_inches": 7.0,
+            "height_inches": 0.26
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\u2022 ESG flag: Both ENDS legal action (2020) raises social impact exposure \u2014 conditions apply",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 6.459998906386701,
+            "width_inches": 7.0,
+            "height_inches": 0.26
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Source: Manu Forti Intelligence  |  Confidential  |  February 2026",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 7.15,
+            "width_inches": 12.8,
+            "height_inches": 0.3
+          }
+        }
+      ],
+      "layout": "title_and_content"
+    },
+    {
+      "slide_number": 3,
+      "shapes": [
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.0,
+            "top_inches": 0.0,
+            "width_inches": 13.33299978127734,
+            "height_inches": 1.0
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "RECOMMENDATION",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.12,
+            "width_inches": 10.0,
+            "height_inches": 0.55
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Decision Summary & Commercial Conditions",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.62,
+            "width_inches": 12.5,
+            "height_inches": 0.35
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 10.92,
+            "top_inches": 0.06,
+            "width_inches": 2.2599989063867016,
+            "height_inches": 0.87
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 11.0,
+            "top_inches": 0.1,
+            "width_inches": 2.1,
+            "height_inches": 0.7910958005249343
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 1.1,
+            "width_inches": 12.33299978127734,
+            "height_inches": 1.35
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\u26a0  RECOMMENDATION: APPROVE WITH ESG CONDITIONS",
+          "position": {
+            "left_inches": 0.7,
+            "top_inches": 1.18,
+            "width_inches": 12.0,
+            "height_inches": 0.55
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Boskalis is recommended for marine infrastructure, dredging, offshore energy, and heavy maritime transport. Record financials and EUR 7.0B order book support approval. Conditions apply due to ESG flag: Both ENDS legal action (2020, South Sulawesi) must be verified as resolved.",
+          "position": {
+            "left_inches": 0.7,
+            "top_inches": 1.78,
+            "width_inches": 12.0,
+            "height_inches": 0.58
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Commercial Conditions\n\u2022 Standard payment terms: Net-30 to Net-60 days\n\u2022 Joint venture structures recommended for projects >EUR 100M\n\u2022 Performance bonds for contracts >EUR 50M\n\u2022 Force-majeure clause covering geopolitical vessel access\n\u2022 Confirm key vessel availability before contract award",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 2.65,
+            "width_inches": 6.0,
+            "height_inches": 2.5
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "ESG Conditions (Mandatory)\n\u2022 Written confirmation Both ENDS case is resolved\n\u2022 Supplier Code of Conduct: community impact standards\n\u2022 Social Impact clause embedded in contract\n\u2022 Request latest EcoVadis or equivalent ESG rating\n\u2022 Annual ESG reporting milestone in framework contracts",
+          "position": {
+            "left_inches": 6.7,
+            "top_inches": 2.65,
+            "width_inches": 6.0,
+            "height_inches": 2.5
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 5.35,
+            "width_inches": 12.33299978127734,
+            "height_inches": 1.5
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Overall Risk Summary \u2014 MEDIUM (42/100)",
+          "position": {
+            "left_inches": 0.7,
+            "top_inches": 5.5,
+            "width_inches": 12.0,
+            "height_inches": 0.3
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Financial: LOW",
+          "position": {
+            "left_inches": 0.6,
+            "top_inches": 5.88,
+            "width_inches": 3.1,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR 4.4B revenue, 30% EBITDA, Euronext-listed governance",
+          "position": {
+            "left_inches": 0.6,
+            "top_inches": 6.17,
+            "width_inches": 3.1,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Operational: LOW",
+          "position": {
+            "left_inches": 3.7,
+            "top_inches": 5.88,
+            "width_inches": 3.1,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "500+ vessels, 94 countries \u2014 world-class fleet",
+          "position": {
+            "left_inches": 3.7,
+            "top_inches": 6.17,
+            "width_inches": 3.1,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Geopolitical: MEDIUM",
+          "position": {
+            "left_inches": 6.8,
+            "top_inches": 5.88,
+            "width_inches": 3.1,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Complex jurisdictions \u2014 Middle East, West Africa",
+          "position": {
+            "left_inches": 6.8,
+            "top_inches": 6.17,
+            "width_inches": 3.1,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "ESG: MEDIUM",
+          "position": {
+            "left_inches": 9.9,
+            "top_inches": 5.88,
+            "width_inches": 3.1,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Both ENDS action (2020) \u2014 social flag, conditions apply",
+          "position": {
+            "left_inches": 9.9,
+            "top_inches": 6.17,
+            "width_inches": 3.1,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Source: Manu Forti Intelligence  |  Confidential  |  February 2026",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 7.15,
+            "width_inches": 12.8,
+            "height_inches": 0.3
+          }
+        }
+      ],
+      "layout": "title_and_content"
+    },
+    {
+      "slide_number": 4,
+      "shapes": [
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.0,
+            "top_inches": 0.0,
+            "width_inches": 13.33299978127734,
+            "height_inches": 1.0
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "SUPPLIER PROFILE",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.12,
+            "width_inches": 10.0,
+            "height_inches": 0.55
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Corporate Structure & Global Footprint",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.62,
+            "width_inches": 12.5,
+            "height_inches": 0.35
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 10.92,
+            "top_inches": 0.06,
+            "width_inches": 2.2599989063867016,
+            "height_inches": 0.87
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 11.0,
+            "top_inches": 0.1,
+            "width_inches": 2.1,
+            "height_inches": 0.7910958005249343
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 1.05,
+            "width_inches": 8.199998906386702,
+            "height_inches": 4.476829615048119
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Company Overview\nRoyal Boskalis Westminster N.V. is a leading global\ncontractor in dredging, marine infrastructure, and\noffshore energy services. With 115+ years of experience,\nBoskalis operates one of the world's largest specialised\nvessel fleets \u2014 500+ units across 94 countries.\n\nListed on Euronext Amsterdam since 1978 (BOKA), the\ncompany holds Royal designation from the Dutch Crown,\nreflecting its strategic national importance.",
+          "position": {
+            "left_inches": 8.699998906386702,
+            "top_inches": 1.05,
+            "width_inches": 4.3,
+            "height_inches": 3.5
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Leadership\nPeter Berdowski \u2014 CEO\n  25+ years at Boskalis; industry veteran\n\nMichiel Borgers \u2014 CFO\n  Deep offshore energy finance background\n\nHQ: Papendrecht, NL  |  Founded: 1910",
+          "position": {
+            "left_inches": 8.699998906386702,
+            "top_inches": 4.5,
+            "width_inches": 4.3,
+            "height_inches": 2.4
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Source: Manu Forti Intelligence  |  Confidential  |  February 2026",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 7.15,
+            "width_inches": 12.8,
+            "height_inches": 0.3
+          }
+        }
+      ],
+      "layout": "title_and_content"
+    },
+    {
+      "slide_number": 5,
+      "shapes": [
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.0,
+            "top_inches": 0.0,
+            "width_inches": 13.33299978127734,
+            "height_inches": 1.0
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "FINANCIAL HEALTH",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.12,
+            "width_inches": 10.0,
+            "height_inches": 0.55
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Revenue & EBITDA Trajectory 2021\u20132024  |  Record Year: EUR 4.4B  |  Net Cash: EUR +518M",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.62,
+            "width_inches": 12.5,
+            "height_inches": 0.35
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 10.92,
+            "top_inches": 0.06,
+            "width_inches": 2.2599989063867016,
+            "height_inches": 0.87
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 11.0,
+            "top_inches": 0.1,
+            "width_inches": 2.1,
+            "height_inches": 0.7910958005249343
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 1.05,
+            "width_inches": 7.5,
+            "height_inches": 4.550752405949257
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Financial Highlights",
+          "position": {
+            "left_inches": 8.1,
+            "top_inches": 1.1,
+            "width_inches": 4.9,
+            "height_inches": 0.35
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "2024 Revenue:",
+          "position": {
+            "left_inches": 8.1,
+            "top_inches": 1.56,
+            "width_inches": 2.55,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR 4.4B  (+3% YoY)",
+          "position": {
+            "left_inches": 10.6499989063867,
+            "top_inches": 1.56,
+            "width_inches": 2.25,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "2024 EBITDA:",
+          "position": {
+            "left_inches": 8.1,
+            "top_inches": 1.86,
+            "width_inches": 2.55,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR 1.3B  (30% margin, +28%)",
+          "position": {
+            "left_inches": 10.6499989063867,
+            "top_inches": 1.86,
+            "width_inches": 2.25,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "2024 Net Profit:",
+          "position": {
+            "left_inches": 8.1,
+            "top_inches": 2.16,
+            "width_inches": 2.55,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR 781M  (+30% YoY)",
+          "position": {
+            "left_inches": 10.6499989063867,
+            "top_inches": 2.16,
+            "width_inches": 2.25,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "3yr Revenue CAGR:",
+          "position": {
+            "left_inches": 8.1,
+            "top_inches": 2.46,
+            "width_inches": 2.55,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "+9%  (2021\u20132024)",
+          "position": {
+            "left_inches": 10.6499989063867,
+            "top_inches": 2.46,
+            "width_inches": 2.25,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Order Book:",
+          "position": {
+            "left_inches": 8.1,
+            "top_inches": 2.76,
+            "width_inches": 2.55,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR 7.0B  (16 months)",
+          "position": {
+            "left_inches": 10.6499989063867,
+            "top_inches": 2.76,
+            "width_inches": 2.25,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Gross Debt:",
+          "position": {
+            "left_inches": 8.1,
+            "top_inches": 3.0599989063867015,
+            "width_inches": 2.55,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR 247M  (low absolute debt)",
+          "position": {
+            "left_inches": 10.6499989063867,
+            "top_inches": 3.0599989063867015,
+            "width_inches": 2.25,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Net Cash Position:",
+          "position": {
+            "left_inches": 8.1,
+            "top_inches": 3.3599989063867017,
+            "width_inches": 2.55,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR +518M  (cash EUR 765M)",
+          "position": {
+            "left_inches": 10.6499989063867,
+            "top_inches": 3.3599989063867017,
+            "width_inches": 2.25,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Debt / EBITDA:",
+          "position": {
+            "left_inches": 8.1,
+            "top_inches": 3.6599989063867016,
+            "width_inches": 2.55,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "0.19x  \u2713  (near debt-free)",
+          "position": {
+            "left_inches": 10.6499989063867,
+            "top_inches": 3.6599989063867016,
+            "width_inches": 2.25,
+            "height_inches": 0.29
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 8.1,
+            "top_inches": 4.05,
+            "width_inches": 4.8,
+            "height_inches": 0.44
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Financial Risk:  LOW  \u2713",
+          "position": {
+            "left_inches": 8.25,
+            "top_inches": 4.12,
+            "width_inches": 4.5,
+            "height_inches": 0.3
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Exposure Guidance\n\u2022 Near debt-free: EUR 0.19x Debt/EBITDA \u2014 exceptional headroom\n\u2022 No parent guarantee required \u2014 standalone credit\n\u2022 Single contract: standard project sizing applies\n\u2022 Payment: Net-30 standard; milestone for large projects",
+          "position": {
+            "left_inches": 8.1,
+            "top_inches": 4.6,
+            "width_inches": 4.8,
+            "height_inches": 2.3
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Source: Manu Forti Intelligence  |  Confidential  |  February 2026",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 7.15,
+            "width_inches": 12.8,
+            "height_inches": 0.3
+          }
+        }
+      ],
+      "layout": "title_and_content"
+    },
+    {
+      "slide_number": 6,
+      "shapes": [
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.0,
+            "top_inches": 0.0,
+            "width_inches": 13.33299978127734,
+            "height_inches": 1.0
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "MARKET POSITION",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.12,
+            "width_inches": 10.0,
+            "height_inches": 0.55
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Marine Contractor Revenue Comparison \u2014 2024 Estimates",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.62,
+            "width_inches": 12.5,
+            "height_inches": 0.35
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 10.92,
+            "top_inches": 0.06,
+            "width_inches": 2.2599989063867016,
+            "height_inches": 0.87
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 11.0,
+            "top_inches": 0.1,
+            "width_inches": 2.1,
+            "height_inches": 0.7910958005249343
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 1.05,
+            "width_inches": 8.0,
+            "height_inches": 4.464419291338583
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Competitive Landscape\nBoskalis is one of only 3 global marine contractors\ncapable of full-scope dredging + offshore energy +\nheavy transport simultaneously. Owned fleet and\n94-country presence creates a defensible moat.",
+          "position": {
+            "left_inches": 8.5,
+            "top_inches": 1.1,
+            "width_inches": 4.5,
+            "height_inches": 2.0
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Boskalis Competitive Advantages\n\u2022 World's largest dredging fleet by capacity\n\u2022 Smit Lamnalco: 80+ global ports \u2014 unmatched\n\u2022 Royal designation \u2014 strategic Dutch asset\n\u2022 Fully integrated: vessels, crews, logistics\n\u2022 EUR 7.0B order book \u2014 market confidence signal\n\u2022 Euronext-listed: governance & financial discipline",
+          "position": {
+            "left_inches": 8.5,
+            "top_inches": 3.2,
+            "width_inches": 4.5,
+            "height_inches": 2.6
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Key Competitors",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 5.5,
+            "width_inches": 12.0,
+            "height_inches": 0.3
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\u2022 DEME (GeoSea) \u2014 Belgium \u2014 EUR 3.5B \u2014 Offshore wind specialist, subsea cables",
+          "position": {
+            "left_inches": 0.6,
+            "top_inches": 5.84,
+            "width_inches": 12.0,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\u2022 Jan De Nul \u2014 Luxembourg \u2014 EUR 2.8B \u2014 Privately held; strong in land reclamation",
+          "position": {
+            "left_inches": 0.6,
+            "top_inches": 6.13,
+            "width_inches": 12.0,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\u2022 Van Oord \u2014 Netherlands \u2014 EUR 2.0B \u2014 Dutch rival; wind farm focus",
+          "position": {
+            "left_inches": 0.6,
+            "top_inches": 6.42,
+            "width_inches": 12.0,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\u2022 Penta-Ocean \u2014 Japan \u2014 EUR 1.1B \u2014 Asia-Pacific dredging; less global",
+          "position": {
+            "left_inches": 0.6,
+            "top_inches": 6.71,
+            "width_inches": 12.0,
+            "height_inches": 0.27
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Source: Manu Forti Intelligence  |  Confidential  |  February 2026",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 7.15,
+            "width_inches": 12.8,
+            "height_inches": 0.3
+          }
+        }
+      ],
+      "layout": "title_and_content"
+    },
+    {
+      "slide_number": 7,
+      "shapes": [
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.0,
+            "top_inches": 0.0,
+            "width_inches": 13.33299978127734,
+            "height_inches": 1.0
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "OPERATIONAL CAPABILITY  &  RISK ASSESSMENT",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.12,
+            "width_inches": 10.0,
+            "height_inches": 0.55
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Milestones & Strategic Investment  |  Risk Matrix  |  Capability Summary",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.62,
+            "width_inches": 12.5,
+            "height_inches": 0.35
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 10.92,
+            "top_inches": 0.06,
+            "width_inches": 2.2599989063867016,
+            "height_inches": 0.87
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 11.0,
+            "top_inches": 0.1,
+            "width_inches": 2.1,
+            "height_inches": 0.7910958005249343
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 1.05,
+            "width_inches": 7.0,
+            "height_inches": 2.9166666666666665
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 7.65,
+            "top_inches": 1.05,
+            "width_inches": 5.5,
+            "height_inches": 4.459711286089239
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Risk Summary",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 5.58,
+            "width_inches": 7.0,
+            "height_inches": 0.28
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Financial:",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 5.89,
+            "width_inches": 2.1,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\ud83d\udfe2 LOW",
+          "position": {
+            "left_inches": 2.4,
+            "top_inches": 5.89,
+            "width_inches": 1.4,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR 4.4B revenue; 30% EBITDA; Euronext-listed",
+          "position": {
+            "left_inches": 3.8,
+            "top_inches": 5.89,
+            "width_inches": 3.7,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Geopolitical:",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 6.14,
+            "width_inches": 2.1,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\ud83d\udfe1 MEDIUM",
+          "position": {
+            "left_inches": 2.4,
+            "top_inches": 6.14,
+            "width_inches": 1.4,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Complex jurisdictions \u2014 Middle East, West Africa",
+          "position": {
+            "left_inches": 3.8,
+            "top_inches": 6.14,
+            "width_inches": 3.7,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Fleet Availability:",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 6.39,
+            "width_inches": 2.1,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\ud83d\udfe2 LOW",
+          "position": {
+            "left_inches": 2.4,
+            "top_inches": 6.39,
+            "width_inches": 1.4,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "500+ vessels; globally diversified",
+          "position": {
+            "left_inches": 3.8,
+            "top_inches": 6.39,
+            "width_inches": 3.7,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "FX / Currency:",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 6.64,
+            "width_inches": 2.1,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\ud83d\udfe2 LOW",
+          "position": {
+            "left_inches": 2.4,
+            "top_inches": 6.64,
+            "width_inches": 1.4,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "EUR-denominated; hedged globally",
+          "position": {
+            "left_inches": 3.8,
+            "top_inches": 6.64,
+            "width_inches": 3.7,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Delivery Risk:",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 6.89,
+            "width_inches": 2.1,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "\ud83d\udfe1 MEDIUM",
+          "position": {
+            "left_inches": 2.4,
+            "top_inches": 6.89,
+            "width_inches": 1.4,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Large projects carry execution risk",
+          "position": {
+            "left_inches": 3.8,
+            "top_inches": 6.89,
+            "width_inches": 3.7,
+            "height_inches": 0.24
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Key Capabilities\n\u2022 ISO 9001 / ISO 14001 / OHSAS 18001 certified\n\u2022 115 years continuous marine operations\n\u2022 94 countries \u2014 local expertise globally\n\u2022 Full chain: design \u2192 execute \u2192 maintain",
+          "position": {
+            "left_inches": 7.65,
+            "top_inches": 5.58,
+            "width_inches": 5.5,
+            "height_inches": 1.85
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Source: Manu Forti Intelligence  |  Confidential  |  February 2026",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 7.15,
+            "width_inches": 12.8,
+            "height_inches": 0.3
+          }
+        }
+      ],
+      "layout": "title_and_content"
+    },
+    {
+      "slide_number": 8,
+      "shapes": [
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.0,
+            "top_inches": 0.0,
+            "width_inches": 13.33299978127734,
+            "height_inches": 1.0
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "COMMERCIAL INTELLIGENCE  &  PEER RISK COMPARISON",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.12,
+            "width_inches": 10.0,
+            "height_inches": 0.55
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Benchmarking Radar  |  Peer Risk Profile  |  Commercial Terms",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.62,
+            "width_inches": 12.5,
+            "height_inches": 0.35
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 10.92,
+            "top_inches": 0.06,
+            "width_inches": 2.2599989063867016,
+            "height_inches": 0.87
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 11.0,
+            "top_inches": 0.1,
+            "width_inches": 2.1,
+            "height_inches": 0.7910958005249343
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 0.2,
+            "top_inches": 1.0,
+            "width_inches": 5.8,
+            "height_inches": 4.742213473315836
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 6.2,
+            "top_inches": 1.0,
+            "width_inches": 6.9,
+            "height_inches": 3.853448162729659
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 5.8,
+            "width_inches": 12.7,
+            "height_inches": 1.5
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Commercial Terms & Negotiation\n\u2022 Pricing: Milestone/progress payments standard; lump-sum for fixed-scope\n\u2022 Lead time: 3\u20139 months to mobilisation depending on vessel availability\n\u2022 Leverage: Volume commitment; long-term framework agreements\n\u2022 IP: Client owns design deliverables; Boskalis retains method IP",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 5.85,
+            "width_inches": 6.5,
+            "height_inches": 1.4
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Key Watch Points\n\u26a0 Geopolitical: Monitor project-country risk individually\n\u26a0 Order book: High demand may constrain vessel availability\n\u26a0 FX: Hedge EUR/USD/NOK exposure on long-term contracts",
+          "position": {
+            "left_inches": 7.0,
+            "top_inches": 5.85,
+            "width_inches": 5.8,
+            "height_inches": 1.4
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Source: Manu Forti Intelligence  |  Confidential  |  February 2026",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 7.15,
+            "width_inches": 12.8,
+            "height_inches": 0.3
+          }
+        }
+      ],
+      "layout": "title_and_content"
+    },
+    {
+      "slide_number": 9,
+      "shapes": [
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 0.0,
+            "top_inches": 0.0,
+            "width_inches": 13.33299978127734,
+            "height_inches": 1.0
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "ESG ASSESSMENT",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.12,
+            "width_inches": 10.0,
+            "height_inches": 0.55
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Environmental, Social & Governance Screening  |  Overall Rating: MEDIUM",
+          "position": {
+            "left_inches": 0.5,
+            "top_inches": 0.62,
+            "width_inches": 12.5,
+            "height_inches": 0.35
+          }
+        },
+        {
+          "type": "AUTO_SHAPE (1)",
+          "has_text_frame": true,
+          "text": "",
+          "position": {
+            "left_inches": 10.92,
+            "top_inches": 0.06,
+            "width_inches": 2.2599989063867016,
+            "height_inches": 0.87
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 11.0,
+            "top_inches": 0.1,
+            "width_inches": 2.1,
+            "height_inches": 0.7910958005249343
+          }
+        },
+        {
+          "type": "PICTURE (13)",
+          "has_text_frame": false,
+          "text": "",
+          "position": {
+            "left_inches": 1.67,
+            "top_inches": 1.05,
+            "width_inches": 10.0,
+            "height_inches": 5.933529090113736
+          }
+        },
+        {
+          "type": "TEXT_BOX (17)",
+          "has_text_frame": true,
+          "text": "Source: Manu Forti Intelligence  |  Confidential  |  February 2026",
+          "position": {
+            "left_inches": 0.3,
+            "top_inches": 7.15,
+            "width_inches": 12.8,
+            "height_inches": 0.3
+          }
+        }
+      ],
+      "layout": "title_and_content"
+    }
+  ],
+  "content_model": {
+    "slide_1_title": {
+      "description": "Title slide",
+      "required_fields": [
+        "supplier_name",
+        "sector_tags",
+        "key_stats_line",
+        "report_date",
+        "confidentiality"
+      ],
+      "branding": {
+        "logo_position": "top_right",
+        "source_line": false
+      }
+    },
+    "slide_2_executive_summary": {
+      "description": "Executive Summary with risk gauge",
+      "required_fields": [
+        "supplier_name",
+        "overall_risk_rating",
+        "risk_score",
+        "key_insight_text",
+        "risk_factors_list",
+        "supplier_snapshot"
+      ],
+      "visual_elements": [
+        "risk_gauge_dial_LOCKED",
+        "snapshot_panel"
+      ],
+      "branding": {
+        "source_line_y": 7.15,
+        "source_line_size": 8
+      },
+      "risk_gauge_spec": {
+        "LOCKED": true,
+        "locked_by": "Jonathon Milne",
+        "locked_date": "2026-03-02",
+        "description": "Semi-circular gauge dial with GREEN/AMBER/RED segments, needle at score, risk pillar boxes below",
+        "position": {
+          "left": 0.3,
+          "top": 1.05,
+          "width": 7.2,
+          "height": 3.1
+        },
+        "segments": [
+          {
+            "range": "0-33",
+            "color": "#48BB78",
+            "label": "LOW"
+          },
+          {
+            "range": "34-66",
+            "color": "#D69E2E",
+            "label": "MEDIUM"
+          },
+          {
+            "range": "67-100",
+            "color": "#E53E3E",
+            "label": "HIGH"
+          }
+        ],
+        "needle": "Points to supplier overall risk score (0-100)",
+        "pillar_boxes": [
+          "Financial",
+          "Operational",
+          "Geopolitical",
+          "ESG"
+        ],
+        "generator_function": "generate_risk_gauge()",
+        "NEVER_REMOVE": true
+      }
+    },
+    "slide_3_recommendation": {
+      "description": "Recommendation with conditions",
+      "required_fields": [
+        "verdict_text",
+        "verdict_color",
+        "conditions_list",
+        "risk_summary_table",
+        "next_steps"
+      ],
+      "visual_elements": [
+        "banner_box",
+        "risk_summary_strip"
+      ],
+      "rules": [
+        "NO_GREEN_ON_THIS_SLIDE",
+        "AMBER_FOR_APPROVE_CONDITIONS"
+      ]
+    },
+    "slide_4_supplier_profile": {
+      "description": "Supplier Profile with org structure",
+      "required_fields": [
+        "company_overview_text",
+        "leadership_list",
+        "org_structure_diagram",
+        "headquarters",
+        "employee_count",
+        "global_footprint"
+      ],
+      "visual_elements": [
+        "org_chart",
+        "leadership_photos_placeholder"
+      ]
+    },
+    "slide_5_financial_health": {
+      "description": "Financial Health with dual-axis chart",
+      "required_fields": [
+        "revenue_2024",
+        "revenue_yoy",
+        "ebitda",
+        "ebitda_margin",
+        "net_profit",
+        "cagr_3yr",
+        "order_book",
+        "gross_debt",
+        "net_cash",
+        "debt_ebitda",
+        "trend_insight"
+      ],
+      "required_metrics": [
+        "Revenue (latest year + YoY %)",
+        "EBITDA (amount + margin %)",
+        "Net Profit",
+        "Revenue CAGR (3yr)",
+        "Order Book",
+        "Gross Debt",
+        "Net Cash/Net Debt",
+        "Debt/EBITDA ratio"
+      ],
+      "visual_elements": [
+        "dual_axis_chart",
+        "metrics_panel"
+      ],
+      "chart_spec": {
+        "type": "dual_axis_bar_line",
+        "width_inches": 7.5,
+        "height_inches": 4.55,
+        "bar_color": "#002147",
+        "line_color": "#2B6CB0"
+      }
+    },
+    "slide_6_market_position": {
+      "description": "Market Position vs peers",
+      "required_fields": [
+        "market_rank",
+        "competitors_list",
+        "competitive_advantages",
+        "market_share_data"
+      ],
+      "visual_elements": [
+        "horizontal_bar_chart"
+      ],
+      "chart_spec": {
+        "type": "horizontal_bar",
+        "subject_color": "#002147",
+        "competitor_color": "#718096"
+      }
+    },
+    "slide_7_operational_risk": {
+      "description": "Operational Capability & Risk Assessment",
+      "required_fields": [
+        "investment_timeline",
+        "risk_matrix_data",
+        "risk_table",
+        "capabilities_list"
+      ],
+      "visual_elements": [
+        "timeline",
+        "2x2_risk_matrix",
+        "risk_table"
+      ],
+      "layout_spec": {
+        "timeline_width": 7.0,
+        "risk_matrix_width": 5.5,
+        "bottom_panels_aligned": true
+      }
+    },
+    "slide_8_commercial_intelligence": {
+      "description": "Commercial Intelligence & Peer Risk",
+      "required_fields": [
+        "radar_chart_data",
+        "peer_risk_data",
+        "commercial_terms",
+        "negotiation_notes",
+        "key_watch_points"
+      ],
+      "visual_elements": [
+        "radar_chart",
+        "lollipop_chart"
+      ],
+      "chart_spec": {
+        "radar_dimensions": 6,
+        "lollipop_colors": [
+          "#002147",
+          "#2B6CB0",
+          "#718096"
+        ]
+      }
+    },
+    "slide_9_esg": {
+      "description": "ESG Assessment",
+      "required_fields": [
+        "environmental_rating",
+        "social_rating",
+        "governance_rating",
+        "overall_esg_rating",
+        "controversies_list",
+        "esg_conditions"
+      ],
+      "visual_elements": [
+        "three_column_layout",
+        "rating_badges"
+      ],
+      "rules": [
+        "ESG_MEDIUM_elevates_overall_to_MEDIUM",
+        "Include_controversy_screening"
+      ],
+      "controversy_screening": {
+        "LOCKED": true,
+        "locked_date": "2026-03-02",
+        "header_size_pt": 18,
+        "item_size_pt": 16,
+        "header_color": "#E53E3E",
+        "item_color": "#002147",
+        "font_weight": "bold",
+        "background": "light_red_banner",
+        "NEVER_REDUCE_BELOW_16PT": true
+      }
+    }
+  },
+  "design_standards": {
+    "action_titles": "Each slide header sub-line must state KEY INSIGHT as sentence",
+    "color_usage": {
+      "rag_only_for_status": true,
+      "navy_for_bars": true,
+      "steel_blue_for_lines": true,
+      "no_color_noise": true
+    },
+    "insight_callouts": {
+      "style": "Bloomberg",
+      "left_accent_border": "#2B6CB0",
+      "background": "#EBF4FF",
+      "no_colored_boxes": true
+    },
+    "chart_standards": {
+      "minimal_gridlines": true,
+      "no_top_right_spines": true,
+      "direct_data_labels": true
+    },
+    "logo_placement": {
+      "position": "top_right",
+      "every_slide": true,
+      "white_rounded_backing": true,
+      "dimensions": {
+        "x": 10.92,
+        "y": 0.06,
+        "width": 2.26,
+        "height": 0.87
+      }
+    },
+    "source_line": {
+      "text": "Source: Manu Forti Intelligence | Confidential | {Month Year}",
+      "footer_text": "Powered by Manu Forti Intelligence",
+      "never_use": "AI-Powered Procurement Intelligence"
+    }
+  },
+  "risk_rating_logic": {
+    "composite_calculation": "Financial + Operational + Geopolitical + ESG",
+    "esg_rule": "ESG MEDIUM elevates overall from LOW to MEDIUM even if other pillars are LOW",
+    "example": "Financial LOW + Operational LOW + Geopolitical MEDIUM + ESG MEDIUM = Overall MEDIUM (42/100)",
+    "recommendation_impact": "ESG MEDIUM changes APPROVE to APPROVE with ESG Conditions"
+  },
+  "logo_standards": {
+    "LOCKED": true,
+    "locked_date": "2026-03-02",
+    "supplier_logo": {
+      "position": "top_right_every_slide",
+      "white_box": {
+        "x": 10.92,
+        "y": 0.06,
+        "width": 2.26,
+        "height": 0.87
+      },
+      "auto_resize": true,
+      "max_width_inches": 2.0,
+      "max_height_inches": 0.75,
+      "maintain_aspect_ratio": true,
+      "center_in_box": true,
+      "title_slide_y_override": 0.5
+    },
+    "manu_forti_logo": {
+      "asset_path": "skills/product-1-generator/assets/manu_forti_logo.png",
+      "description": "Clan Mackay crest badge \u2014 Manu Forti company logo",
+      "position": "bottom_right_every_slide",
+      "width_inches": 0.6,
+      "maintain_aspect_ratio": true,
+      "margin_right": 0.2,
+      "margin_bottom": 0.15,
+      "ALWAYS_PRESENT": true
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "supplier": "AutoTestCorp",
+  "extracted_at": "2026-03-02T12:43:03.168415",
+  "model": "qwen3:8b-local (MOCK FALLBACK)",
+  "cost": 0.0,
+  "sources_processed": 1,
+  "raw_extractions": {
+    "financial_snippets": [
+      "[MOCK] Financial data for AutoTestCorp"
+    ],
+    "news_mentions": [
+      "[MOCK] Recent news about AutoTestCorp"
+    ],
+    "leadership": [
+      "[MOCK] Leadership info for AutoTestCorp"
+    ],
+    "capabilities": [
+      "[MOCK] Capabilities of AutoTestCorp"
+    ]
+  },
+  "confidence_scores": {
+    "financial": 0.5,
+    "news": 0.5,
+    "leadership": 0.5,
+    "capabilities": 0.5
+  },
+  "unstructured_notes": [
+    "[MOCK] Ollama not available - using fallback"
+  ]
+}

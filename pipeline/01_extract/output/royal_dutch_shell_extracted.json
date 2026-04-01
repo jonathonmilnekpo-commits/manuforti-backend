@@ -1,0 +1,44 @@
+{
+  "supplier": "Royal Dutch Shell",
+  "extracted_at": "2026-03-02T12:55:11.187469",
+  "model": "qwen3:8b-local",
+  "cost": 0.0,
+  "sources_processed": 1,
+  "raw_extractions": {
+    "financial_snippets": [
+      "Revenue: ~$300 billion (2023 estimate)",
+      "Net profit: ~$20 billion (2023 estimate)",
+      "Total debt: ~$50 billion (2023 estimate)",
+      "Operating cash flow: ~$40 billion (2023 estimate)"
+    ],
+    "news_mentions": [
+      "Expanded renewable energy investments in offshore wind projects (2023)",
+      "Strategic partnership with Microsoft for digital transformation (2023)",
+      "Regulatory updates on carbon emissions reporting (2023)"
+    ],
+    "leadership": [
+      "Vincent Clerc - CEO (since 2020)",
+      "Paul Skinner - CFO (since 2021)",
+      "Jeroen van der Veer - Executive Vice President (since 2022)"
+    ],
+    "capabilities": [
+      "Integrated upstream/downstream oil and gas operations",
+      "Renewable energy portfolio expansion (wind, solar)",
+      "Global refining and marketing network",
+      "Advanced digital oilfield technologies"
+    ]
+  },
+  "confidence_scores": {
+    "financial_snippets": 0.9,
+    "news_mentions": 0.7,
+    "leadership": 0.8,
+    "capabilities": 0.9
+  },
+  "unstructured_notes": [
+    "Significant focus on transitioning to net-zero emissions by 2050",
+    "Recent emphasis on reducing operational costs through digitalization",
+    "Facing regulatory pressures for enhanced environmental disclosures",
+    "Strong presence in both conventional and unconventional oil resources"
+  ],
+  "structured_financials": {}
+}

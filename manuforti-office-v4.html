@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manu Forti Agent Office - Command Center</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-panel: rgba(20, 20, 30, 0.95);
+            --accent: #e94560;
+            --accent-green: #4ade80;
+            --accent-yellow: #fbbf24;
+            --accent-gray: #6b7280;
+            --desk-wood: #8B6F47;
+            --desk-dark: #5D4E37;
+        }
+        body {
+            background: var(--bg-dark);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+        }
+        .app {
+            display: grid;
+            grid-template-rows: 50px 1fr 180px;
+            height: 100vh;
+        }
+        .header {
+            background: var(--bg-panel);
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .header-title {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+        .clock {
+            font-size: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+        .office-container {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+        .office {
+            position: absolute;
+            width: 1200px;
+            height: 700px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .floor {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .work-area {
+            position: absolute;
+            left: 80px;
+            top: 80px;
+            width: 700px;
+            height: 450px;
+            border: 2px dashed rgba(233, 69, 96, 0.3);
+            border-radius: 10px;
+            background: rgba(233, 69, 96, 0.03);
+        }
+        .chill-area {
+            position: absolute;
+            right: 80px;
+            top: 80px;
+            width: 300px;
+            height: 450px;
+            border: 2px dashed rgba(76, 175, 80, 0.3);
+            border-radius: 10px;
+            background: rgba(76, 175, 80, 0.03);
+        }
+        .area-label {
+            position: absolute;
+            top: -28px;
+            left: 15px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            background: rgba(0,0,0,0.6);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .chill-area .area-label { color: var(--accent-green); }
+
+        /* Realistic Desk with legs */
+        .desk-setup {
+            position: absolute;
+            width: 140px;
+            height: 100px;
+        }
+        .desk {
+            position: absolute;
+            width: 140px;
+            height: 70px;
+            background: linear-gradient(180deg, #A0826D 0%, #8B6F47 100%);
+            border-radius: 4px 4px 0 0;
+            box-shadow: 
+                0 4px 8px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .desk::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 10px;
+            right: 10px;
+            height: 8px;
+            background: linear-gradient(180deg, #B8957F 0%, #A0826D 100%);
+            border-radius: 3px 3px 0 0;
+        }
+        .desk-leg {
+            position: absolute;
+            bottom: -40px;
+            width: 12px;
+            height: 40px;
+            background: linear-gradient(90deg, #5D4E37 0%, #4A3D2A 50%, #5D4E37 100%);
+            border-radius: 0 0 2px 2px;
+        }
+        .desk-leg.left { left: 15px; }
+        .desk-leg.right { right: 15px; }
+        .desk-leg::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -2px;
+            right: -2px;
+            height: 4px;
+            background: #3D3225;
+            border-radius: 2px;
+        }
+
+        /* Office Chair */
+        .chair {
+            position: absolute;
+            width: 50px;
+            height: 60px;
+            z-index: 5;
+        }
+        .chair-base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 8px;
+            background: #2D3748;
+            border-radius: 4px;
+        }
+        .chair-stem {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 15px;
+            background: #4A5568;
+        }
+        .chair-seat {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 44px;
+            height: 12px;
+            background: linear-gradient(180deg, #4A5568 0%, #2D3748 100%);
+            border-radius: 4px;
+        }
+        .chair-back {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 36px;
+            height: 28px;
+            background: linear-gradient(180deg, #5A6578 0%, #4A5568 100%);
+            border-radius: 8px 8px 4px 4px;
+        }
+
+        /* Computer Monitor */
+        .monitor {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 40px;
+            background: #1a1a2e;
+            border: 2px solid #333;
+            border-radius: 3px;
+        }
+        .monitor::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 8px;
+            background: #333;
+        }
+        .monitor::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: #333;
+        }
+        .screen-glow {
+            position: absolute;
+            inset: 2px;
+            background: linear-gradient(135deg, rgba(100,150,255,0.3) 0%, rgba(50,100,200,0.1) 100%);
+            border-radius: 2px;
+            animation: screenPulse 3s ease-in-out infinite;
+        }
+        @keyframes screenPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Human-like Agent */
+        .agent {
+            position: absolute;
+            width: 50px;
+            height: 90px;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+        .agent:hover { transform: scale(1.05); }
+        
+        /* Head - more human proportions */
+        .agent-head {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 26px;
+            height: 30px;
+            background: linear-gradient(180deg, #FDBF60 0%, #E8A850 100%);
+            border-radius: 50% 50% 45% 45%;
+            box-shadow: inset 0 -2px 4px rgba(0,0,0,0.1);
+        }
+        /* Hair */
+        .agent-head::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 12px;
+            background: #2D3748;
+            border-radius: 50% 50% 0 0;
+        }
+        /* Eyes */
+        .agent-eyes {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .eye {
+            width: 5px;
+            height: 5px;
+            background: #1a1a2e;
+            border-radius: 50%;
+        }
+        
+        /* Body - shirt */
+        .agent-torso {
+            position: absolute;
+            top: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 34px;
+            height: 32px;
+            border-radius: 8px 8px 4px 4px;
+        }
+        .agent-aiden .agent-torso { background: linear-gradient(180deg, #2C5282 0%, #1e3a5f 100%); }
+        .agent-venture .agent-torso { background: linear-gradient(180deg, #38A169 0%, #2d6a4f 100%); }
+        .agent-researcher .agent-torso { background: linear-gradient(180deg, #805AD5 0%, #6b2d87 100%); }
+        .agent-eirik .agent-torso { background: linear-gradient(180deg, #C53030 0%, #872d2d 100%); }
+        .agent-wolf .agent-torso { background: linear-gradient(180deg, #D69E2E 0%, #87612d 100%); }
+        
+        /* Arms */
+        .agent-arm {
+            position: absolute;
+            top: 32px;
+            width: 10px;
+            height: 24px;
+            background: linear-gradient(180deg, #FDBF60 0%, #E8A850 100%);
+            border-radius: 5px;
+        }
+        .agent-arm.left { 
+            left: 4px; 
+            transform: rotate(-15deg);
+        }
+        .agent-arm.right { 
+            right: 4px; 
+            transform: rotate(15deg);
+        }
+        /* Sleeves */
+        .agent-arm::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            border-radius: 5px 5px 0 0;
+        }
+        .agent-aiden .agent-arm::before { background: #2C5282; }
+        .agent-venture .agent-arm::before { background: #38A169; }
+        .agent-researcher .agent-arm::before { background: #805AD5; }
+        .agent-eirik .agent-arm::before { background: #C53030; }
+        .agent-wolf .agent-arm::before { background: #D69E2E; }
+        
+        /* Legs - pants */
+        .agent-legs {
+            position: absolute;
+            top: 58px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 28px;
+        }
+        .leg {
+            position: absolute;
+            width: 12px;
+            height: 28px;
+            background: linear-gradient(180deg, #4A5568 0%, #2D3748 100%);
+            border-radius: 0 0 3px 3px;
+        }
+        .leg.left { left: 2px; }
+        .leg.right { right: 2px; }
+        
+        /* Status indicator */
+        .agent-status {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid var(--bg-dark);
+        }
+        .status-working { 
+            background: var(--accent-green); 
+            box-shadow: 0 0 10px var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+        .status-idle { background: var(--accent-yellow); }
+        .status-paused { background: var(--accent-gray); }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 5px var(--accent-green); }
+            50% { box-shadow: 0 0 15px var(--accent-green); }
+        }
+        
+        /* Speech bubble */
+        .speech-bubble {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-panel);
+            border: 1px solid #444;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 10px;
+            max-width: 160px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid var(--bg-panel);
+        }
+        .agent:hover .speech-bubble { opacity: 1; }
+        
+        /* Agent label */
+        .agent-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            white-space: nowrap;
+            background: rgba(0,0,0,0.85);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Coffee area */
+        .coffee-machine {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 60px;
+            background: linear-gradient(180deg, #2D3748 0%, #1A202C 100%);
+            border-radius: 5px;
+        }
+        .coffee-machine::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 20px;
+            background: #1A202C;
+            border-radius: 3px;
+        }
+
+        /* Sofa area */
+        .sofa-area {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .sofa {
+            width: 220px;
+            height: 80px;
+            background: linear-gradient(180deg, #4A5568 0%, #2D3748 100%);
+            border-radius: 15px 15px 10px 10px;
+            position: relative;
+        }
+        .sofa::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            right: 10px;
+            height: 25px;
+            background: linear-gradient(180deg, #5A6578 0%, #4A5568 100%);
+            border-radius: 10px 10px 0 0;
+        }
+        .coffee-table {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 30px;
+            background: linear-gradient(180deg, #8B6F47 0%, #6B5637 100%);
+            border-radius: 4px;
+        }
+
+        .bottom-panel {
+            background: var(--bg-panel);
+            border-top: 1px solid #333;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            padding: 15px 20px;
+        }
+        .panel-section h3 {
+            font-size: 12px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .log-entry {
+            font-size: 11px;
+            color: #888;
+            padding: 3px 0;
+            border-bottom: 1px solid #222;
+        }
+        .log-entry:last-child { border-bottom: none; }
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="header-title">🦞 MANU FORTI AGENT OFFICE</div>
+            <div class="clock" id="clock">00:00:00</div>
+        </div>
+        
+        <div class="office-container">
+            <div class="office">
+                <div class="floor"></div>
+                
+                <!-- Work Area -->
+                <div class="work-area">
+                    <div class="area-label">Work Zone</div>
+                    
+                    <!-- Desk 1: Aiden -->
+                    <div class="desk-setup" style="left: 50px; top: 50px;">
+                        <div class="desk">
+                            <div class="monitor"><div class="screen-glow"></div></div>
+                        </div>
+                        <div class="desk-leg left"></div>
+                        <div class="desk-leg right"></div>
+                        <div class="chair" style="bottom: -30px; right: -40px; transform: rotate(-20deg);"></div>
+                        <div class="agent agent-aiden" style="left: 45px; top: -20px;">
+                            <div class="agent-status status-working"></div>
+                            <div class="agent-head">
+                                <div class="agent-eyes"><div class="eye"></div><div class="eye"></div></div>
+                            </div>
+                            <div class="agent-torso"></div>
+                            <div class="agent-arm left"></div>
+                            <div class="agent-arm right"></div>
+                            <div class="agent-legs">
+                                <div class="leg left"></div>
+                                <div class="leg right"></div>
+                            </div>
+                            <div class="speech-bubble">Coordinating the team...</div>
+                            <div class="agent-label">Aiden 🤝</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Desk 2: Venture -->
+                    <div class="desk-setup" style="left: 250px; top: 50px;">
+                        <div class="desk">
+                            <div class="monitor"><div class="screen-glow"></div></div>
+                        </div>
+                        <div class="desk-leg left"></div>
+                        <div class="desk-leg right"></div>
+                        <div class="chair" style="bottom: -30px; right: -40px; transform: rotate(-20deg);"></div>
+                        <div class="agent agent-venture" style="left: 45px; top: -20px;">
+                            <div class="agent-status status-working"></div>
+                            <div class="agent-head">
+                                <div class="agent-eyes"><div class="eye"></div><div class="eye"></div></div>
+                            </div>
+                            <div class="agent-torso"></div>
+                            <div class="agent-arm left"></div>
+                            <div class="agent-arm right"></div>
+                            <div class="agent-legs">
+                                <div class="leg left"></div>
+                                <div class="leg right"></div>
+                            </div>
+                            <div class="speech-bubble">Building Category Strategy...</div>
+                            <div class="agent-label">Venture 📊</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Desk 3: Researcher -->
+                    <div class="desk-setup" style="left: 450px; top: 50px;">
+                        <div class="desk">
+                            <div class="monitor"><div class="screen-glow"></div></div>
+                        </div>
+                        <div class="desk-leg left"></div>
+                        <div class="desk-leg right"></div>
+                        <div class="chair" style="bottom: -30px; right: -40px; transform: rotate(-20deg);"></div>
+                        <div class="agent agent-researcher" style="left: 45px; top: -20px;">
+                            <div class="agent-status status-idle"></div>
+                            <div class="agent-head">
+                                <div class="agent-eyes"><div class="eye"></div><div class="eye"></div></div>
+                            </div>
+                            <div class="agent-torso"></div>
+                            <div class="agent-arm left"></div>
+                            <div class="agent-arm right"></div>
+                            <div class="agent-legs">
+                                <div class="leg left"></div>
+                                <div class="leg right"></div>
+                            </div>
+                            <div class="speech-bubble">Ready for next research task</div>
+                            <div class="agent-label">Researcher 🔍</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Desk 4: Eirik -->
+                    <div class="desk-setup" style="left: 350px; top: 200px;">
+                        <div class="desk">
+                            <div class="monitor"><div class="screen-glow"></div></div>
+                        </div>
+                        <div class="desk-leg left"></div>
+                        <div class="desk-leg right"></div>
+                        <div class="chair" style="bottom: -30px; left: -40px; transform: rotate(20deg);"></div>
+                        <div class="agent agent-eirik" style="left: 45px; top: -20px;">
+                            <div class="agent-status status-paused"></div>
+                            <div class="agent-head">
+                                <div class="agent-eyes"><div class="eye"></div><div class="eye"></div></div>
+                            </div>
+                            <div class="agent-torso"></div>
+                            <div class="agent-arm left"></div>
+                            <div class="agent-arm right"></div>
+                            <div class="agent-legs">
+                                <div class="leg left"></div>
+                                <div class="leg right"></div>
+                            </div>
+                            <div class="speech-bubble">Waiting for Venture to finish...</div>
+                            <div class="agent-label">Eirik 🔴</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chill Area -->
+                <div class="chill-area">
+                    <div class="area-label">Break Zone</div>
+                    
+                    <div class="coffee-machine"></div>
+                    
+                    <div class="sofa-area">
+                        <div class="sofa"></div>
+                        <div class="coffee-table"></div>
+                    </div>
+                    
+                    <!-- Wolf on sofa -->
+                    <div class="agent agent-wolf" style="left: 110px; top: 280px;">
+                        <div class="agent-status status-idle"></div>
+                        <div class="agent-head">
+                            <div class="agent-eyes"><div class="eye"></div><div class="eye"></div></div>
+                        </div>
+                        <div class="agent-torso"></div>
+                        <div class="agent-arm left" style="transform: rotate(-30deg);"></div>
+                        <div class="agent-arm right" style="transform: rotate(30deg);"></div>
+                        <div class="agent-legs" style="transform: rotate(90deg); top: 65px;">
+                            <div class="leg left"></div>
+                            <div class="leg right"></div>
+                        </div>
+                        <div class="speech-bubble">Markets are quiet today...</div>
+                        <div class="agent-label">Wolf 📈</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-panel">
+            <div class="panel-section">
+                <h3>📋 Active Tasks</h3>
+                <div class="log-entry"><span class="status-indicator" style="background: var(--accent-green);"></span>Venture: Building Category Strategy Excel</div>
+                <div class="log-entry"><span class="status-indicator" style="background: var(--accent-green);"></span>Aiden: Coordinating agent workflow</div>
+                <div class="log-entry"><span class="status-indicator" style="background: var(--accent-yellow);"></span>Researcher: Awaiting assignment</div>
+            </div>
+            <div class="panel-section">
+                <h3>📊 System Status</h3>
+                <div class="log-entry">Agents Online: 5/5</div>
+                <div class="log-entry">Tasks Completed Today: 12</div>
+                <div class="log-entry">Last Cron Run: 02:00 GMT</div>
+            </div>
+            <div class="panel-section">
+                <h3>🎯 Mission Progress</h3>
+                <div class="log-entry">Product 1: ✅ Complete (8 reports)</div>
+                <div class="log-entry">Academy: ✅ Ready for pilot</div>
+                <div class="log-entry">Category Strategy: 🔄 In Build</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB');
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>

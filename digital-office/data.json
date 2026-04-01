@@ -1,0 +1,149 @@
+{
+  "lastUpdated": "2026-03-03T14:24:00Z",
+  "agents": {
+    "aiden": {
+      "name": "Aiden",
+      "emoji": "🤝",
+      "role": "Lead Agent — Co-founder",
+      "status": "working",
+      "statusText": "Working",
+      "insights": [
+        "orchestrating 4 core agents",
+        "memory updated ✓",
+        "skills: 9 active",
+        "digital office live"
+      ],
+      "tasks": [
+        {"text": "Pipeline fully hands-off", "status": "complete"},
+        {"text": "Agent team structure locked", "status": "complete"},
+        {"text": "Product 1 template locked", "status": "complete"},
+        {"text": "Digital office built", "status": "complete"},
+        {"text": "OX2 Product 1 in progress", "status": "in_progress"}
+      ]
+    },
+    "venture": {
+      "name": "Venture",
+      "emoji": "📊",
+      "role": "Product 1 / AI Business",
+      "status": "working",
+      "statusText": "Working",
+      "insights": [
+        "Product 1 pipeline active",
+        "3 reports delivered ✓",
+        "template: LOCKED",
+        "next: go-to-market"
+      ],
+      "tasks": [
+        {"text": "Shell Product 1 delivered", "status": "complete"},
+        {"text": "Envision Product 1 delivered", "status": "complete"},
+        {"text": "Product 1 standards locked", "status": "complete"},
+        {"text": "OX2 Product 1 generation", "status": "in_progress"},
+        {"text": "Financial data web scraping", "status": "pending"}
+      ]
+    },
+    "career": {
+      "name": "Career",
+      "emoji": "🎯",
+      "role": "Career & Personal Dev",
+      "status": "standby",
+      "statusText": "Standby",
+      "insights": [
+        "SVP interview: TBD",
+        "weight: 76.18 → 73kg",
+        "Statkraft strategy",
+        "awaiting task..."
+      ],
+      "tasks": [
+        {"text": "SVP interview presentation", "status": "complete"},
+        {"text": "SVP interview prep ongoing", "status": "in_progress"},
+        {"text": "Weight tracking (76→73kg)", "status": "in_progress"},
+        {"text": "Leadership development plan", "status": "pending"}
+      ]
+    },
+    "family": {
+      "name": "Family",
+      "emoji": "👨‍👩‍👧",
+      "role": "Family & Relationships",
+      "status": "standby",
+      "statusText": "Standby",
+      "insights": [
+        "Ragnhild: gesture due",
+        "Ingrid: 16mo, 30+ words",
+        "Gordon: 91 days to go",
+        "ready to help..."
+      ],
+      "tasks": [
+        {"text": "Weekly gesture for Ragnhild", "status": "in_progress"},
+        {"text": "Ingrid activities (16mo)", "status": "in_progress"},
+        {"text": "Gordon arrival prep", "status": "pending"},
+        {"text": "Sibling adjustment plan", "status": "pending"}
+      ]
+    },
+    "validator": {
+      "name": "Validator",
+      "emoji": "✅",
+      "role": "Quality Assurance",
+      "status": "standby",
+      "statusText": "Standby",
+      "insights": [
+        "validator standing by",
+        "graphics validation: ENABLED",
+        "last score: 100/100",
+        "3 reports checked ✓",
+        "awaiting next PPTX..."
+      ],
+      "tasks": [
+        {"text": "Boskalis baseline 100/100", "status": "complete"},
+        {"text": "Shell validated 100/100", "status": "complete"},
+        {"text": "Envision validated 100/100", "status": "complete"},
+        {"text": "Graphics validation enhanced", "status": "complete"},
+        {"text": "Risk gauge detection", "status": "complete"},
+        {"text": "Chart type validation", "status": "complete"}
+      ]
+    },
+    "researcher": {
+      "name": "Researcher",
+      "emoji": "🔍",
+      "role": "Data & Analysis",
+      "status": "standby",
+      "statusText": "Standby",
+      "insights": [
+        "qwen3:8b ready",
+        "extractor loaded",
+        "web_fetch ready",
+        "awaiting task..."
+      ],
+      "tasks": [
+        {"text": "Qwen3 8B connected", "status": "complete"},
+        {"text": "Shell data compiled", "status": "complete"},
+        {"text": "Envision data compiled", "status": "complete"},
+        {"text": "PDF/URL extraction", "status": "pending"}
+      ]
+    },
+    "vetter": {
+      "name": "Vetter",
+      "emoji": "🔒",
+      "role": "Security",
+      "status": "working",
+      "statusText": "Working",
+      "insights": [
+        "scanning skills...",
+        "gsd: ✓ clean",
+        "superpowers: ✓ clean",
+        "gsd-claw: ⚠ blocked"
+      ],
+      "tasks": [
+        {"text": "GSD vetted & approved", "status": "complete"},
+        {"text": "Superpowers vetted", "status": "complete"},
+        {"text": "gsd-claw blocked", "status": "complete"},
+        {"text": "Ongoing monitoring", "status": "in_progress"}
+      ]
+    }
+  },
+  "stats": {
+    "productsLive": 1,
+    "phasesPlanned": 12,
+    "tasksMapped": 25,
+    "monthsToPlatform": 10
+  }
+}

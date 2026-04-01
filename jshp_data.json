@@ -1,0 +1,81 @@
+{
+  "supplier_name": "JSHP Transformer",
+  "supplier_legal_name": "JiangSu HuaPeng Transformer Co., Ltd.",
+  "report_date": "March 2026",
+  "overall_risk_rating": "MEDIUM",
+  "overall_risk_score": 48,
+  "financial_health": {
+    "rating": "LOW",
+    "score": 35,
+    "revenue_2022": "US$1.0 Billion",
+    "revenue_growth": "Stable (family-owned, no public filings)",
+    "employees": "2,500",
+    "manufacturing_capacity": "200,000 MVA, up to 850kV",
+    "delivered_mva_2022": "111,500 MVA",
+    "ownership": "Family-owned (private)",
+    "liquidity": "Strong (debt-free family ownership)",
+    "debt": "Minimal"
+  },
+  "operational_capability": {
+    "rating": "LOW",
+    "score": 25,
+    "founded": "1967",
+    "headquarters": "Liyang, Jiangsu, China",
+    "manufacturing_focus": "Power transformers only",
+    "voltage_range": "Up to 750kV, 1000MVA",
+    "specialty": "Medium Power Transformers (MPT) - world's largest producer",
+    "production_2022": {
+      "110kv_500kv_units": "628 units",
+      "69kv_and_below": "8,764 units"
+    },
+    "fabrication_time": "50 days average (110kV-500kV)",
+    "quality_record": "Zero catastrophic failures (thousands in operation)",
+    "certifications": "ISO 9001, China Top 10 Transformer Manufacturer"
+  },
+  "geopolitical_risk": {
+    "rating": "HIGH",
+    "score": 75,
+    "china_exposure": "100% manufacturing in China",
+    "trade_policy_risk": "Elevated - US/EU tariffs on Chinese electrical equipment",
+    "supply_chain": "Concentrated in China, but global sales presence",
+    "us_presence": "Sales office in USA, marketing agreement with Doubletree Systems Inc.",
+    "market_position": "Only Chinese company in top 10 North American transformer brands"
+  },
+  "esg_rating": {
+    "rating": "MEDIUM",
+    "score": 45,
+    "environmental": "Moderate - Energy-efficient transformer focus",
+    "social": "Adequate - 2,500 employees, family-owned stability",
+    "governance": "Standard - Family ownership, limited transparency",
+    "controversies": "None significant identified"
+  },
+  "competitors": [
+    {"name": "Siemens Energy", "market_position": "Global leader", "revenue": "$30B+"},
+    {"name": "Hitachi Energy", "market_position": "Global #2", "revenue": "$10B+"},
+    {"name": "ABB", "market_position": "Global #3", "revenue": "$30B+"},
+    {"name": "TBEA (China)", "market_position": "China leader", "revenue": "$5B+"},
+    {"name": "GE Grid Solutions", "market_position": "Global top 5", "revenue": "$5B+"}
+  ],
+  "key_risks": [
+    "100% China-based manufacturing - geopolitical exposure",
+    "Family-owned with limited financial transparency",
+    "Trade tensions affecting export markets",
+    "Raw material price volatility (copper, steel)",
+    "Currency exposure (CNY/USD/EUR)"
+  ],
+  "recommendation": "APPROVE with Conditions",
+  "conditions": [
+    "Secure parent company guarantee for large orders",
+    "Confirm US sales office support for North American projects",
+    "Fixed pricing or hedging for multi-year contracts",
+    "Quality inspection rights at Liyang facility",
+    "Quarterly production capacity confirmation"
+  ],
+  "key_strengths": [
+    "World's largest Medium Power Transformer producer",
+    "57-year track record with zero catastrophic failures",
+    "Only Chinese company in top 10 North American brands",
+    "Strong manufacturing capacity (200,000 MVA)",
+    "50-day average fabrication time (competitive)"
+  ]
+}

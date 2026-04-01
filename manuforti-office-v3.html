@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manu Forti Agent Office - Command Center</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-panel: rgba(20, 20, 30, 0.95);
+            --accent: #e94560;
+            --accent-green: #4ade80;
+            --accent-yellow: #fbbf24;
+            --accent-gray: #6b7280;
+        }
+        body {
+            background: var(--bg-dark);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+        }
+        .app {
+            display: grid;
+            grid-template-rows: 50px 1fr 180px;
+            height: 100vh;
+        }
+        .header {
+            background: var(--bg-panel);
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .header-title {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+        .clock {
+            font-size: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+        .office-container {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 50%, #16213e 100%);
+        }
+        .office {
+            position: absolute;
+            width: 1000px;
+            height: 600px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .work-area {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            width: 600px;
+            height: 350px;
+            border: 2px dashed rgba(233, 69, 96, 0.4);
+            border-radius: 10px;
+            background: rgba(233, 69, 96, 0.05);
+        }
+        .chill-area {
+            position: absolute;
+            right: 50px;
+            top: 50px;
+            width: 280px;
+            height: 350px;
+            border: 2px dashed rgba(76, 175, 80, 0.4);
+            border-radius: 10px;
+            background: rgba(76, 175, 80, 0.05);
+        }
+        .area-label {
+            position: absolute;
+            top: -25px;
+            left: 15px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+        .chill-area .area-label { color: var(--accent-green); }
+        .desk {
+            position: absolute;
+            width: 120px;
+            height: 60px;
+            background: linear-gradient(180deg, #4a3f35 0%, #3d3329 100%);
+            border-radius: 4px;
+        }
+        .desk::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            right: 10px;
+            height: 15px;
+            background: #5a4f45;
+            border-radius: 3px;
+        }
+        .sofa {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 70px;
+            background: linear-gradient(180deg, #4a5568 0%, #2d3748 100%);
+            border-radius: 35px 35px 8px 8px;
+        }
+        .agent {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+        .agent:hover { transform: scale(1.1); }
+        .agent-head {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 22px;
+            height: 22px;
+            background: #fdbf60;
+            border-radius: 50%;
+        }
+        .agent-torso {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 26px;
+            height: 22px;
+            border-radius: 8px;
+        }
+        .agent-aiden .agent-torso { background: #1e3a5f; }
+        .agent-venture .agent-torso { background: #2d6a4f; }
+        .agent-researcher .agent-torso { background: #6b2d87; }
+        .agent-eirik .agent-torso { background: #872d2d; }
+        .agent-wolf .agent-torso { background: #87612d; }
+        .agent-status {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--bg-dark);
+        }
+        .status-working { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
+        .status-idle { background: var(--accent-yellow); }
+        .status-paused { background: var(--accent-gray); }
+        .speech-bubble {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-panel);
+            border: 1px solid #444;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 9px;
+            max-width: 150px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .agent:hover .speech-bubble { opacity: 1; }
+        .agent-label {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            white-space: nowrap;
+            background: rgba(0,0,0,0.8);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        .agent.sitting { transform: translateY(10px); }
+        .bottom-panel {
+            background: var(--bg-panel);
+            border-top: 1px solid #333;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            padding: 15px 20px;
+        }
+        .panel-title {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .activity-item {
+            font-size: 12px;
+            padding: 5px 0;
+            border-bottom: 1px solid #222;
+            color: #aaa;
+            display: flex;
+            justify-content: space-between;
+        }
+        .timestamp { color: var(--accent); font-size: 10px; }
+        .heatmap {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 3px;
+        }
+        .heatmap-cell {
+            aspect-ratio: 1;
+            border-radius: 2px;
+            background: #222;
+        }
+        .heatmap-cell.high { background: var(--accent); }
+        .heatmap-cell.medium { background: #e9456080; }
+        .heatmap-cell.low { background: #e9456030; }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="header-title">🦞 Manu Forti Agent Office</div>
+            <div class="clock" id="clock">00:00:00</div>
+        </div>
+        
+        <div class="office-container">
+            <div class="office">
+                <div class="work-area">
+                    <div class="area-label">Work Area</div>
+                    <div class="desk" style="left: 60px; top: 60px;"></div>
+                    <div class="desk" style="left: 240px; top: 60px;"></div>
+                    <div class="desk" style="left: 420px; top: 60px;"></div>
+                    
+                    <div class="agent agent-aiden" style="left: 85px; top: 130px;">
+                        <div class="agent-head"></div>
+                        <div class="agent-torso"></div>
+                        <div class="agent-status status-working"></div>
+                        <div class="speech-bubble">Orchestrating all agents</div>
+                        <div class="agent-label">Aiden 🤝</div>
+                    </div>
+                    
+                    <div class="agent agent-venture" style="left: 265px; top: 130px;">
+                        <div class="agent-head"></div>
+                        <div class="agent-torso"></div>
+                        <div class="agent-status status-working"></div>
+                        <div class="speech-bubble">Building Category Strategy</div>
+                        <div class="agent-label">Venture 📊</div>
+                    </div>
+                    
+                    <div class="agent agent-eirik" style="left: 445px; top: 130px;">
+                        <div class="agent-head"></div>
+                        <div class="agent-torso"></div>
+                        <div class="agent-status status-working"></div>
+                        <div class="speech-bubble">Critiquing output</div>
+                        <div class="agent-label">Eirik 🔴</div>
+                    </div>
+                </div>
+                
+                <div class="chill-area">
+                    <div class="area-label">Chill Zone</div>
+                    <div class="sofa"></div>
+                    
+                    <div class="agent agent-researcher sitting" style="left: 60px; top: 180px;">
+                        <div class="agent-head"></div>
+                        <div class="agent-torso"></div>
+                        <div class="agent-status status-idle"></div>
+                        <div class="speech-bubble">Waiting for tasks</div>
+                        <div class="agent-label">Researcher 🔍</div>
+                    </div>
+                    
+                    <div class="agent agent-wolf sitting" style="left: 180px; top: 180px;">
+                        <div class="agent-head"></div>
+                        <div class="agent-torso"></div>
+                        <div class="agent-status status-paused"></div>
+                        <div class="speech-bubble">Trading paused</div>
+                        <div class="agent-label">Wolf 🐺</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-panel">
+            <div>
+                <div class="panel-title">Live Activity</div>
+                <div class="activity-item">
+                    <span>Venture building Category Strategy</span>
+                    <span class="timestamp">02:00 GMT</span>
+                </div>
+                <div class="activity-item">
+                    <span>Eirik reviewing output</span>
+                    <span class="timestamp">Pending</span>
+                </div>
+                <div class="activity-item">
+                    <span>Daily briefing scheduled</span>
+                    <span class="timestamp">06:00 Oslo</span>
+                </div>
+            </div>
+            <div>
+                <div class="panel-title">Agent Status</div>
+                <div class="activity-item">
+                    <span>🟢 Working</span>
+                    <span>3 agents</span>
+                </div>
+                <div class="activity-item">
+                    <span>🟡 Idle</span>
+                    <span>1 agent</span>
+                </div>
+                <div class="activity-item">
+                    <span>⚫ Paused</span>
+                    <span>1 agent</span>
+                </div>
+            </div>
+            <div>
+                <div class="panel-title">Activity Heatmap (7 Days)</div>
+                <div class="heatmap">
+                    <div class="heatmap-cell high"></div>
+                    <div class="heatmap-cell high"></div>
+                    <div class="heatmap-cell medium"></div>
+                    <div class="heatmap-cell high"></div>
+                    <div class="heatmap-cell low"></div>
+                    <div class="heatmap-cell medium"></div>
+                    <div class="heatmap-cell high"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = now.toLocaleTimeString('en-US', { 
+                hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' 
+            });
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>

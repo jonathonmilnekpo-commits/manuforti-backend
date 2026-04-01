@@ -1,0 +1,221 @@
+{
+  "supplier": "Form Energy Inc.",
+  "sector": "Long-Duration Energy Storage / Battery Technology",
+  "report_type": "Product 1 v15",
+  "financials": {
+    "revenue_2024": "Pre-revenue (R&D phase)",
+    "revenue_yoy": "N/A",
+    "ebitda": "Negative (development stage)",
+    "ebitda_margin": "N/A",
+    "net_profit": "Negative",
+    "cagr_3yr": "N/A",
+    "order_book": "$2.5B+ (Google deal: 300MW/30GWh)",
+    "gross_debt": "Minimal (well-funded)",
+    "net_cash": "$1.5B+ (estimated post-Series C)",
+    "debt_ebitda": "N/A (pre-revenue)",
+    "data_quality": "PRIVATE — Limited financial disclosure",
+    "funding_raised": "$1.52B total",
+    "latest_valuation": "$2.5B+ (Series C, Oct 2024)",
+    "investors": "Breakthrough Energy Ventures, T. Rowe Price, GE Vernova, ArcelorMittal, Temasek, Macquarie Capital, The Engine (MIT)"
+  },
+  "executive_summary": {
+    "overall_risk": "MEDIUM-HIGH",
+    "risk_score": 58,
+    "key_insight": "Form Energy is the leading iron-air battery developer with breakthrough 100-hour storage technology. Strong investor backing ($1.52B raised) and major utility contracts position it well, but pre-revenue status and manufacturing scale-up risks are significant. First-mover advantage in multi-day storage is substantial.",
+    "data_confidence": "MEDIUM — Private company, limited financials, but strong public disclosure on technology and contracts"
+  },
+  "recommendation": {
+    "verdict": "APPROVE with CONDITIONS",
+    "confidence": "Medium-High — Technology proven, commercialization underway",
+    "conditions": [
+      "Verify manufacturing facility construction timeline (Weirton, WV)",
+      "Confirm Google contract execution milestones (2025-2027)",
+      "Require performance guarantees on first commercial deployments",
+      "Obtain financial covenant for contracts >$50M",
+      "Establish technical escrow for IP continuity",
+      "Monitor Series D funding progress (if required for scale-up)"
+    ],
+    "risk_summary": {
+      "financial": "MEDIUM-HIGH — Pre-revenue, cash burn significant",
+      "operational": "MEDIUM — Manufacturing scale-up risk",
+      "geopolitical": "LOW — US-based, IRA beneficiary",
+      "esg": "LOW — Clean energy, sustainable materials"
+    }
+  },
+  "profile": {
+    "description": "Form Energy Inc. is a US-based energy storage company developing ultra-low-cost, multi-day iron-air battery systems. Founded in 2017 by MIT researchers and Tesla veterans, the company's technology enables 100+ hour energy storage using abundant iron and air. Core innovation reverses the rusting process to store and discharge electricity. The company is transitioning from R&D to commercial manufacturing with a $760M facility under construction in Weirton, West Virginia.",
+    "leadership": [
+      {"name": "Mateo Jaramillo", "role": "CEO & Co-Founder", "tenure": "Since 2017", "background": "Former VP Tesla Energy Storage"},
+      {"name": "Yet-Ming Chiang", "role": "Co-Founder & Chief Scientist", "tenure": "Since 2017", "background": "MIT Professor, materials science"},
+      {"name": "Ted Wiley", "role": "Co-Founder & President", "tenure": "Since 2017", "background": "Harvard Business School, energy sector"},
+      {"name": "Charlotte Beard", "role": "CFO", "tenure": "Since 2022", "background": "Former CFO at energy/tech companies"}
+    ],
+    "headquarters": "Somerville, Massachusetts, USA",
+    "employees": "~400 (2025)",
+    "founded": "2017",
+    "ownership": "Private (venture-backed)",
+    "org_structure": "Flat, R&D-focused organization transitioning to manufacturing"
+  },
+  "market_position": {
+    "rank": 1,
+    "market_share": "Leader in iron-air LDES; ~15% of overall LDES market (estimated)",
+    "market_context": "Pioneer in 100+ hour battery storage; addressing $30B+ LDES market by 2030",
+    "competitors": [
+      {"name": "ESS Inc.", "technology": "Iron flow batteries", "funding": "$300M+", "status": "Public (GWH)"},
+      {"name": "Energy Vault", "technology": "Gravity storage", "funding": "$300M+", "status": "Public (NRGV)"},
+      {"name": "Highview Power", "technology": "Liquid air (LAES)", "funding": "$100M+", "status": "Private"},
+      {"name": "Hydrostor", "technology": "Compressed air", "funding": "$200M+", "status": "Private"},
+      {"name": "Malta Inc.", "technology": "Molten salt", "funding": "$100M+", "status": "Private (Alphabet X spinout)"}
+    ],
+    "advantages": [
+      "First-mover in iron-air technology with 100+ hour duration",
+      "Lowest projected cost ($20/kWh vs $150/kWh lithium)",
+      "Abundant materials (iron, air) — no supply chain risk",
+      "Proven safety (UL9540A certified, non-flammable)",
+      "Strong investor syndicate ($1.52B raised)",
+      "Major customer validation (Google, utilities)",
+      "US manufacturing (IRA beneficiary)"
+    ],
+    "disadvantages": [
+      "Pre-revenue — no commercial track record",
+      "Manufacturing scale-up unproven",
+      "Competition from other LDES technologies",
+      "Long sales cycles (utility procurement)",
+      "Technology risk — first-of-kind at scale"
+    ]
+  },
+  "product_technology": {
+    "product_name": "Iron-Air Battery System",
+    "duration": "100+ hours (4+ days)",
+    "capacity": "Modular — 10MW to 1GW+ systems",
+    "cost_target": "$20/kWh (vs $150/kWh lithium-ion)",
+    "materials": "Iron, air, water (abundant, non-toxic)",
+    "how_it_works": "Iron oxidizes (rusts) during charging, de-oxidizes during discharge. Reversible rust process stores energy.",
+    "safety": "Non-flammable, non-toxic, UL9540A certified (no fire barriers required)",
+    "lifecycle": "20+ years, 6,000+ cycles",
+    "use_cases": [
+      "Multi-day renewable energy storage",
+      "Grid reliability during extreme weather",
+      "Transmission deferral",
+      "Seasonal storage"
+    ],
+    "differentiation": "Only 100+ hour battery; lowest cost; safest chemistry"
+  },
+  "risks": [
+    {
+      "category": "Financial",
+      "description": "Pre-revenue with significant cash burn; requires additional funding for full scale-up",
+      "impact": "High",
+      "probability": "Medium",
+      "mitigation": "Strong investor backing; $1.52B raised; clear path to Series D if needed"
+    },
+    {
+      "category": "Operational",
+      "description": "Manufacturing scale-up risk — first-of-kind production facility",
+      "impact": "High",
+      "probability": "Medium",
+      "mitigation": "Experienced manufacturing team; phased ramp; pilot validation underway"
+    },
+    {
+      "category": "Technical",
+      "description": "Technology performance at commercial scale unproven",
+      "impact": "Medium",
+      "probability": "Low-Medium",
+      "mitigation": "Extensive lab testing; pilot deployments; 3rd party validation"
+    },
+    {
+      "category": "Market",
+      "description": "Competition from other LDES technologies (flow batteries, gravity, compressed air)",
+      "impact": "Medium",
+      "probability": "Medium",
+      "mitigation": "Cost advantage; first-mover; strong IP position"
+    },
+    {
+      "category": "Commercial",
+      "description": "Long utility sales cycles; customer concentration risk",
+      "impact": "Medium",
+      "probability": "Medium",
+      "mitigation": "Diversifying customer base; multiple utility pilots"
+    }
+  ],
+  "operational_capability": {
+    "timeline": [
+      {"year": "2017", "milestone": "Founded by MIT researchers and Tesla veterans"},
+      {"year": "2018", "milestone": "Seed funding from The Engine (MIT) and Prelude Ventures"},
+      {"year": "2020", "milestone": "Series A: $40M from Breakthrough Energy Ventures"},
+      {"year": "2021", "milestone": "Series B: $240M; pilot facility operational"},
+      {"year": "2022", "milestone": "First 1MWh system demonstration"},
+      {"year": "2023", "milestone": "Series C: $450M; Weirton facility announced"},
+      {"year": "2024", "milestone": "Google deal: 300MW/30GWh; $405M additional funding"},
+      {"year": "2025", "milestone": "Manufacturing facility construction; first commercial deliveries"},
+      {"year": "2026-2027", "milestone": "Commercial scale-up; Google deployment"}
+    ],
+    "facilities": [
+      {"name": "Headquarters & R&D", "location": "Somerville, MA", "purpose": "R&D, engineering, corporate"},
+      {"name": "Manufacturing Facility", "location": "Weirton, WV", "investment": "$760M", "capacity": "10GW/year (2028)", "status": "Under construction"},
+      {"name": "Pilot Facility", "location": "Massachusetts", "purpose": "Testing, validation"}
+    ],
+    "certifications": ["UL9540A (safety)", "ISO 9001 (planned)", "Grid interconnection standards"],
+    "partnerships": ["Google (300MW/30GWh)", "Xcel Energy", "Great River Energy", "ArcelorMittal (steel supply)"]
+  },
+  "commercial_intelligence": {
+    "radar_dimensions": {
+      "price": 95,
+      "lead_time": 60,
+      "quality": 85,
+      "technical_capability": 90,
+      "supply_chain": 90,
+      "service": 70
+    },
+    "contract_terms": [
+      "Long-term service agreements (20 years)",
+      "Performance guarantees on availability",
+      "Modular deployment — scale as needed",
+      "Turnkey EPC or equipment-only options"
+    ],
+    "pricing_model": "Capital sale with long-term service contract; target $20/kWh at scale",
+    "negotiation_notes": [
+      "Early customer — potential for preferred pricing",
+      "Utility-scale projects — long procurement cycles",
+      "Performance guarantees critical for first deployments",
+      "IRA tax credits may reduce effective cost 30%+",
+      "Strategic partnerships (ArcelorMittal) secure steel supply"
+    ]
+  },
+  "esg": {
+    "environmental": "LOW",
+    "social": "LOW",
+    "governance": "MEDIUM",
+    "overall": "LOW",
+    "confidence": "High — Clean energy mission; sustainable materials",
+    "environmental_highlights": [
+      "Enables 100% renewable grid — massive emissions reduction potential",
+      "Uses abundant iron (no mining conflict)",
+      "Non-toxic, recyclable materials",
+      "US manufacturing reduces shipping emissions",
+      "IRA beneficiary — US clean energy jobs"
+    ],
+    "social_highlights": [
+      "400+ employees, growing rapidly",
+      "Weirton facility: 750+ jobs in former steel town",
+      "Diversity and inclusion initiatives",
+      "STEM education partnerships"
+    ],
+    "governance_highlights": [
+      "Strong board with energy sector expertise",
+      "Transparent technology disclosure",
+      "Regular safety certifications"
+    ],
+    "controversies": [],
+    "conditions": [
+      "Request ESG report or sustainability disclosure",
+      "Verify supply chain sustainability (iron sourcing)",
+      "Confirm labor practices at manufacturing facility"
+    ]
+  },
+  "investment_thesis": {
+    "bull_case": "Iron-air becomes dominant LDES technology; Form Energy captures 30%+ market share; $10B+ revenue by 2035",
+    "bear_case": "Manufacturing challenges delay commercialization; competitors capture market; funding requirements exceed expectations",
+    "base_case": "Successful commercialization by 2026-2027; $1B+ revenue by 2030; IPO or strategic exit"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "supplier": "LiveTest",
+  "scored_at": "2026-03-02T12:51:51.239994",
+  "model": "kimi-k2.5 (MOCK FALLBACK)",
+  "scored_data": {
+    "financial": {
+      "reliability": 5,
+      "facts": [
+        "[MOCK] Limited financial data"
+      ],
+      "exclude": []
+    },
+    "operational": {
+      "reliability": 5,
+      "facts": [
+        "[MOCK] Limited operational data"
+      ],
+      "exclude": []
+    },
+    "risk_factors": {
+      "reliability": 5,
+      "facts": [
+        "[MOCK] Limited risk data"
+      ],
+      "exclude": []
+    },
+    "esg": {
+      "reliability": 5,
+      "facts": [
+        "[MOCK] Limited ESG data"
+      ],
+      "exclude": []
+    }
+  },
+  "overall_quality_score": 5.0,
+  "recommendation": "FLAG_FOR_REVIEW",
+  "gaps": [
+    "API unavailable - using mock data"
+  ],
+  "kimi_metadata": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "supplier": "ControlPartner AS",
+  "sector": "Industrial Automation & Control Systems",
+  "report_type": "Product 1 Lite",
+  "data_limitations": [
+    "Private company — limited financial disclosure",
+    "Only 1 year of financials available (2023)",
+    "Recently acquired by Uniwater (Oct 2025)",
+    "No published ESG reports"
+  ],
+  "financials": {
+    "revenue_2023": "NOK 57.3M",
+    "revenue_yoy": "N/A (single year)",
+    "ebitda": "NOK 5.2M",
+    "ebitda_margin": "9.1%",
+    "net_profit": "NOK 3.8M (est.)",
+    "cagr_3yr": "N/A (insufficient data)",
+    "order_book": "NOK 45M (est.)",
+    "gross_debt": "NOK 8.5M (est.)",
+    "net_cash": "NOK 6.9M (positive)",
+    "debt_ebitda": "1.6x (low leverage)",
+    "data_quality": "LIMITED"
+  },
+  "executive_summary": {
+    "overall_risk": "MEDIUM",
+    "risk_score": 52,
+    "key_insight": "ControlPartner is a small but established Norwegian automation specialist with solid 2023 financials and strong technical capabilities. Recent Uniwater acquisition provides strategic backing but introduces integration uncertainty. Limited scale and single-year financial data constrain risk assessment confidence.",
+    "data_confidence": "MEDIUM — Single year financials, limited public disclosure"
+  },
+  "recommendation": {
+    "verdict": "APPROVE with CONDITIONS",
+    "confidence": "Medium confidence due to data limitations",
+    "conditions": [
+      "Confirm Uniwater acquisition completion and integration plan",
+      "Obtain parent company guarantee for contracts >NOK 10M",
+      "Require key person retention clauses for critical personnel",
+      "Request 2024 financials when available (post-acquisition)",
+      "Conduct site audit of Porsgrunn facilities before contract award",
+      "Establish clear escalation path to Uniwater management"
+    ],
+    "risk_summary": {
+      "financial": "LOW-MEDIUM",
+      "operational": "MEDIUM",
+      "geopolitical": "LOW",
+      "esg": "LOW-MEDIUM"
+    }
+  },
+  "profile": {
+    "description": "ControlPartner AS is a Norwegian specialist in operational control and automation systems, serving municipal water/wastewater and maritime sectors. Founded in 2015 (predecessor from 1996), the company provides complete automation systems with SCADA, operational control facilities, and electrical systems integration. Acquired by Swedish water infrastructure group Uniwater in October 2025.",
+    "leadership": [
+      {"name": "Torbjørn Tønnesen", "role": "Managing Director", "tenure": "5+ years"},
+      {"name": "Uniwater Executive Team", "role": "Parent Company Oversight", "tenure": "Since Oct 2025"}
+    ],
+    "headquarters": "Porsgrunn, Norway (Offices in Bergen, Oslo)",
+    "employees": "40-46",
+    "founded": "2015",
+    "ownership": "Uniwater AB (Sweden) — acquired Oct 2025",
+    "org_structure": "Subsidiary of Uniwater Group"
+  },
+  "market_position": {
+    "rank": 3,
+    "market_share": "8-12% (Norwegian water automation, estimated)",
+    "market_context": "Niche player in Norwegian water/wastewater automation",
+    "competitors": [
+      {"name": "Siemens Norway", "revenue": "NOK 2.1B", "type": "Global giant"},
+      {"name": "ABB Norway", "revenue": "NOK 1.8B", "type": "Global giant"},
+      {"name": "Emerson Norway", "revenue": "NOK 450M", "type": "International"},
+      {"name": "Tratec Norcon", "revenue": "NOK 180M", "type": "Regional specialist"}
+    ],
+    "advantages": [
+      "Deep expertise in Norwegian water infrastructure standards",
+      "Strong local service presence (Porsgrunn, Bergen, Oslo)",
+      "Long-term municipal client relationships",
+      "Specialized SCADA and automation competence",
+      "Now part of Uniwater group with access to capital"
+    ],
+    "disadvantages": [
+      "Small scale vs global competitors",
+      "Limited geographic footprint (Norway only)",
+      "Resource constraints for large projects",
+      "Recent ownership change creates uncertainty"
+    ]
+  },
+  "risks": [
+    {
+      "category": "Operational",
+      "description": "Recent Uniwater acquisition creates integration uncertainty",
+      "impact": "Medium",
+      "probability": "Medium",
+      "mitigation": "Parent company guarantee; clear communication protocols"
+    },
+    {
+      "category": "Financial",
+      "description": "Small scale limits loss absorption capacity",
+      "impact": "Medium",
+      "probability": "Low",
+      "mitigation": "Parent company backing; phased payment terms"
+    },
+    {
+      "category": "Strategic",
+      "description": "Single-year financial data limits risk assessment confidence",
+      "impact": "Medium",
+      "probability": "N/A",
+      "mitigation": "Request 2024 financials; ongoing monitoring"
+    },
+    {
+      "category": "Operational",
+      "description": "Geographic concentration in Norway",
+      "impact": "Low",
+      "probability": "Medium",
+      "mitigation": "Uniwater acquisition may enable expansion"
+    }
+  ],
+  "operational_capability": {
+    "timeline": [
+      {"year": "1996", "milestone": "Predecessor company established"},
+      {"year": "2009", "milestone": "New ownership structure"},
+      {"year": "2015", "milestone": "ControlPartner AS formally established"},
+      {"year": "2020", "milestone": "Expansion to Bergen and Oslo offices"},
+      {"year": "2023", "milestone": "Revenue NOK 57.3M, operating profit NOK 5.2M"},
+      {"year": "2025", "milestone": "Acquisition by Uniwater AB completed"}
+    ],
+    "certifications": ["ISO 9001 (assumed)", "ISO 14001 (assumed)"],
+    "key_facilities": "Headquarters Porsgrunn with offices in Bergen and Oslo",
+    "specializations": ["SCADA systems", "Process automation", "Water/wastewater", "Maritime"]
+  },
+  "commercial_intelligence": {
+    "radar_dimensions": {
+      "price": 75,
+      "lead_time": 70,
+      "quality": 80,
+      "technical_capability": 85,
+      "supply_chain": 65,
+      "service": 80
+    },
+    "peer_comparison": "Above average on technical capability and service; competitive on price",
+    "negotiation_notes": [
+      "Uniwater acquisition may create pricing pressure to win market share",
+      "Strong preference for long-term service contracts",
+      "Willing to negotiate on payment terms for strategic clients",
+      "Limited flexibility on hourly rates for specialists",
+      "Value-based pricing for complex automation projects"
+    ],
+    "typical_contract_size": "NOK 2-15M",
+    "payment_terms": "Standard 30 days; negotiable for strategic relationships"
+  },
+  "esg": {
+    "environmental": "LOW-MEDIUM",
+    "social": "LOW",
+    "governance": "MEDIUM",
+    "overall": "LOW-MEDIUM",
+    "confidence": "Low — No published ESG data",
+    "controversies": [],
+    "assumptions": [
+      "ISO 14001 assumed based on sector standards",
+      "No negative media found",
+      "Norwegian labor law compliance expected"
+    ],
+    "conditions": [
+      "Require confirmation of ISO 14001 certification",
+      "Obtain sustainability policy",
+      "Verify anti-corruption policies",
+      "Request diversity metrics"
+    ]
+  },
+  "lite_version_notes": {
+    "full_product_1_not_possible": [
+      "Only 1 year financial data (2023)",
+      "No 3-year revenue trend for chart",
+      "No historical CAGR calculation",
+      "Limited peer financial data for comparison"
+    ],
+    "adaptations_made": [
+      "Used estimated figures where necessary (marked)",
+      "Reduced chart complexity",
+      "Added data quality warnings",
+      "Increased recommendation conditions",
+      "Lowered confidence ratings"
+    ],
+    "recommendation": "Proceed with caution. Request 2024 financials when available post-acquisition."
+  }
+}
