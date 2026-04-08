@@ -3,21 +3,22 @@ const { query } = require('../models/db');
 async function initDatabase() {
   console.log('Initializing database...');
 
-  // Create orders table
+  // Create orders table with new schema
   await query(`
     CREATE TABLE IF NOT EXISTS orders (
       id SERIAL PRIMARY KEY,
       order_reference VARCHAR(20) UNIQUE NOT NULL,
       
+      -- Product Type
+      product_type VARCHAR(30) DEFAULT 'report' CHECK (product_type IN ('report', 'monitoring', 'category_strategy')),
+      
       -- Tier & Pricing
-      tier VARCHAR(20) NOT NULL CHECK (tier IN ('Standard', 'Premium', 'Enterprise')),
+      tier VARCHAR(30) NOT NULL,
       price INTEGER NOT NULL,
-      final_price INTEGER NOT NULL,
-      discount_code VARCHAR(50),
-      discount_amount INTEGER DEFAULT 0,
-      payment_method VARCHAR(20) NOT NULL CHECK (payment_method IN ('Vipps', 'Stripe', 'Invoice')),
-      payment_status VARCHAR(20) DEFAULT 'pending' CHECK (payment_status IN ('pending', 'paid', 'invoice_pending', 'failed', 'refunded')),
-      payment_id VARCHAR(255),
+      monitoring_plan VARCHAR(20),
+      
+      -- Payment (simplified - invoice by default)
+      payment_status VARCHAR(20) DEFAULT 'invoice_pending' CHECK (payment_status IN ('pending', 'paid', 'invoice_pending', 'failed', 'refunded')),
       
       -- Customer
       customer_name VARCHAR(255) NOT NULL,
@@ -30,21 +31,28 @@ async function initDatabase() {
       industry VARCHAR(100),
       country VARCHAR(2),
       company_number VARCHAR(50),
-      company_website VARCHAR(255),
+      billing_address TEXT,
       
-      -- Supplier
-      supplier_name VARCHAR(255) NOT NULL,
+      -- Supplier (for reports)
+      supplier_name VARCHAR(255),
       supplier_website VARCHAR(255),
-      supplier_country VARCHAR(2),
       analysis_context TEXT,
       
-      -- Status & SLA
+      -- Category Strategy fields
+      category_name VARCHAR(255),
+      annual_spend VARCHAR(50),
+      spend_currency VARCHAR(10),
+      timeline_constraint VARCHAR(255),
+      incumbent_suppliers TEXT,
+      key_pain_points TEXT,
+      strategic_priorities TEXT,
+      
+      -- Status
       order_status VARCHAR(20) DEFAULT 'received' CHECK (order_status IN ('received', 'processing', 'completed', 'cancelled')),
-      sla_hours INTEGER NOT NULL,
-      sla_deadline TIMESTAMP NOT NULL,
       
       -- Timestamps
       created_at TIMESTAMP DEFAULT NOW(),
+      updated_at TIMESTAMP DEFAULT NOW(),
       paid_at TIMESTAMP,
       delivered_at TIMESTAMP
     )
@@ -53,22 +61,8 @@ async function initDatabase() {
   // Create indexes
   await query('CREATE INDEX IF NOT EXISTS idx_orders_reference ON orders(order_reference)');
   await query('CREATE INDEX IF NOT EXISTS idx_orders_status ON orders(order_status)');
-  await query('CREATE INDEX IF NOT EXISTS idx_orders_payment ON orders(payment_status)');
   await query('CREATE INDEX IF NOT EXISTS idx_orders_created ON orders(created_at)');
-
-  // Create file uploads table
-  await query(`
-    CREATE TABLE IF NOT EXISTS order_files (
-      id SERIAL PRIMARY KEY,
-      order_reference VARCHAR(20) REFERENCES orders(order_reference),
-      filename VARCHAR(255) NOT NULL,
-      original_name VARCHAR(255) NOT NULL,
-      mime_type VARCHAR(100),
-      size_bytes INTEGER,
-      s3_key VARCHAR(500),
-      uploaded_at TIMESTAMP DEFAULT NOW()
-    )
-  `);
+  await query('CREATE INDEX IF NOT EXISTS idx_orders_product_type ON orders(product_type)');
 
   console.log('Database initialized successfully');
   process.exit(0);

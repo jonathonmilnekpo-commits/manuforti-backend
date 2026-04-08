@@ -4,19 +4,19 @@ const router = express.Router();
 
 const Order = require('../models/order');
 const { notifyAiden } = require('../services/notifications');
-const { sendConfirmationEmail } = require('../services/email');
+const emailService = require('../services/email');
 const logger = require('../utils/logger');
 
-// Validation rules
+// Validation rules for new multi-product form
 const orderValidation = [
-  body('tier').isIn(['Standard', 'Premium', 'Enterprise']).withMessage('Invalid tier'),
-  body('price').isInt({ min: 1 }).withMessage('Invalid price'),
-  body('payment_method').isIn(['Vipps', 'Stripe', 'Invoice']).withMessage('Invalid payment method'),
+  body('product_type').isIn(['report', 'monitoring', 'category_strategy']).withMessage('Invalid product type'),
   body('customer_name').trim().notEmpty().withMessage('Customer name is required'),
   body('customer_email').isEmail().normalizeEmail().withMessage('Valid email is required'),
   body('company_name').trim().notEmpty().withMessage('Company name is required'),
-  body('supplier_name').trim().notEmpty().withMessage('Supplier name is required'),
-  body('sla_hours').isInt({ min: 1 }).withMessage('Invalid SLA hours')
+  body('industry').trim().notEmpty().withMessage('Industry is required'),
+  body('country').trim().notEmpty().withMessage('Country is required'),
+  body('company_number').trim().notEmpty().withMessage('Company/VAT number is required'),
+  body('billing_address').trim().notEmpty().withMessage('Billing address is required')
 ];
 
 // Create new order
@@ -33,20 +33,29 @@ router.post('/', orderValidation, async (req, res, next) => {
     const order = await Order.create(req.body);
     
     logger.info(`Order created: ${order.order_reference}`, {
+      product_type: order.product_type,
       tier: order.tier,
-      payment_method: order.payment_method,
-      supplier: order.supplier_name
+      customer: order.customer_email
     });
 
-    // Send confirmation email
+    // 1. Send confirmation email to buyer
     try {
-      await sendConfirmationEmail(order);
+      await emailService.sendConfirmationEmail(order);
+      logger.info(`Confirmation email sent to ${order.customer_email}`);
     } catch (emailErr) {
       logger.error('Failed to send confirmation email:', emailErr);
       // Don't fail the request if email fails
     }
 
-    // Notify Aiden
+    // 2. Send notification to Jonathon
+    try {
+      await emailService.sendJonathonNotification(order);
+    } catch (emailErr) {
+      logger.error('Failed to send Jonathon notification:', emailErr);
+      // Don't fail the request if notification fails
+    }
+
+    // 3. Notify Aiden for fulfillment initiation
     try {
       await notifyAiden('order_received', order);
     } catch (notifyErr) {
@@ -56,11 +65,12 @@ router.post('/', orderValidation, async (req, res, next) => {
 
     res.status(201).json({
       success: true,
+      message: 'Order received successfully',
       order: {
         reference: order.order_reference,
+        product_type: order.product_type,
         status: order.order_status,
-        payment_status: order.payment_status,
-        sla_deadline: order.sla_deadline
+        customer_email: order.customer_email
       }
     });
   } catch (err) {
@@ -80,15 +90,15 @@ router.get('/:reference', async (req, res, next) => {
     res.json({
       order: {
         reference: order.order_reference,
+        product_type: order.product_type,
         tier: order.tier,
         price: order.price,
         status: order.order_status,
-        payment_status: order.payment_status,
         created_at: order.created_at,
-        sla_deadline: order.sla_deadline,
-        supplier: {
-          name: order.supplier_name,
-          country: order.supplier_country
+        customer: {
+          name: order.customer_name,
+          email: order.customer_email,
+          company: order.company_name
         }
       }
     });
@@ -109,9 +119,7 @@ router.get('/:reference/status', async (req, res, next) => {
     res.json({
       reference: order.order_reference,
       status: order.order_status,
-      payment_status: order.payment_status,
-      sla_deadline: order.sla_deadline,
-      delivered_at: order.delivered_at
+      product_type: order.product_type
     });
   } catch (err) {
     next(err);

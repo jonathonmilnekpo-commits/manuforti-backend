@@ -43,6 +43,26 @@ class EmailService {
     }
   }
 
+  async sendJonathonNotification(order) {
+    const jonathonEmail = process.env.JONATHON_EMAIL || 'Jonathon.Milne137@gmail.com';
+    
+    const msg = {
+      to: jonathonEmail,
+      from: { email: FROM_EMAIL, name: FROM_NAME },
+      subject: `🛎️ NEW ORDER — ${order.order_reference} — ${order.product_type || 'Report'}`,
+      html: this.getJonathonTemplate(order),
+      text: this.getJonathonText(order)
+    };
+
+    try {
+      await sgMail.send(msg);
+      logger.info(`Notification email sent to Jonathon: ${jonathonEmail}`);
+    } catch (err) {
+      logger.error('SendGrid error (Jonathon notification):', err);
+      throw err;
+    }
+  }
+
   async sendReportDeliveryEmail(order, downloadUrl) {
     const msg = {
       to: order.customer_email,
@@ -150,6 +170,91 @@ Questions? Contact support@manuforti.com
 
   getDeliveryText(order, downloadUrl) {
     return `Your Report is Ready\n\nDownload: ${downloadUrl}`;
+  }
+
+  getJonathonTemplate(order) {
+    const isCategoryStrategy = order.product_type === 'category_strategy';
+    const isMonitoring = order.product_type === 'monitoring';
+    
+    return `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
+        <div style="background: #002147; color: white; padding: 20px; border-radius: 8px 8px 0 0;">
+          <h1 style="margin: 0; font-size: 24px;">🛎️ New Order Received</h1>
+          <p style="margin: 5px 0 0 0; opacity: 0.8;">${order.order_reference}</p>
+        </div>
+        
+        <div style="background: #F7FAFC; padding: 30px; border-radius: 0 0 8px 8px;">
+          <h2 style="color: #002147; margin-top: 0;">${isCategoryStrategy ? 'Category Strategy' : isMonitoring ? 'Media Monitoring' : 'Supplier Report'}</h2>
+          
+          <table style="width: 100%; margin: 20px 0;">
+            <tr>
+              <td style="padding: 8px 0; color: #718096; width: 40%;">Customer:</td>
+              <td style="padding: 8px 0; font-weight: 600;">${order.customer_name}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #718096;">Email:</td>
+              <td style="padding: 8px 0;">${order.customer_email}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #718096;">Company:</td>
+              <td style="padding: 8px 0; font-weight: 600;">${order.company_name}</td>
+            </tr>
+            ${isCategoryStrategy ? `
+            <tr>
+              <td style="padding: 8px 0; color: #718096;">Category:</td>
+              <td style="padding: 8px 0;">${order.category_name || 'N/A'}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #718096;">Annual Spend:</td>
+              <td style="padding: 8px 0;">${order.annual_spend || 'N/A'} ${order.spend_currency || ''}</td>
+            </tr>
+            ` : isMonitoring ? `
+            <tr>
+              <td style="padding: 8px 0; color: #718096;">Plan:</td>
+              <td style="padding: 8px 0;">${order.monitoring_plan || 'N/A'}</td>
+            </tr>
+            ` : `
+            <tr>
+              <td style="padding: 8px 0; color: #718096;">Supplier:</td>
+              <td style="padding: 8px 0; font-weight: 600;">${order.supplier_name}</td>
+            </tr>
+            `}
+            <tr>
+              <td style="padding: 8px 0; color: #718096;">Amount:</td>
+              <td style="padding: 8px 0; font-weight: 600; color: #2B6CB0;">€${order.price}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #718096;">Ordered:</td>
+              <td style="padding: 8px 0;">${new Date(order.created_at).toLocaleString('en-GB')}</td>
+            </tr>
+          </table>
+          
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #E2E8F0;">
+            <p style="color: #718096; font-size: 14px;">
+              <strong>Next Steps:</strong> Send invoice within 24h. Aiden has been notified and will initiate fulfillment workflow.
+            </p>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  getJonathonText(order) {
+    return `
+🛎️ NEW ORDER — ${order.order_reference}
+
+Product: ${order.product_type || 'Report'}
+Customer: ${order.customer_name} (${order.customer_email})
+Company: ${order.company_name}
+Amount: €${order.price}
+
+${order.supplier_name ? `Supplier: ${order.supplier_name}` : ''}
+${order.category_name ? `Category: ${order.category_name}` : ''}
+
+Ordered: ${new Date(order.created_at).toLocaleString('en-GB')}
+
+Next Steps: Send invoice within 24h. Aiden notified.
+    `.trim();
   }
 }
 
