@@ -1,3 +1,9 @@
+---
+date: 2026-04-01
+topic: statkraft
+tags: ['1', 'statkraft']
+---
+
 # OpenClaw Use Cases & Workflows Research
 
 **Research Date:** 2026-04-01  

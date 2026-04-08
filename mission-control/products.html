@@ -221,6 +221,49 @@
             font-size: 11px;
             color: #64748b;
         }
+        .pipeline-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4px;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+        }
+        .pipeline-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            min-width: 50px;
+        }
+        .pipeline-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 2px solid rgba(59, 130, 246, 0.5);
+        }
+        .pipeline-icon.active {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: rgba(34, 197, 94, 0.5);
+        }
+        .pipeline-name {
+            font-size: 9px;
+            color: #94a3b8;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .pipeline-arrow {
+            color: #64748b;
+            font-size: 12px;
+        }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); }
         ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
@@ -237,27 +280,40 @@
                     <rect x="14" y="14" width="7" height="7" rx="1"/>
                 </svg>
             </a>
-            <div class="nav-section">
-            <a href="tasks.html" class="nav-item ">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-                <span>Tasks</span>
-            </a>
-            <a href="office.html" class="nav-item ">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-                <span>Agents</span>
-            </a>
-            <a href="products.html" class="nav-item active">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-                <span>Products</span>
-            </a>
-            <a href="cron.html" class="nav-item ">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <span>Cron</span>
-            </a>
-            <a href="index.html" class="nav-item ">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>
-                <span>Memory</span>
-            </a>
+                        <div class="nav-section">
+                <a href="tasks.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                    <span>Tasks</span>
+                </a>
+                <a href="office.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    <span>Agents</span>
+                </a>
+                <a href="products.html" class="nav-item active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    <span>Products</span>
+                </a>
+                <a href="cron.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Cron</span>
+                </a>
+                <a href="leads.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    <span>Leads</span>
+                </a>
+                <a href="file:///Users/jonathonmilne/.openclaw/workspace/memory/agent_health/dashboard.html" class="nav-item" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2v-6a2 2 0 00-2-2h-2a2 2 0 00-2 2v6"/></svg>
+                    <span>Health</span>
+                </a>
+                <a href="dashboard.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    <span>Viz</span>
+                </a>
+                <a href="index.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>
+                    <span>Memory</span>
+                </a>
+            </div>
             </div>
         </aside>
 
@@ -276,6 +332,36 @@
                             <div class="product-tagline">Supplier Intelligence & Analysis</div>
                         </div>
                         <div class="product-body">
+                            <div class="product-section">
+                                <div class="section-title">Agent Pipeline</div>
+                                <div class="pipeline-flow">
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">🔒</div>
+                                        <div class="pipeline-name">Vetter</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">🔍</div>
+                                        <div class="pipeline-name">Researcher</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">📊</div>
+                                        <div class="pipeline-name">Venture</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">✓</div>
+                                        <div class="pipeline-name">Validator</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon active">🤝</div>
+                                        <div class="pipeline-name">Aiden</div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="product-section">
                                 <div class="section-title">Template</div>
                                 <div class="template-box">
@@ -340,6 +426,36 @@
                         </div>
                         <div class="product-body">
                             <div class="product-section">
+                                <div class="section-title">Agent Pipeline</div>
+                                <div class="pipeline-flow">
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">📥</div>
+                                        <div class="pipeline-name">Intake</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">📈</div>
+                                        <div class="pipeline-name">Analyst</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">🎯</div>
+                                        <div class="pipeline-name">Strategist</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">✓</div>
+                                        <div class="pipeline-name">Validator</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon active">🤝</div>
+                                        <div class="pipeline-name">Aiden</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-section">
                                 <div class="section-title">Templates</div>
                                 <div class="template-box">
                                     <div class="template-name">Excel + Word Template Suite</div>
@@ -385,6 +501,36 @@
                             <div class="product-tagline">Ongoing Supplier Intelligence & Coverage</div>
                         </div>
                         <div class="product-body">
+                            <div class="product-section">
+                                <div class="section-title">Agent Pipeline</div>
+                                <div class="pipeline-flow">
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">📡</div>
+                                        <div class="pipeline-name">Monitor</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">💭</div>
+                                        <div class="pipeline-name">Analyzer</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">📰</div>
+                                        <div class="pipeline-name">Reporter</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon">✓</div>
+                                        <div class="pipeline-name">Validator</div>
+                                    </div>
+                                    <div class="pipeline-arrow">→</div>
+                                    <div class="pipeline-step">
+                                        <div class="pipeline-icon active">🤝</div>
+                                        <div class="pipeline-name">Aiden</div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="product-section">
                                 <div class="section-title">Templates & Specs</div>
                                 <div class="template-box">

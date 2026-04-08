@@ -1,9 +1,18 @@
 # Memory Index
 **Topic:** manuforti
-**Last updated:** 2026-04-01 03:19:03
+**Last updated:** 2026-04-08 00:00:12
 
 ## Files
 
+- [venture_2026-04-06.md](./venture_2026-04-06.md) (2026-04-07)
+- [2026-03-31.md](./2026-03-31.md) (2026-04-05)
+- [2026-03-30.md](./2026-03-30.md) (2026-04-05)
+- [2026-04-04.md](./2026-04-04.md) (2026-04-05)
+- [openclaw_use_cases_2026-04-04.md](./openclaw_use_cases_2026-04-04.md) (2026-04-05)
+- [2026-04-03.md](./2026-04-03.md) (2026-04-05)
+- [conversation_logging_protocol.md](./conversation_logging_protocol.md) (2026-04-05)
+- [2026-04-01.md](./2026-04-01.md) (2026-04-02)
+- [media_monitoring_versioning_protocol.md](./media_monitoring_versioning_protocol.md) (2026-04-02)
 - [2026-03-21.md](./2026-03-21.md) (2026-04-01)
 - [2026-03-15.md](./2026-03-15.md) (2026-04-01)
 - [2026-03-05.md](./2026-03-05.md) (2026-04-01)

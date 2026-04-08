@@ -3,6 +3,59 @@ name: media-monitoring-report
 description: Generates professional Media Monitoring reports for supplier intelligence. Creates executive-ready Word documents with 30-day media coverage analysis, sentiment categorization, social media monitoring, and trend visualization. Use when delivering media monitoring subscriptions or standalone reports.
 ---
 
+# ⚠️ MANDATORY — READ THIS FIRST
+
+## Standard Data Input System (April 2026 — ALL companies)
+
+Every media monitoring report uses this file structure:
+```
+media-monitoring/
+  COMPANY_DATA_TEMPLATE.py      ← copy for each new company
+  GENERATOR_TEMPLATE.py         ← copy for each new company
+  STANDARD_PROTOCOL.md          ← search rules
+  statkraft/
+    statkraft_data.py            ← versioned data file
+    generate_statkraft_report.py ← one-command generator
+```
+
+To run any report: `python3 media-monitoring/<company>/generate_<company>_report.py`
+
+To add a new company:
+1. Copy COMPANY_DATA_TEMPLATE.py → media-monitoring/<company>/<company>_data.py
+2. Copy GENERATOR_TEMPLATE.py → media-monitoring/<company>/generate_<company>_report.py
+3. Fill in data (research ALL projects in ALL countries in LOCAL LANGUAGE)
+4. Run generator
+
+**ALWAYS USE `generate_report.py` TO GENERATE REPORTS.**
+
+NEVER write a report generator from scratch. The script at:
+`/Users/jonathonmilne/.openclaw/workspace/skills/media-monitoring-report/generate_report.py`
+
+...produces the PROPER professional format: navy cover page, colour-coded sentiment tables, structured metrics, Manu Forti branding, and all locked v1.1 styling.
+
+**Usage:**
+```python
+import sys
+sys.path.insert(0, '/Users/jonathonmilne/.openclaw/workspace/skills/media-monitoring-report')
+from generate_report import generate_media_monitoring_report
+
+generate_media_monitoring_report(
+    company_name=...,
+    report_period=...,
+    risk_assessment=...,
+    risk_score=...,   # 'LOW', 'MEDIUM', or 'HIGH'
+    summary_text=...,
+    key_metrics=[...],
+    themes=[...],
+    media_items=[...],
+    output_path=...
+)
+```
+
+Then open the output with `Document(output_path)` and append enterprise sections.
+
+**NEVER skip this.** Writing from scratch = plain text, no cover, no formatting = rejected by Jonathon.
+
 # Media Monitoring Report Format (LOCKED v1.1)
 
 **Version:** 1.1  

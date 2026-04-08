@@ -87,13 +87,22 @@ function formatBytes(bytes) {
  * Read specific memory file content
  */
 function readMemoryFile(date) {
+    // First try root memory directory
     const filePath = path.join(MEMORY_DIR, `${date}.md`);
     
-    if (!fs.existsSync(filePath)) {
-        return null;
+    if (fs.existsSync(filePath)) {
+        return fs.readFileSync(filePath, 'utf-8');
     }
     
-    return fs.readFileSync(filePath, 'utf-8');
+    // Search in subdirectories (manuforti, statkraft, technical, venture, etc.)
+    const pattern = path.join(MEMORY_DIR, '**', `*${date}*.md`);
+    const files = glob.sync(pattern);
+    
+    if (files.length > 0) {
+        return fs.readFileSync(files[0], 'utf-8');
+    }
+    
+    return null;
 }
 
 /**

@@ -1,9 +1,11 @@
 # Memory Index
 **Topic:** technical
-**Last updated:** 2026-04-01 03:19:03
+**Last updated:** 2026-04-08 00:00:12
 
 ## Files
 
+- [doctor_research_2026-04-06.md](./doctor_research_2026-04-06.md) (2026-04-07)
+- [crab_research_2026-04-05.md](./crab_research_2026-04-05.md) (2026-04-06)
 - [doctor_research_2026-03-29.md](./doctor_research_2026-03-29.md) (2026-04-01)
 - [openclaw_updates_2026-03-20.md](./openclaw_updates_2026-03-20.md) (2026-04-01)
 - [openclaw_updates_2026-03-15.md](./openclaw_updates_2026-03-15.md) (2026-04-01)

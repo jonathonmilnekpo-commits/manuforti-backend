@@ -1,0 +1,241 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-04-04T19:50:00Z",
+  "total_pages": 28,
+  "kb_stats": {
+    "raw_documents": 65,
+    "wiki_articles": 28,
+    "concepts": 7,
+    "entities": 15,
+    "products": 3,
+    "sources": 2,
+    "learnings": 3
+  },
+  "pages": [
+    {
+      "title": "Overview",
+      "path": "overview.md",
+      "type": "synthesis",
+      "summary": "Synthesis of entire knowledge base. Current state, achievements, active projects.",
+      "links_to": ["Agent Pipeline", "Product 1", "Product 2", "Product 3"],
+      "linked_from": ["README"]
+    },
+    {
+      "title": "README",
+      "path": "README.md",
+      "type": "index",
+      "summary": "Human-readable index and navigation. Start here.",
+      "links_to": ["Overview", "Agent Pipeline", "All Products", "All Agents"],
+      "linked_from": []
+    },
+    {
+      "title": "Agent Pipeline",
+      "path": "concepts/agent-pipeline.md",
+      "type": "concept",
+      "summary": "Multi-stage agent workflow pattern. Used for all products.",
+      "links_to": ["Circuit Breaker", "Retry Logic", "Vetter", "Researcher", "Validator"],
+      "linked_from": ["Overview", "Product 1", "Product 2", "Product 3"]
+    },
+    {
+      "title": "Circuit Breaker",
+      "path": "concepts/circuit-breaker.md",
+      "type": "concept",
+      "summary": "Resilience pattern. 3 failures → 5 min cooldown.",
+      "links_to": ["Agent Pipeline"],
+      "linked_from": ["Agent Pipeline", "Overview"]
+    },
+    {
+      "title": "Retry Logic",
+      "path": "concepts/retry-logic.md",
+      "type": "concept",
+      "summary": "Exponential backoff. 5s/10s/20s delays.",
+      "links_to": ["Agent Pipeline"],
+      "linked_from": ["Agent Pipeline"]
+    },
+    {
+      "title": "Health Monitoring",
+      "path": "concepts/health-monitoring.md",
+      "type": "concept",
+      "summary": "System observability with HTML dashboard.",
+      "links_to": [],
+      "linked_from": ["Overview"]
+    },
+    {
+      "title": "Product 1: Supplier Analysis",
+      "path": "products/product1/index.md",
+      "type": "product",
+      "summary": "AI-powered 9-slide PowerPoint reports. €249-499.",
+      "links_to": ["Vetter", "Researcher", "Venture", "Validator"],
+      "linked_from": ["Overview", "README"]
+    },
+    {
+      "title": "Product 2: Category Strategy",
+      "path": "products/product2/index.md",
+      "type": "product",
+      "summary": "MCDM category analysis. €2,000-12,000.",
+      "links_to": ["Analyst", "Strategist", "Validator"],
+      "linked_from": ["Overview", "README"]
+    },
+    {
+      "title": "Product 3: Media Monitoring",
+      "path": "products/product3/index.md",
+      "type": "product",
+      "summary": "30-day media coverage analysis. €35-105+/mo.",
+      "links_to": ["Monitor", "Analyzer", "Reporter", "Validator"],
+      "linked_from": ["Overview", "README"]
+    },
+    {
+      "title": "Vetter Agent",
+      "path": "agents/vetter.md",
+      "type": "entity",
+      "summary": "Security and validation gatekeeper.",
+      "links_to": ["Product 1", "Agent Pipeline"],
+      "linked_from": ["Product 1", "Agent Pipeline", "README"]
+    },
+    {
+      "title": "Researcher Agent",
+      "path": "agents/researcher.md",
+      "type": "entity",
+      "summary": "Data gathering specialist.",
+      "links_to": ["Product 1", "Agent Pipeline"],
+      "linked_from": ["Product 1", "README"]
+    },
+    {
+      "title": "Venture Agent",
+      "path": "agents/venture.md",
+      "type": "entity",
+      "summary": "Report generation and business development.",
+      "links_to": ["Product 1", "Agent Pipeline"],
+      "linked_from": ["Product 1", "README"]
+    },
+    {
+      "title": "Analyst Agent",
+      "path": "agents/analyst.md",
+      "type": "entity",
+      "summary": "Category analysis specialist.",
+      "links_to": ["Product 2", "Agent Pipeline"],
+      "linked_from": ["Product 2", "README"]
+    },
+    {
+      "title": "Strategist Agent",
+      "path": "agents/strategist.md",
+      "type": "entity",
+      "summary": "Strategy development specialist.",
+      "links_to": ["Product 2", "Agent Pipeline"],
+      "linked_from": ["Product 2", "README"]
+    },
+    {
+      "title": "Monitor Agent",
+      "path": "agents/monitor.md",
+      "type": "entity",
+      "summary": "Data collection for media monitoring.",
+      "links_to": ["Product 3", "Agent Pipeline"],
+      "linked_from": ["Product 3", "README"]
+    },
+    {
+      "title": "Analyzer Agent",
+      "path": "agents/analyzer.md",
+      "type": "entity",
+      "summary": "Sentiment analysis specialist.",
+      "links_to": ["Product 3", "Agent Pipeline"],
+      "linked_from": ["Product 3", "README"]
+    },
+    {
+      "title": "Reporter Agent",
+      "path": "agents/reporter.md",
+      "type": "entity",
+      "summary": "Report generation for media monitoring.",
+      "links_to": ["Product 3", "Agent Pipeline"],
+      "linked_from": ["Product 3", "README"]
+    },
+    {
+      "title": "Validator Agent",
+      "path": "agents/validator.md",
+      "type": "entity",
+      "summary": "Quality assurance specialist. Shared across all products.",
+      "links_to": ["Product 1", "Product 2", "Product 3"],
+      "linked_from": ["All Products", "README"]
+    },
+    {
+      "title": "Compiler Agent",
+      "path": "agents/compiler.md",
+      "type": "entity",
+      "summary": "KB compilation. Raw docs → structured wiki.",
+      "links_to": [],
+      "linked_from": ["README"]
+    },
+    {
+      "title": "Querier Agent",
+      "path": "agents/querier.md",
+      "type": "entity",
+      "summary": "Query answering. Natural language → wiki answers.",
+      "links_to": [],
+      "linked_from": ["README"]
+    },
+    {
+      "title": "Linter Agent",
+      "path": "agents/linter.md",
+      "type": "entity",
+      "summary": "Quality checks. Health monitoring for wiki.",
+      "links_to": [],
+      "linked_from": ["README"]
+    },
+    {
+      "title": "Wins",
+      "path": "learnings/wins.md",
+      "type": "learning",
+      "summary": "Major successes and breakthroughs.",
+      "links_to": [],
+      "linked_from": ["README", "Overview"]
+    },
+    {
+      "title": "Patterns",
+      "path": "learnings/patterns.md",
+      "type": "learning",
+      "summary": "Reusable approaches and best practices.",
+      "links_to": [],
+      "linked_from": ["README"]
+    },
+    {
+      "title": "Mistakes",
+      "path": "learnings/mistakes.md",
+      "type": "learning",
+      "summary": "Errors made and prevention rules.",
+      "links_to": [],
+      "linked_from": ["README"]
+    },
+    {
+      "title": "Source: April 4, 2026",
+      "path": "sources/conversations/2026-04-04.md",
+      "type": "source",
+      "summary": "KB implementation, SOUL.md rewrite, Karpathy research.",
+      "links_to": ["Agent Pipeline", "Product 1", "Product 2", "Product 3"],
+      "linked_from": []
+    },
+    {
+      "title": "Source: April 3, 2026",
+      "path": "sources/conversations/2026-04-03.md",
+      "type": "source",
+      "summary": "Full agent pipeline implementation.",
+      "links_to": ["Agent Pipeline", "Circuit Breaker", "Retry Logic"],
+      "linked_from": []
+    }
+  ],
+  "categories": {
+    "synthesis": ["Overview"],
+    "index": ["README"],
+    "concepts": ["Agent Pipeline", "Circuit Breaker", "Retry Logic", "Health Monitoring"],
+    "products": ["Product 1", "Product 2", "Product 3"],
+    "agents": ["Vetter", "Researcher", "Venture", "Analyst", "Strategist", "Monitor", "Analyzer", "Reporter", "Validator", "Compiler", "Querier", "Linter"],
+    "learnings": ["Wins", "Patterns", "Mistakes"],
+    "sources": ["2026-04-04", "2026-04-03"]
+  },
+  "backlinks": {
+    "Agent Pipeline": ["Overview", "Product 1", "Product 2", "Product 3"],
+    "Product 1": ["Overview", "README", "Agent Pipeline"],
+    "Product 2": ["Overview", "README", "Agent Pipeline"],
+    "Product 3": ["Overview", "README", "Agent Pipeline"],
+    "Vetter": ["Product 1", "Agent Pipeline", "README"],
+    "Validator": ["Product 1", "Product 2", "Product 3", "README"]
+  }
+}

@@ -1,3 +1,10 @@
+## Conversation Logging Protocol — April 4, 2026
+- **System Fixed:** All conversations now logged to `memory/YYYY-MM-DD.md`
+- **Tool Created:** `scripts/conversation_logger.py` for automated logging
+- **Retroactive Logs:** Created for March 30, 31 and April 2, 3, 4
+- **Protocol:** See `memory/conversation_logging_protocol.md`
+- **Scope:** Telegram, Terminal, and future channels — all with summaries and links to outcomes
+
 ## March 30, 2026 (Monday) - Updated
 
 ## Venture Agent Status
@@ -48,6 +55,25 @@
 ## System Updates
 - **Mission Control Dashboard:** Fixed navigation links (tasks.html created), updated cron job times, consolidated daily briefing to 05:45
 - **Cron Schedule Updated:** OpenClaw Research now runs at 06:00 Oslo (04:00 UTC) — AFTER Venture Nightly (04:00 Oslo) completes, avoiding conflicts
+
+## ⚠️ CRITICAL RULE — MEDIA MONITORING SYSTEM (April 2026)
+
+**MEDIA MONITORING SYSTEM — STANDARDISED (April 2026):**
+- Data files: `media-monitoring/<company>/<company>_data.py` — ALL research goes here
+- Generator: `media-monitoring/<company>/generate_<company>_report.py` — one command
+- Templates: `media-monitoring/COMPANY_DATA_TEMPLATE.py` + `GENERATOR_TEMPLATE.py`
+- Statkraft v5 is the reference implementation: `media-monitoring/statkraft/`
+- ALWAYS import `generate_media_monitoring_report()` from skill — NEVER write formatting from scratch
+- Search standard: ALL projects + ALL countries + LOCAL LANGUAGE — not just company name in English
+
+## Critical Process Lock — April 1, 2026
+**Media Monitoring Report Versioning Protocol Established:**
+- ⚠️ **NEVER overwrite previous report versions**
+- **v3 must build on v2** (not replace it) — append, don't replace
+- **Enterprise tier** requires: weekly reports, all 10 sections, full multilingual search, all stakeholder monitoring
+- **File naming:** `Statkraft_Media_Monitoring_v3_April_2026_Enterprise.docx`
+- **Reference:** `memory/media_monitoring_versioning_protocol.md`
+- **Status:** Hard rule for all future media monitoring work
 - **New Capabilities Developed:**
   - Multi-Agent Content Factory: Discord-based parallel content production pipeline
   - Self-Healing Home Server: Always-on infrastructure monitoring agent with SSH access
@@ -60,8 +86,28 @@
 - Read aloud with belief as the anchor for your morning practice
 - Use throughout the day as a breath anchor: inhale belief, exhale doubt
 
+## Week of April 5, 2026 — Key Learnings
+
+### OpenClaw Use Cases Research (April 5)
+**Eddie ($70K/month B2C apps):** Ernesto Lopez runs 11 apps generating ~$70-73K MRR using OpenClaw agent for content factory + influencer recruitment + support triage. Key insight: narrow, specialized agents > generalist "uber-agents."
+
+**ClawFlows (Nikil Viswanathan):** 100+ prebuilt workflows, 1000+ daily uses. Pattern: deterministic plain-text workflows, "build while sleeping" (agent picks idea → builds overnight → delivers by morning), versioned/rollback-safe.
+
+**Discord Multi-Agent Factory:** Research/Writing/Thumbnail/Editor agents in dedicated channels. Discord as orchestration layer = free, threaded, searchable audit trail.
+
+**Self-Healing Infrastructure:** Always-on agent with SSH access monitors services, auto-restarts, diagnoses failures, secret-scans before backups. Security: allowlist-only commands, no general shell access.
+
+### Crab Workflow Research (April 5)
+**Multi-Agent Pipeline Stack:** Shotstack (video assembly) + vidIQ (research) + ElevenLabs (voice) + YouTube API. 83% of creators use AI — edge is API connections, not manual export/import.
+
+**Content Repurposing:** OpusClip API extracts viral clips from long videos → auto-reformats for Shorts/Reels/TikTok. 16M+ users (Mark Rober, Logan Paul).
+
+**Thumbnail Automation:** Thumber.app (face swap + text-to-thumbnail), Pikzels (brand consistency), BananaThumbnail (A/B testing + CTR prediction).
+
+**Next Steps:** Test Shotstack with existing Crab voiceovers → OpusClip for shorts → Thumber API for auto-thumbnails.
+
 ## Blockers to Flag
 - (None - all resolved)
 
 ---
-*Updated during HEARTBEAT.md check at 18:57 UTC*
+*Weekly consolidation: April 5, 2026*

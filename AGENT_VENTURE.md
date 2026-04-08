@@ -81,37 +81,78 @@ The Product Road Map will be developed incrementally and should include:
 **Cross-Cutting:** Timeline, milestones, resource requirements, and dependencies for each phase
 
 ## Current Focus
-**TONIGHT'S PRIORITY (April 2, 2026 cron run — 02:00 GMT):** Generate Enhanced Media Monitoring Report for Statkraft — Comprehensive 30-day coverage with multilingual search, asset-level monitoring, and ESG controversy detection.
+**NEXT MEDIA MONITORING TASK:** Generate Statkraft v3 Media Monitoring Report — Enterprise Tier specification, building incrementally on v2 findings.
 
-**CRITICAL: Include Umbu Controversy Coverage**
-- Complexo Solar Santa Eugênia (Bahia, Brazil) opposition
-- Environmental/quilombola rights concerns
-- Legal proceedings in Brazilian courts
-- Portuguese-language media monitoring
+**CRITICAL PROTOCOL: VERSION BUILDING + FORMATTING**
+- **DO NOT overwrite or lose previous version content**
+- Each version = previous version + new developments
+- Reference: `memory/media_monitoring_versioning_protocol.md`
 
-**ENHANCED SEARCH PROTOCOL (New Standards):**
-1. **Company + Asset Names:** Search "Statkraft" + "Santa Eugênia" + "Umbu" + "Caatinga"
-2. **Local Language Terms:** Portuguese keywords (desmatamento, quilombola, energia solar)
-3. **Regional Media:** Folha, Globo, Estadão, Mongabay Brasil, Jornal GGN
-4. **Legal/Regulatory:** Brazilian court databases, INEMA decisions
-5. **Social Sentiment:** Track ESG backlash on LinkedIn, X/Twitter
+**⚠️ MANDATORY: ALWAYS USE THE PROPER GENERATOR**
+```python
+import sys
+sys.path.insert(0, '/Users/jonathonmilne/.openclaw/workspace/skills/media-monitoring-report')
+from generate_report import generate_media_monitoring_report
+```
+- NEVER write a report from scratch — produces plain text with no formatting
+- Generator produces: navy cover, colour-coded tables, Manu Forti branding
+- After generating: open the file and append enterprise sections
+- Failure to use this = rejected report (happened with v2/v3/v4 early attempts)
+
+**ENTERPRISE TIER REQUIREMENTS (v3):**
+1. **Build on v2:** Incorporate all previous Umbu controversy analysis
+2. **Weekly reporting cadence** (not monthly)
+3. **Real-time alerts** for critical red flags
+4. **Full multilingual search:** Portuguese, Norwegian, Spanish (all operating countries)
+5. **Complete stakeholder monitoring:** NGOs, indigenous groups, regulators, competitors
+6. **All 10 report sections:** Executive Dashboard, Critical Findings, Trends, Traditional Media, Social Media, ESG/Regulatory, Competitive Intel, Risk Assessment, Gap Analysis, Strategic Recommendations
+7. **Enhanced visualizations:** Sentiment charts, volume analysis, geographic breakdown
+8. **WhatsApp alerts** configured for critical issues
+
+**FILE NAMING:** `Statkraft_Media_Monitoring_v3_April_2026_Enterprise.docx`
 
 ### Current Status: ✅ MEDIA MONITORING PRODUCT SPECIFICATION — COMPLETE
 
-**Tonight's Task:** Create comprehensive Media Monitoring Product Specification document
+**April 2, 2026 Task:** Reviewed Media Monitoring Product Enhancement requirements
 
-**Delivered:**
-- ✅ Complete Word document (`Media_Monitoring_Product_Specification.docx` — 44KB, 40+ pages)
+**Status:** Document already exists and is comprehensive
+- **File:** `Media_Monitoring_Product_Specification.docx` (44KB, 40+ pages)
+- **Created:** April 1, 2026
+- **Verified:** All 5 specification sections present and complete
+
+**Document Contents:**
 - ✅ Report format specification (Executive Summary, 30-day analysis, sentiment framework, trend visualization)
 - ✅ Monitoring scope definition (8 categories: announcements, executives, financials, products, partnerships, legal, industry position, competitor mentions)
 - ✅ Platform coverage (Financial news, industry publications, social media, regulatory sources)
 - ✅ Mention tracking methodology (third-party mentions, competitor comparisons, industry trends)
-- ✅ Value-add enhancements (benchmarking, geographic analysis, influencer identification, early warning system)
+- ✅ Value-add enhancements (benchmarking, geographic analysis, influencer identification, topic clustering, early warning system)
 - ✅ Three-tier pricing structure (Monitor €35/mo, Alert €105/mo, Enterprise custom)
 - ✅ Operational workflow (daily, weekly, monthly processes)
 - ✅ Quality assurance standards and accuracy targets
 
-**Status:** Product 3 now has complete specification document ready for MVP development
+**Product 3 Status:** Fully specified, ready for MVP development when Jonathon prioritizes
+
+**April 6, 2026 — Media Monitoring Product Enhancement Task (Cron Verification):**
+- ✅ Task: Create comprehensive Media Monitoring specifications in Word format
+- ✅ Status: Document verified complete (originally created April 1, 2026)
+- ✅ File: `Media_Monitoring_Product_Specification.docx` (44KB, 40+ pages)
+- ✅ All 5 required specification areas verified present:
+  - Section 2: Report Format (Executive Summary, 30-day analysis, sentiment framework, trend viz, findings, recommendations)
+  - Section 3.1: What to Monitor (8 categories: announcements, executives, financials, products, partnerships, legal, industry position, competitor mentions)
+  - Section 4: Platform Coverage (financial news, industry publications, social media, regulatory sources)
+  - Section 3.2: Mention Tracking (third-party mentions, competitor comparisons, industry trends, social sentiment)
+  - Section 6: Value-Add Enhancements (benchmarking, geographic analysis, influencer ID, topic clustering, early warning system)
+- ✅ Handoff created: `memory/handoff/venture_latest.json`
+- ✅ Memory log: `memory/venture_2026-04-06.md`
+- **Note:** No new build work required — document production-ready for MVP development
+
+**April 5, 2026 — Media Monitoring Product Enhancement Task:**
+- ✅ Task: Create comprehensive Media Monitoring specifications in Word format
+- ✅ Status: Document already complete (created April 1, 2026)
+- ✅ File: `Media_Monitoring_Product_Specification.docx` (44KB, 40+ pages)
+- ✅ All required sections verified: Report Format, What to Monitor, Platforms, Mention Tracking, Value-Add Enhancements
+- ✅ Handoff created: `memory/handoff/venture_latest.json`
+- **Note:** No new build work required — document production-ready
 
 **Post-Completion:** Updated AGENT_VENTURE.md and memory file with progress
 

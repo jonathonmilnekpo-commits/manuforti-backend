@@ -117,6 +117,18 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
 
+### ⚠️ CRITICAL SKILL RULES — DO NOT IGNORE
+
+**Media Monitoring Reports:**
+ALWAYS start by importing the generator — NEVER write from scratch:
+```python
+import sys
+sys.path.insert(0, '/Users/jonathonmilne/.openclaw/workspace/skills/media-monitoring-report')
+from generate_report import generate_media_monitoring_report
+```
+Writing from scratch = plain text, no cover page, no formatting = rejected.
+This rule was violated in v2/v3/v4 Statkraft reports (April 1, 2026) — do not repeat it.
+
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
 **📝 Platform Formatting:**

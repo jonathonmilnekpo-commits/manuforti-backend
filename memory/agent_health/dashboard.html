@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Health Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #0f1419 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+            padding: 24px;
+        }
+        .header {
+            background: linear-gradient(135deg, #002147 0%, #1a365d 100%);
+            padding: 32px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .healthy { background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.5); }
+        .warning { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.5); }
+        .critical { background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.5); }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .metric-card {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 4px;
+        }
+        .metric-label {
+            font-size: 13px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        .agent-list {
+            display: grid;
+            gap: 12px;
+        }
+        .agent-card {
+            background: rgba(30, 41, 59, 0.6);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .agent-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .agent-meta {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        .features {
+            margin-top: 32px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        .feature-card {
+            background: rgba(30, 41, 59, 0.6);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .feature-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .feature-card ul {
+            list-style: none;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+        .feature-card li {
+            padding: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+        .feature-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+        }
+        .last-updated {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 12px;
+            color: #64748b;
+        }
+        .docs-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 16px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        .docs-link:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🤖 Agent Health Dashboard</h1>
+        <p style="margin: 8px 0; color: #94a3b8;">Industry-Standard Multi-Agent System</p>
+        <span class="status-badge healthy">System Operational</span>
+        <div style="margin-top: 16px;">
+            <a href="file:///Users/jonathonmilne/.openclaw/workspace/IMPLEMENTATION_SUMMARY.md" class="docs-link" target="_blank">
+                📄 View Implementation Details
+            </a>
+        </div>
+    </div>
+
+    <div class="summary-grid">
+        <div class="metric-card">
+            <div class="metric-value">5</div>
+            <div class="metric-label">Total Agents</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value" style="color: #22c55e;">5</div>
+            <div class="metric-label">Healthy</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value" style="color: #f59e0b;">0</div>
+            <div class="metric-label">Warning</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value" style="color: #ef4444;">0</div>
+            <div class="metric-label">Critical</div>
+        </div>
+    </div>
+
+    <div class="section-title">Agent Pipeline</div>
+    <div class="agent-list">
+        <div class="agent-card">
+            <div class="agent-info">
+                <h3>🔒 Vetter</h3>
+                <div class="agent-meta">Security & Input Validation</div>
+            </div>
+            <span class="status-badge healthy">Active</span>
+        </div>
+        <div class="agent-card">
+            <div class="agent-info">
+                <h3>🔍 Researcher</h3>
+                <div class="agent-meta">Data Gathering & Analysis</div>
+            </div>
+            <span class="status-badge healthy">Active</span>
+        </div>
+        <div class="agent-card">
+            <div class="agent-info">
+                <h3>📊 Venture</h3>
+                <div class="agent-meta">Report Generation</div>
+            </div>
+            <span class="status-badge healthy">Active</span>
+        </div>
+        <div class="agent-card">
+            <div class="agent-info">
+                <h3>✅ Validator</h3>
+                <div class="agent-meta">Quality Assurance</div>
+            </div>
+            <span class="status-badge healthy">Active</span>
+        </div>
+        <div class="agent-card">
+            <div class="agent-info">
+                <h3>🤝 Aiden</h3>
+                <div class="agent-meta">Lead Orchestrator</div>
+            </div>
+            <span class="status-badge healthy">Active</span>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <h4>🛡️ Resilience</h4>
+            <ul>
+                <li>Exponential backoff retry logic</li>
+                <li>Circuit breaker pattern</li>
+                <li>3-attempt retry with 5s/10s/20s delays</li>
+                <li>Automatic failure detection</li>
+            </ul>
+        </div>
+        <div class="feature-card">
+            <h4>📡 Communication</h4>
+            <ul>
+                <li>Structured JSON handoffs</li>
+                <li>Schema-validated messages</li>
+                <li>Full context preservation</li>
+                <li>Metrics in every handoff</li>
+            </ul>
+        </div>
+        <div class="feature-card">
+            <h4>📊 Observability</h4>
+            <ul>
+                <li>Real-time health monitoring</li>
+                <li>Token usage tracking</li>
+                <li>Error rate analysis</li>
+                <li>Performance metrics</li>
+            </ul>
+        </div>
+        <div class="feature-card">
+            <h4>🔄 Fallbacks</h4>
+            <ul>
+                <li>Model fallback chain</li>
+                <li>Kimi → Claude → Nemotron</li>
+                <li>Agent-level retries</li>
+                <li>Graceful degradation</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-title" style="margin-top: 32px;">Configuration Files</div>
+    <div class="agent-list">
+        <div class="agent-card">
+            <div class="agent-info">
+                <h3>⚙️ Agent System Config</h3>
+                <div class="agent-meta">config/agent-system.yaml</div>
+            </div>
+            <a href="file:///Users/jonathonmilne/.openclaw/workspace/config/agent-system.yaml" target="_blank" style="color: #60a5fa; text-decoration: none;">View →</a>
+        </div>
+        <div class="agent-card">
+            <div class="agent-info">
+                <h3>📋 Handoff Schema</h3>
+                <div class="agent-meta">config/handoff-schema.json</div>
+            </div>
+            <a href="file:///Users/jonathonmilne/.openclaw/workspace/config/handoff-schema.json" target="_blank" style="color: #60a5fa; text-decoration: none;">View →</a>
+        </div>
+        <div class="agent-card">
+            <div class="agent-info">
+                <h3>🔧 Health Monitor</h3>
+                <div class="agent-meta">scripts/agent_health.py</div>
+            </div>
+            <span style="color: #64748b; font-size: 13px;">CLI Tool</span>
+        </div>
+        <div class="agent-card">
+            <div class="agent-info">
+                <h3>⚡ Circuit Breaker</h3>
+                <div class="agent-meta">scripts/circuit_breaker.py</div>
+            </div>
+            <span style="color: #64748b; font-size: 13px;">CLI Tool</span>
+        </div>
+    </div>
+
+    <div class="last-updated">
+        Last Updated: April 3, 2026 | System Version: 2026.4.2
+    </div>
+</body>
+</html>

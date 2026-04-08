@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Customer Leads - Mission Control</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #0f1419 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+            overflow: hidden;
+        }
+        .app-container { display: flex; height: 100vh; }
+        .sidebar {
+            width: 64px;
+            background: rgba(15, 20, 30, 0.95);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 0;
+        }
+        .sidebar-header {
+            margin-bottom: 20px;
+            padding: 8px;
+            border-radius: 8px;
+            background: rgba(59, 130, 246, 0.2);
+            cursor: pointer;
+        }
+        .sidebar-header svg { width: 24px; height: 24px; color: #3b82f6; }
+        .nav-section { display: flex; flex-direction: column; gap: 4px; width: 100%; padding: 0 8px; }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 4px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #94a3b8;
+            font-size: 10px;
+            gap: 4px;
+            text-decoration: none;
+        }
+        .nav-item:hover { background: rgba(255, 255, 255, 0.05); color: #e2e8f0; }
+        .nav-item.active { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .nav-item svg { width: 20px; height: 20px; }
+        .main-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .header {
+            height: 56px;
+            background: rgba(15, 20, 30, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+        .header-title { font-size: 18px; font-weight: 600; color: #f8fafc; }
+        .header-stats {
+            display: flex;
+            gap: 24px;
+        }
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        .stat-value {
+            font-weight: 600;
+            color: #3b82f6;
+        }
+        .content { flex: 1; overflow-y: auto; padding: 24px; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .last-updated {
+            font-size: 12px;
+            color: #64748b;
+        }
+        .leads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 16px;
+        }
+        .lead-card {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            transition: all 0.2s;
+        }
+        .lead-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(30, 41, 59, 0.8);
+        }
+        .lead-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .lead-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f8fafc;
+        }
+        .lead-title {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        .lead-score {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .lead-score.hot { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .lead-score.warm { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+        .lead-company {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .company-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #e2e8f0;
+        }
+        .company-badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+        }
+        .lead-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        .detail-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .detail-label {
+            color: #64748b;
+            min-width: 70px;
+        }
+        .detail-value {
+            color: #e2e8f0;
+        }
+        .lead-trigger {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid #f59e0b;
+            padding: 10px 12px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+        .lead-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .action-btn {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            text-decoration: none;
+        }
+        .action-btn:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+            color: #e2e8f0;
+        }
+        .action-btn.primary {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+            color: #60a5fa;
+        }
+        .action-btn.primary:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+        .filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .filter-btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+            color: #e2e8f0;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #64748b;
+        }
+        .empty-state svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <a href="index.html" class="sidebar-header" title="Dashboard">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+            </a>
+            <div class="nav-section">
+                <a href="tasks.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                    <span>Tasks</span>
+                </a>
+                <a href="office.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    <span>Agents</span>
+                </a>
+                <a href="products.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    <span>Products</span>
+                </a>
+                <a href="cron.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Cron</span>
+                </a>
+                <a href="leads.html" class="nav-item active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    <span>Leads</span>
+                </a>
+                <a href="file:///Users/jonathonmilne/.openclaw/workspace/memory/agent_health/dashboard.html" class="nav-item" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2v-6a2 2 0 00-2-2h-2a2 2 0 00-2 2v6"/></svg>
+                    <span>Health</span>
+                </a>
+                <a href="dashboard.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    <span>Viz</span>
+                </a>
+                <a href="index.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>
+                    <span>Memory</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <div class="header-title">Customer Leads</div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span>Total Leads:</span>
+                        <span class="stat-value">6</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Hot:</span>
+                        <span class="stat-value" style="color: #ef4444;">3</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Warm:</span>
+                        <span class="stat-value" style="color: #f59e0b;">3</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="container">
+                    <div class="section-header">
+                        <div class="section-title">Norwegian Startup Lab Prospects</div>
+                        <div class="last-updated">Last updated: April 1, 2026 via Sales Research Agent</div>
+                    </div>
+
+                    <div class="filters">
+                        <button class="filter-btn active">All Leads</button>
+                        <button class="filter-btn">Hot</button>
+                        <button class="filter-btn">Warm</button>
+                        <button class="filter-btn">StartupLab Oslo</button>
+                    </div>
+
+                    <div class="leads-grid">
+                        <!-- Lead 1: Ingrid Dynna -->
+                        <div class="lead-card">
+                            <div class="lead-header">
+                                <div>
+                                    <div class="lead-name">Ingrid Dynna</div>
+                                    <div class="lead-title">CEO & Co-founder</div>
+                                </div>
+                                <div class="lead-score hot">HOT</div>
+                            </div>
+                            <div class="lead-company">
+                                <span class="company-name">NoMy (Norwegian Mycelium)</span>
+                                <span class="company-badge">StartupLab Oslo</span>
+                            </div>
+                            <div class="lead-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Employees:</span>
+                                    <span class="detail-value">11-50</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location:</span>
+                                    <span class="detail-value">Oslo</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">ingrid@nomy.no</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">LinkedIn:</span>
+                                    <span class="detail-value">linkedin.com/in/ingriddynna</span>
+                                </div>
+                            </div>
+                            <div class="lead-trigger">
+                                <strong>Trigger:</strong> €1.25M funding May 2025, Oslo Innovation Award 2025 winner
+                            </div>
+                            <div class="lead-actions">
+                                <a href="https://www.linkedin.com/in/ingriddynna" target="_blank" class="action-btn">View LinkedIn</a>
+                                <button class="action-btn primary" onclick="navigator.clipboard.writeText('Congrats on the Oslo Innovation Award and your recent funding round. As NoMy scales its fermentation operations, procurement of bioreactor equipment and raw materials becomes critical. Manu Forti helps climate tech startups like yours secure supplier terms that match your growth trajectory—without the enterprise overhead.')">Copy Outreach</button>
+                            </div>
+                        </div>
+
+                        <!-- Lead 2: Marit Rødevand -->
+                        <div class="lead-card">
+                            <div class="lead-header">
+                                <div>
+                                    <div class="lead-name">Marit Rødevand</div>
+                                    <div class="lead-title">CEO & Co-founder</div>
+                                </div>
+                                <div class="lead-score hot">HOT</div>
+                            </div>
+                            <div class="lead-company">
+                                <span class="company-name">Strise</span>
+                                <span class="company-badge">StartupLab Oslo</span>
+                            </div>
+                            <div class="lead-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Employees:</span>
+                                    <span class="detail-value">11-50</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location:</span>
+                                    <span class="detail-value">Oslo</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">marit@strise.ai</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">LinkedIn:</span>
+                                    <span class="detail-value">linkedin.com/in/rodevand</span>
+                                </div>
+                            </div>
+                            <div class="lead-trigger">
+                                <strong>Trigger:</strong> €10M Series A (Atomico), expanding to UK
+                            </div>
+                            <div class="lead-actions">
+                                <a href="https://www.linkedin.com/in/rodevand" target="_blank" class="action-btn">View LinkedIn</a>
+                                <button class="action-btn primary" onclick="navigator.clipboard.writeText('I saw Strise is part of the StartupLab community and recently raised your Series A with Atomico. As you scale AML operations across Scandinavia and into the UK, procurement complexity multiplies. We help fintech scaleups build supplier intelligence and risk monitoring—without hiring a full procurement team.')">Copy Outreach</button>
+                            </div>
+                        </div>
+
+                        <!-- Lead 3: Rune Larsen -->
+                        <div class="lead-card">
+                            <div class="lead-header">
+                                <div>
+                                    <div class="lead-name">Rune Larsen</div>
+                                    <div class="lead-title">CEO</div>
+                                </div>
+                                <div class="lead-score hot">HOT</div>
+                            </div>
+                            <div class="lead-company">
+                                <span class="company-name">Iterate Norway</span>
+                                <span class="company-badge">Iterate Studio</span>
+                            </div>
+                            <div class="lead-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Employees:</span>
+                                    <span class="detail-value">70+</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location:</span>
+                                    <span class="detail-value">Grensen 9b, Oslo</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">rune@iterate.no ✓</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">LinkedIn:</span>
+                                    <span class="detail-value">linkedin.com/in/runelarsen</span>
+                                </div>
+                            </div>
+                            <div class="lead-trigger">
+                                <strong>Trigger:</strong> Major studio with 70+ employees, builds startups
+                            </div>
+                            <div class="lead-actions">
+                                <a href="https://www.linkedin.com/in/runelarsen" target="_blank" class="action-btn">View LinkedIn</a>
+                                <button class="action-btn primary" onclick="navigator.clipboard.writeText('Iterate has built some of Norway\'s most interesting tech companies. As your portfolio scales, procurement becomes a recurring pain point across multiple ventures. Manu Forti offers a fractional procurement intelligence service that works specifically with startup portfolios—no long contracts, just results.')">Copy Outreach</button>
+                            </div>
+                        </div>
+
+                        <!-- Lead 4: Henrik H. -->
+                        <div class="lead-card">
+                            <div class="lead-header">
+                                <div>
+                                    <div class="lead-name">Henrik H.</div>
+                                    <div class="lead-title">COO</div>
+                                </div>
+                                <div class="lead-score warm">WARM</div>
+                            </div>
+                            <div class="lead-company">
+                                <span class="company-name">Tibber</span>
+                                <span class="company-badge">Energy/Operations</span>
+                            </div>
+                            <div class="lead-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Employees:</span>
+                                    <span class="detail-value">—</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location:</span>
+                                    <span class="detail-value">Oslo</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">Apollo search needed</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">LinkedIn:</span>
+                                    <span class="detail-value">Search: Tibber COO</span>
+                                </div>
+                            </div>
+                            <div class="lead-trigger">
+                                <strong>Trigger:</strong> Rapid scale, energy/ops complexity
+                            </div>
+                            <div class="lead-actions">
+                                <button class="action-btn">Find on Apollo</button>
+                                <button class="action-btn">Research</button>
+                            </div>
+                        </div>
+
+                        <!-- Lead 5: StartupLab Tenants -->
+                        <div class="lead-card">
+                            <div class="lead-header">
+                                <div>
+                                    <div class="lead-name">StartupLab Tenants</div>
+                                    <div class="lead-title">Various</div>
+                                </div>
+                                <div class="lead-score warm">WARM</div>
+                            </div>
+                            <div class="lead-company">
+                                <span class="company-name">Multiple Companies</span>
+                                <span class="company-badge">StartupLab Oslo</span>
+                            </div>
+                            <div class="lead-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Focus:</span>
+                                    <span class="detail-value">Recently joined, funding rounds</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location:</span>
+                                    <span class="detail-value">Oslo</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Approach:</span>
+                                    <span class="detail-value">Batch outreach</span>
+                                </div>
+                            </div>
+                            <div class="lead-trigger">
+                                <strong>Trigger:</strong> Companies that recently joined StartupLab or raised funding
+                            </div>
+                            <div class="lead-actions">
+                                <button class="action-btn">View List</button>
+                                <button class="action-btn primary">Batch Outreach</button>
+                            </div>
+                        <!-- Lead 6: Katinka Rundlang -->
+                        <div class="lead-card">
+                            <div class="lead-header">
+                                <div>
+                                    <div class="lead-name">Katinka Rundlang</div>
+                                    <div class="lead-title">⚠️ Title needed — added by Jonathon</div>
+                                </div>
+                                <div class="lead-score warm">WARM</div>
+                            </div>
+                            <div class="lead-company">
+                                <span class="company-name">⚠️ Company needed</span>
+                                <span class="company-badge">Added manually</span>
+                            </div>
+                            <div class="lead-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Location:</span>
+                                    <span class="detail-value">Norway</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">⚠️ To be verified</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">LinkedIn:</span>
+                                    <span class="detail-value">Search: Katinka Rundlang</span>
+                                </div>
+                            </div>
+                            <div class="lead-trigger">
+                                <strong>Note:</strong> Added by Jonathon — please update company, title and contact details
+                            </div>
+                            <div class="lead-actions">
+                                <a href="https://www.linkedin.com/search/results/people/?keywords=Katinka%20Rundlang" target="_blank" class="action-btn">Find on LinkedIn</a>
+                                <button class="action-btn primary">Add Details</button>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

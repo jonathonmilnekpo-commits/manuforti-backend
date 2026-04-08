@@ -1,0 +1,85 @@
+# Agent System Configuration
+# Industry-standard retry and resilience settings
+
+retry:
+  # Exponential backoff configuration
+  maxAttempts: 3
+  initialDelayMs: 5000        # 5 seconds
+  maxDelayMs: 60000           # 1 minute
+  backoffMultiplier: 2        # Double each retry
+  
+  # Which errors to retry
+  retryOn:
+    - rate_limit
+    - timeout
+    - network_error
+    - temporary_failure
+  
+  # Which errors to NOT retry (fail immediately)
+  failOn:
+    - authentication_error
+    - invalid_request
+    - quota_exceeded
+
+# Circuit breaker configuration
+circuitBreaker:
+  enabled: true
+  failureThreshold: 3         # Open circuit after 3 failures
+  recoveryTimeoutMs: 300000   # 5 minutes before trying again
+  halfOpenMaxCalls: 1         # Test with 1 call when half-open
+
+# Health monitoring
+healthCheck:
+  enabled: true
+  intervalMinutes: 30
+  metricsRetentionDays: 7
+  
+  # Alert thresholds
+  alertOn:
+    consecutiveFailures: 2
+    errorRateThreshold: 0.25   # 25% error rate
+    latencyThresholdMs: 30000  # 30 seconds
+
+# Observability
+observability:
+  tracing: true
+  metrics: true
+  logging: true
+  
+  # Track these metrics
+  metrics:
+    - tokenUsage
+    - latency
+    - errorRate
+    - toolSuccessRate
+    - costPerRun
+
+# Fallback configuration
+fallback:
+  enabled: true
+  
+  # Model fallback chain
+  modelChain:
+    - kimi-k2.5
+    - claude
+    - nemotron
+  
+  # Agent fallback (if primary agent fails)
+  agentFallback: true
+  maxAgentRetries: 2
+
+# Structured handoff format
+handoff:
+  version: "1.0"
+  format: json
+  requiredFields:
+    - from
+    - to
+    - timestamp
+    - context
+    - deliverables
+    - status
+  optionalFields:
+    - notes
+    - blockers
+    - nextSteps

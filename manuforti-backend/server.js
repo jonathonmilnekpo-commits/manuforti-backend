@@ -10,6 +10,7 @@ const { errorHandler } = require('./middleware/errorHandler');
 const orderRoutes = require('./routes/orders');
 const paymentRoutes = require('./routes/payments');
 const webhookRoutes = require('./routes/webhooks');
+const webhookAidenRoutes = require('./routes/webhook-aiden');
 const adminRoutes = require('./routes/admin');
 
 const app = express();
@@ -48,6 +49,7 @@ app.get('/health', (req, res) => {
 app.use('/api/orders', orderRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/webhooks', webhookRoutes);
+app.use('/webhook', webhookAidenRoutes);  // Aiden notification endpoint
 app.use('/api/admin', adminRoutes);
 
 // Root endpoint
